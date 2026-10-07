@@ -1,0 +1,7 @@
+# robots.txt for Nivoram — replace nivoram.com with the final domain before launch
+User-agent: *
+Allow: /
+Disallow: /privacy-policy
+Disallow: /terms-conditions
+
+Sitemap: https://nivoram.com/sitemap.xml

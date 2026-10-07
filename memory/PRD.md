@@ -1,0 +1,36 @@
+# NIVORAM — Brand Showcase Website (PRD)
+
+## Original problem statement
+Build a complete, responsive, production-ready brand showcase website for NIVORAM — a brand specialising in silver-coated home décor, decorative showpieces, spiritual décor and thoughtful gifting. Enquiry-led catalogue (not a transactional store), animated luxury editorial experience, strict warm-cream/charcoal/terracotta/purple palette, WhatsApp enquiry flows, functional forms, SEO, accessibility, and a centralised product data source. No invented business facts, testimonials or product claims.
+
+## Architecture
+- **Frontend**: React 19 (CRA + craco), Tailwind CSS 3.4 design tokens, react-router-dom v7, framer-motion v11 (scroll reveals, masked line-by-line hero, staggered grids), Lenis smooth scrolling (disabled for prefers-reduced-motion), sonner toasts, lucide-react icons. Custom SVG logo mark + favicon.
+- **Backend**: FastAPI + Motor/MongoDB. `POST /api/enquiries` (general + bulk) with Pydantic validation, honeypot spam trap, per-IP rate limit (8/min), ObjectId-safe document model, email delivery via Emergent-managed Resend proxy (fixed server-side template, G2–G5 guardrails enforced).
+- **Data**: centralised catalogue in `src/data/catalog.js` (7 collections, 14 products, 5 occasions, 4 journal drafts); site config in `src/config/site.js`.
+- **SEO**: per-page titles/descriptions/canonical/OG via `useSEO`, Organization JSON-LD, robots.txt, sitemap.xml, semantic headings, image alt text.
+
+## Implemented (2026-10-07)
+- Home (kinetic hero with masked line reveal + parallax image, editorial marquee, 6-collection bento, featured products, philosophy, occasions, corporate teaser, social section, closing CTA, footer)
+- Collections overview + 7 collection pages (occasion filters, enquiry CTA, related collections)
+- Product detail template (gallery + thumbnails, specs with "On request" placeholders, SKU-aware WhatsApp enquiry, related pieces)
+- Our Story, Corporate Gifting (use cases, process, FAQ, bulk form), Contact (form + cards)
+- Journal index + article template (clearly labelled drafts), Privacy, Terms, custom 404
+- Floating WhatsApp button, header/dropdown/mobile drawer navigation, animated nav underlines
+- Working forms: client + server validation, loading/success/error states, honeypot; enquiries stored in MongoDB `enquiries` collection AND emailed via Resend
+
+## User personas
+- Gift buyers (weddings, anniversaries, festivals, housewarming) browsing collections → product → WhatsApp enquiry
+- Corporate/bulk gifting teams submitting structured bulk quotes
+- Studio owner maintaining catalogue via one data file; owner receiving enquiries by email
+
+## Launch requirements still pending (business to supply)
+1. Official WhatsApp business number (`src/config/site.js`)
+2. Real product photography + verified specifications/prices (replace sample entries)
+3. Owner email inbox (backend `ENQUIRY_EMAIL` — currently a test address)
+4. Official Instagram URL, contact email, final domain (update sitemap/robots/siteUrl)
+5. Journal article approvals; legal page finalisation
+
+## Backlog
+- **P0**: Replace ENQUIRY_EMAIL + WhatsApp number before launch
+- **P1**: Real catalogue data + photography; Instagram link; domain + sitemap update
+- **P2**: Instagram feed embed, gift-finder quiz, CMS-backed catalogue, multi-image zoom lightbox

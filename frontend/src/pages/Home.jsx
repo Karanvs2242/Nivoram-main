@@ -1,0 +1,394 @@
+import { useRef } from "react";
+import { Link } from "react-router-dom";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { ArrowRight, Instagram, ArrowUpRight } from "lucide-react";
+import SectionHeading, {} from "@/components/SectionHeading";
+import CollectionCard from "@/components/CollectionCard";
+import ProductCard from "@/components/ProductCard";
+import Marquee from "@/components/Marquee";
+import WhatsAppButton from "@/components/WhatsAppButton";
+import { ParallaxImage } from "@/components/Reveal";
+import { useSEO, organizationJsonLd } from "@/lib/seo";
+import { EASE, lineMask, viewportOnce, fadeUp } from "@/lib/motion";
+import { COLLECTIONS, PRODUCTS, OCCASIONS, IMAGES, productsInCollection } from "@/data/catalog";
+import { SITE_CONFIG } from "@/config/site";
+
+const HERO_LINES = ["Elegance", "That Lasts."];
+
+export default function Home() {
+  useSEO({
+    title: "Nivoram — Elegance That Lasts",
+    description:
+      "Silver-coated home décor, decorative showpieces, spiritual pieces and thoughtful gifting for modern Indian homes.",
+    path: "/",
+    jsonLd: organizationJsonLd,
+  });
+
+  const heroImgRef = useRef(null);
+  const { scrollYProgress } = useScroll({ target: heroImgRef, offset: ["start start", "end start"] });
+  const imgY = useTransform(scrollYProgress, [0, 1], [0, 90]);
+  const reduced = typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  const featured = PRODUCTS.filter((p) => p.featured).slice(0, 6);
+
+  return (
+    <div data-testid="home-page">
+      {/* ── HERO ─────────────────────────────────────────────── */}
+      <section className="relative overflow-hidden" data-testid="hero-section">
+        <div className="max-w-[1240px] mx-auto px-5 sm:px-8 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center min-h-[calc(100vh-72px)] py-14 lg:py-0">
+          <div className="lg:col-span-7 order-2 lg:order-1">
+            <motion.p
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: EASE, delay: 0.15 }}
+              className="text-[11px] uppercase tracking-[0.3em] text-terra mb-6"
+            >
+              Silver-Coated Home Décor &amp; Gifting
+            </motion.p>
+            <h1 className="font-display text-[17vw] sm:text-7xl lg:text-[104px] leading-[0.95] tracking-tight text-ink">
+              {HERO_LINES.map((line, i) => (
+                <span key={i} className="block overflow-hidden pb-1">
+                  <motion.span
+                    className="block"
+                    custom={i}
+                    variants={lineMask}
+                    initial="hidden"
+                    animate="show"
+                  >
+                    {line}
+                  </motion.span>
+                </span>
+              ))}
+            </h1>
+            <motion.p
+              initial={{ opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, ease: EASE, delay: 0.6 }}
+              className="mt-6 max-w-md text-[15px] leading-relaxed text-ink/60"
+            >
+              Thoughtfully chosen décor and meaningful gifts for the moments
+              and spaces that matter.
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, ease: EASE, delay: 0.75 }}
+              className="mt-9 flex flex-wrap items-center gap-4"
+            >
+              <Link
+                to="/collections"
+                data-testid="hero-explore-collections"
+                className="btn-sweep btn-sweep-dark inline-flex items-center gap-3 border border-ink bg-ink text-cream text-[11px] uppercase tracking-[0.2em] px-8 h-12"
+              >
+                <span>Explore Collections</span>
+                <ArrowRight size={14} className="relative z-[1] transition-transform duration-300 group-hover:translate-x-1" />
+              </Link>
+              <WhatsAppButton context="general" variant="outline" label="Enquire on WhatsApp" testid="hero-whatsapp-btn" />
+            </motion.div>
+          </div>
+
+          <div className="lg:col-span-5 order-1 lg:order-2" ref={heroImgRef}>
+            <motion.div
+              initial={{ opacity: 0, clipPath: "inset(0 0 100% 0)" }}
+              animate={{ opacity: 1, clipPath: "inset(0 0 0% 0)" }}
+              transition={{ duration: 1.1, ease: EASE, delay: 0.35 }}
+              className="relative"
+            >
+              <div className="absolute -inset-3 sm:-inset-4 border border-sand pointer-events-none" aria-hidden="true" />
+              <div className="relative aspect-[4/5] bg-white overflow-hidden">
+                <motion.img
+                  src={IMAGES.hero}
+                  alt={IMAGES.heroAlt}
+                  style={reduced ? undefined : { y: imgY }}
+                  className="absolute inset-0 w-full h-[115%] object-cover"
+                  fetchpriority="high"
+                />
+              </div>
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, ease: EASE, delay: 1.05 }}
+                className="absolute -bottom-5 left-6 bg-cream border border-sand px-4 py-3"
+              >
+                <p className="text-[10px] uppercase tracking-[0.24em] text-ink/60">
+                  Sample imagery — studio photographs at launch
+                </p>
+              </motion.div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── MARQUEE ──────────────────────────────────────────── */}
+      <Marquee items={["Thoughtful Gifting", "Silver-Tone Craft", "Spiritual Pieces", "Festive Moments", "Made for Indian Homes"]} />
+
+      {/* ── COLLECTIONS ──────────────────────────────────────── */}
+      <section className="py-20 sm:py-28" data-testid="home-collections">
+        <div className="max-w-[1240px] mx-auto px-5 sm:px-8">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">
+            <SectionHeading
+              eyebrow="Explore Our Collections"
+              title="Curated for Every Corner & Occasion"
+              className="sm:max-w-xl"
+            />
+            <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={viewportOnce}>
+              <Link
+                to="/collections"
+                className="nav-link inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.2em] text-ink/70 hover:text-ink pb-1"
+                data-testid="home-collections-view-all"
+              >
+                All collections <ArrowRight size={13} />
+              </Link>
+            </motion.div>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-x-6 gap-y-12">
+            {COLLECTIONS.slice(0, 6).map((c, i) => {
+              const pattern = [
+                { span: "lg:col-span-7", aspect: "aspect-[16/11]" },
+                { span: "lg:col-span-5", aspect: "aspect-[16/11]" },
+                { span: "lg:col-span-4", aspect: "aspect-[4/3]" },
+                { span: "lg:col-span-4", aspect: "aspect-[4/3]" },
+                { span: "lg:col-span-4", aspect: "aspect-[4/3]" },
+                { span: "lg:col-span-12", aspect: "aspect-[16/8] sm:aspect-[21/9]" },
+              ][i] || { span: "lg:col-span-4", aspect: "aspect-[4/3]" };
+              return (
+                <CollectionCard
+                  key={c.slug}
+                  index={i}
+                  collection={{ ...c, count: productsInCollection(c.slug).length }}
+                  className={pattern.span}
+                  aspect={pattern.aspect}
+                />
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ── FEATURED PRODUCTS ────────────────────────────────── */}
+      <section className="py-20 sm:py-28 bg-white border-y border-sand" data-testid="home-featured">
+        <div className="max-w-[1240px] mx-auto px-5 sm:px-8">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">
+            <SectionHeading eyebrow="Featured Pieces" title="Currently in Focus" />
+            <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={viewportOnce}>
+              <Link to="/collections" className="nav-link inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.2em] text-ink/70 hover:text-ink pb-1" data-testid="home-featured-view-all">
+                Browse everything <ArrowRight size={13} />
+              </Link>
+            </motion.div>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {featured.map((p, i) => (
+              <ProductCard key={p.id} product={p} index={i} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── PHILOSOPHY ───────────────────────────────────────── */}
+      <section className="py-20 sm:py-32" data-testid="home-philosophy">
+        <div className="max-w-[1240px] mx-auto px-5 sm:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          <div>
+            <SectionHeading
+              eyebrow="Brand Philosophy"
+              title="Thoughtful Details. Meaningful Moments."
+              intro="Nivoram exists for the exchange — the wedding gift kept for twenty years, the idol that opens every morning, the housewarming piece that finds its place on day one. We choose silver-tone pieces that carry that meaning into modern Indian homes, at prices that make gifting them genuinely possible."
+            />
+            <div className="mt-10 space-y-6">
+              {[
+                ["01", "Gifting-led", "Every piece is shortlisted with the question — would you keep this gift?"],
+                ["02", "Contemporary Indian design", "Familiar motifs, restrained finishes, made for how homes look today."],
+                ["03", "Affordable premium", "Considered materials and finishing, without the premium-brand markup."],
+              ].map(([n, t, d], i) => (
+                <motion.div
+                  key={n}
+                  variants={fadeUp}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={viewportOnce}
+                  transition={{ duration: 0.6, delay: i * 0.08 }}
+                  className="flex gap-6 border-t border-sand pt-6"
+                >
+                  <span className="font-display text-lg text-terra/80">{n}</span>
+                  <div>
+                    <h3 className="font-display text-xl text-ink">{t}</h3>
+                    <p className="mt-1 text-[14px] text-ink/55 leading-relaxed max-w-md">{d}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+            <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={viewportOnce} className="mt-10">
+              <Link
+                to="/our-story"
+                data-testid="home-discover-story"
+                className="btn-sweep btn-sweep-dark inline-flex items-center gap-3 border border-ink text-[11px] uppercase tracking-[0.2em] px-8 h-12 text-ink"
+              >
+                <span>Discover Our Story</span>
+              </Link>
+            </motion.div>
+          </div>
+          <ParallaxImage
+            src={IMAGES.storyRoom}
+            alt="Elegant living room with styled décor"
+            className="relative aspect-[4/5] bg-white border border-sand"
+            strength={50}
+          >
+            <span className="absolute bottom-4 left-4 bg-cream/90 text-ink/60 text-[9px] uppercase tracking-[0.2em] px-3 py-2">
+              Sample imagery
+            </span>
+          </ParallaxImage>
+        </div>
+      </section>
+
+      {/* ── OCCASIONS ────────────────────────────────────────── */}
+      <section className="py-20 sm:py-28 border-t border-sand" data-testid="home-occasions">
+        <div className="max-w-[1240px] mx-auto px-5 sm:px-8">
+          <SectionHeading eyebrow="Gifts for Every Occasion" title="What Are You Shopping For?" className="mb-12" />
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
+            {OCCASIONS.map((o, i) => (
+              <motion.div
+                key={o.key}
+                variants={fadeUp}
+                initial="hidden"
+                whileInView="show"
+                viewport={viewportOnce}
+                transition={{ duration: 0.6, delay: i * 0.07 }}
+              >
+                <Link to={o.link} className="group block" data-testid={`occasion-card-${o.key}`}>
+                  <div className="relative aspect-[3/4] overflow-hidden bg-white border border-sand">
+                    <img
+                      src={o.image}
+                      alt={o.label}
+                      loading="lazy"
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.05]"
+                    />
+                    <span className="absolute top-3 right-3 h-7 w-7 inline-flex items-center justify-center bg-cream/90 text-ink opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <ArrowUpRight size={13} />
+                    </span>
+                  </div>
+                  <p className="mt-3 text-[12px] uppercase tracking-[0.14em] text-ink/70 group-hover:text-terra transition-colors duration-300">
+                    {o.label}
+                  </p>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── CORPORATE ────────────────────────────────────────── */}
+      <section className="bg-ink text-cream py-20 sm:py-28" data-testid="home-corporate">
+        <div className="max-w-[1240px] mx-auto px-5 sm:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div>
+            <SectionHeading
+              dark
+              eyebrow="Corporate & Bulk Gifting"
+              title="Thoughtful Gifting, Made Personal."
+              intro="For teams, clients, conferences and celebrations at scale — we help businesses give gifts that feel considered rather than corporate. Share your requirement and we'll curate options with a tailored quote."
+            />
+            <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={viewportOnce} className="mt-9 flex flex-wrap gap-4">
+              <Link
+                to="/corporate-gifting"
+                data-testid="home-corporate-quote-btn"
+                className="btn-sweep btn-sweep-light inline-flex items-center gap-3 border border-cream bg-cream text-ink text-[11px] uppercase tracking-[0.2em] px-8 h-12"
+              >
+                <span>Request a Bulk Quote</span>
+              </Link>
+              <Link
+                to="/corporate-gifting"
+                className="nav-link inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.2em] text-cream/70 hover:text-cream pb-1"
+                data-testid="home-corporate-page-link"
+              >
+                Visit Corporate Gifting <ArrowRight size={13} />
+              </Link>
+            </motion.div>
+          </div>
+          <ParallaxImage
+            src={IMAGES.corporateBox}
+            alt="Premium gift box"
+            className="relative aspect-[4/3] border border-cream/20"
+            strength={40}
+          >
+            <span className="absolute bottom-4 left-4 bg-ink/80 text-cream/60 text-[9px] uppercase tracking-[0.2em] px-3 py-2">
+              Sample imagery
+            </span>
+          </ParallaxImage>
+        </div>
+      </section>
+
+      {/* ── SOCIAL ───────────────────────────────────────────── */}
+      <section className="py-20 sm:py-28" data-testid="home-social">
+        <div className="max-w-[1240px] mx-auto px-5 sm:px-8">
+          <SectionHeading
+            eyebrow="Social Inspiration"
+            title="Follow the Studio"
+            intro={
+              SITE_CONFIG.instagramUrl
+                ? "Styling notes, festive edits and new pieces — straight from Nivoram."
+                : "Our official Instagram link is being connected. This space will carry genuine brand imagery and styling notes once live."
+            }
+            className="mb-10"
+          />
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
+            {[IMAGES.sideboard, IMAGES.styling, IMAGES.vasesPair, IMAGES.ganeshaDecor].map((src, i) => (
+              <motion.div
+                key={i}
+                variants={fadeUp}
+                initial="hidden"
+                whileInView="show"
+                viewport={viewportOnce}
+                transition={{ duration: 0.6, delay: i * 0.07 }}
+                className="group relative aspect-square overflow-hidden bg-white border border-sand"
+              >
+                <img src={src} alt="Nivoram styling inspiration" loading="lazy" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.05]" />
+                <span className="absolute top-3 left-3 bg-cream/90 text-ink/60 text-[9px] uppercase tracking-[0.2em] px-2.5 py-1.5">
+                  Sample imagery
+                </span>
+                {SITE_CONFIG.instagramUrl && (
+                  <a
+                    href={SITE_CONFIG.instagramUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Open Instagram"
+                    className="absolute inset-0 flex items-center justify-center bg-ink/0 group-hover:bg-ink/25 transition-colors duration-300"
+                  >
+                    <Instagram size={22} className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  </a>
+                )}
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── CLOSING CTA ──────────────────────────────────────── */}
+      <section className="py-20 sm:py-32 border-t border-sand" data-testid="home-closing-cta">
+        <div className="max-w-[1240px] mx-auto px-5 sm:px-8 text-center">
+          <SectionHeading
+            align="center"
+            eyebrow="Nivoram"
+            title="Find Something Meaningful."
+            titleClassName="mx-auto max-w-3xl"
+            intro="Whether it's a gift for someone specific or a piece for your own space — start with the collections, or simply tell us what the moment is."
+          />
+          <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={viewportOnce} className="mt-10 flex flex-wrap justify-center gap-4">
+            <Link
+              to="/collections"
+              data-testid="closing-explore-collections"
+              className="btn-sweep btn-sweep-dark inline-flex items-center gap-3 border border-ink bg-ink text-cream text-[11px] uppercase tracking-[0.2em] px-8 h-12"
+            >
+              <span>Explore Collections</span>
+            </Link>
+            <Link
+              to="/contact"
+              data-testid="closing-contact-nivoram"
+              className="inline-flex items-center border border-ink/30 text-ink text-[11px] uppercase tracking-[0.2em] px-8 h-12 hover:border-ink hover:bg-ink hover:text-cream transition-colors duration-300"
+            >
+              Contact Nivoram
+            </Link>
+          </motion.div>
+        </div>
+      </section>
+    </div>
+  );
+}

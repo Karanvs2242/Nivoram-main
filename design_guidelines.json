@@ -1,0 +1,127 @@
+{
+  "theme": "light",
+  "design_context": "Premium Editorial Brand Showcase for NIVORAM",
+  "typography": {
+    "headings": {
+      "family": "Cormorant Garamond, Playfair Display, serif",
+      "usage": "Large editorial headings. E1 Principle: Rotate font genres, DO NOT use Inter/DM Sans for headings.",
+      "styling": "Use tight tracking (tracking-tight) for H1/H2, generous line height."
+    },
+    "body": {
+      "family": "Inter, DM Sans, sans-serif",
+      "usage": "Body text, nav links, labels, buttons.",
+      "styling": "Clean, highly readable. Use uppercase with wide tracking (tracking-widest) for overlines and small labels."
+    }
+  },
+  "colors": {
+    "dominant_background": "#F8F3EB",
+    "product_breathing_room": "#FFFFFF",
+    "text_nav_footer": "#302B32",
+    "selective_highlights": "#C87560",
+    "supporting_accents": "#6B2D91",
+    "dividers_borders": "#E5DCD0",
+    "whatsapp_action": "#25D366"
+  },
+  "visual_enhancers": {
+    "shadows": "Soft shadows only. NO heavy drop shadows. Prefer subtle ambient shadow-sm.",
+    "borders": "1px soft warm border (#E5DCD0) for dividers, outlines, and grids. NO excessive rounded cards. Use rounded-none or rounded-sm.",
+    "surfaces": "NO glassmorphism overload. DO NOT use fully transparent backgrounds behind text if overlapping imagery.",
+    "photography_treatment": "Spotlight lighting, intentionally clipped frames. Surround images in #FFFFFF space."
+  },
+  "motion": {
+    "libraries": [
+      "framer-motion",
+      "lenis",
+      "react-fast-marquee"
+    ],
+    "tokens": {
+      "fast": "180ms - 250ms",
+      "hover": "250ms - 400ms",
+      "section_reveal": "500ms - 800ms",
+      "hero_entrance": "700ms - 1200ms",
+      "easing": "[0.16, 1, 0.3, 1]"
+    },
+    "effects": {
+      "hero": "Signature on-load masked line-by-line heading reveal using Framer Motion (initial Y offset + opacity into place).",
+      "hover": "Gentle image zoom (scale 1.03 to 1.05) on hover with overflow-hidden containers.",
+      "scroll": "Staggered card grids via Framer Motion whileInView, subtle parallax on desktop.",
+      "nav": "Animated underlines (width: 0% to 100%) on nav item hover.",
+      "marquee": "One slow editorial marquee with Cormorant Garamond, charcoal or terracotta text on warm cream bg."
+    },
+    "accessibility": "Respect prefers-reduced-motion."
+  },
+  "layouts": {
+    "spacing": "Generous whitespace. Use py-20, py-32 for structural spacing. gap-8 to gap-16 for grids.",
+    "structure": "Asymmetrical, 'Tetris' grid or Swiss editorial style. Avoid generic center-everything disease.",
+    "product_cards": "White surface (#FFFFFF), charcoal text (#302B32), minimal/zero border radius. Image nested with padding."
+  },
+  "pages_required": [
+    "Home",
+    "Collections overview",
+    "7 individual collection pages",
+    "Product detail template with gallery",
+    "Our Story",
+    "Corporate Gifting",
+    "Contact",
+    "Journal index",
+    "Privacy/Terms/404"
+  ],
+  "image_urls": [
+    {
+      "url": "https://images.unsplash.com/photo-1771249729624-3c7dea2f7953?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODF8MHwxfHNlYXJjaHw0fHxzaWx2ZXIlMjBkZWNvcnxlbnwwfHx8fDE3ODQwMDk1NjJ8MA&ixlib=rb-4.1.0&q=85",
+      "category": "Hero / Featured Showpiece",
+      "description": "Ornate silver horn with intricate woven design"
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1581280725150-0af01222610e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxOTF8MHwxfHNlYXJjaHw0fHxzY3VscHR1cmUlMjBzaG93cGllY2UlMjBtaW5pbWFsfGVufDB8fHx8MTc5MTM5MTYzNHww&ixlib=rb-4.1.0&q=85",
+      "category": "Collection / Modern Decor",
+      "description": "Minimal abstract sculpture setup"
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1604782206219-3b9576575203?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxOTF8MHwxfHNlYXJjaHwxfHxzY3VscHR1cmUlMjBzaG93cGllY2UlMjBtaW5pbWFsfGVufDB8fHx8MTc5MTM5MTYzNHww&ixlib=rb-4.1.0&q=85",
+      "category": "Collection / Neutral Decor",
+      "description": "Geometric shapes in black, brown, and tan arranged on a light surface"
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1780744871777-fec13139d281?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NzR8MHwxfHNlYXJjaHwyfHxnaWZ0JTIwYm94JTIwbHV4dXJ5JTIwY29ycG9yYXRlfGVufDB8fHx8MTc5MTM5MTYzNHww&ixlib=rb-4.1.0&q=85",
+      "category": "Corporate Gifting",
+      "description": "A brown leather box with a gold clasp on white"
+    },
+    {
+      "url": "https://images.pexels.com/photos/34688219/pexels-photo-34688219.jpeg",
+      "category": "Brand Story / Lifestyle",
+      "description": "Spacious modern living room with elegant sofas and stylish decor."
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1563777389189-5e3564e5961c?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODl8MHwxfHNlYXJjaHw0fHxpbmRpYW4lMjB0cmFkaXRpb25hbCUyMHNwaXJpdHVhbCUyMGRlY29yJTIwZWxlZ2FudHxlbnwwfHx8fDE3OTEzOTE2MzR8MA&ixlib=rb-4.1.0&q=85",
+      "category": "Spiritual Decor",
+      "description": "Lord Ganesha spiritual decor"
+    }
+  ],
+  "UNIVERSAL_GUIDELINES_FOR_MAIN_AGENT": [
+    "You tend to converge toward generic, 'on distribution' outputs. In frontend design, this creates what users call the 'AI slop' aesthetic. Avoid this: make creative, distinctive frontends that surprise and delight.",
+    "Dark colors look good when used independently without gradients. DO NOT use dark colors as gradients.",
+    "Don't make generic centered layouts, simplistic gradients, and uniform styling.",
+    "Create depth through layered design elements with z-index hierarchy.",
+    "You MUST NOT apply universal transition. Eg: transition: all. This results in breaking transforms. Always add transitions for specific interactive elements like button, input excluding transforms.",
+    "You MUST NOT center align the app container, ie do not add .App { text-align: center; } in the css file. This disrupts the human natural reading flow of text.",
+    "Always use modern button styles like pill-shaped, or sharp button with interaction animations & color relevant to the app style.",
+    "NEVER: use AI assistant Emoji characters like 🤖🧠💭💡🔮🎯 etc for icons.",
+    "Every interaction needs micro-animations - hover states, transitions, parallax effects, and entrance animations. Static = dead.",
+    "Use 2-3x more spacing than feels comfortable. Cramped designs look cheap.",
+    "Subtle grain textures, noise overlays, custom cursors, selection states, and loading animations: separates good from extraordinary.",
+    "Main agent relies on these image URLs. Missing categories (especially sponsor logos) = main agent will use placeholder text which is FORBIDDEN.",
+    "Prioritize using pre-existing components from src/components/ui when applicable.",
+    "Create new components that match the style and conventions of existing components when needed.",
+    "Use sonner for toasts. Sonner component are located in /app/frontend/src/components/ui/sonner.jsx.",
+    "CRITICAL: All interactive and key informational elements MUST include a data-testid attribute for robust automated testing."
+  ],
+  "instructions_to_main_agent": [
+    "The project files are in .js/jsx, NOT .tsx. Configure files accordingly.",
+    "Set up Tailwind CSS configuration to include the custom colors (warm-cream, charcoal, terracotta, royal-purple, soft-border, whatsapp-green).",
+    "Integrate lenis for smooth scrolling in the main application wrapper.",
+    "Implement the Hero section with a masked line-by-line reveal using framer-motion.",
+    "Build the slow editorial marquee using react-fast-marquee or standard CSS keyframes.",
+    "Ensure data-testid is added to all actionable and key UI elements."
+  ]
+}
