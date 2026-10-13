@@ -25,7 +25,7 @@ Build a complete, responsive, production-ready brand showcase website for NIVORA
 - Studio owner maintaining catalogue via one data file; owner receiving enquiries by email
 
 ## Launch requirements still pending (business to supply)
-1. Official WhatsApp business number (`src/config/site.js`)
+1. ✅ DONE (2026-10-13): Official WhatsApp business number configured — +91 77605 11222 (`src/config/site.js`, stored as 917760511222). Every WhatsApp flow is live: floating bubble, header ENQUIRE, product detail + card quick-enquire (SKU-aware message), contact/corporate/gift-finder buttons, gift-finder WhatsApp shortlist. Contact card copy auto-switched from "being set up" to "Message us directly".
 2. Real product photography + verified specifications/prices (replace sample entries)
 3. Owner email inbox (backend `ENQUIRY_EMAIL` — currently a test address)
 4. Official Instagram URL, contact email, final domain (update sitemap/robots/siteUrl)
@@ -52,6 +52,6 @@ Build a complete, responsive, production-ready brand showcase website for NIVORA
 - Festive seasonal mode — Phase 3 (2026-10-13): auto-calendar Diwali skin in src/config/festive.js (Lakshmi Puja windows 2025–2030 ±3–4 days; visitor's local date decides; hidden preview overrides ?festive=1 / ?festive=0 — next auto window: 4–11 Nov 2026). While html.festive is on: the flame ramp warms site-wide via --flame-gradient overrides (#F0341F → #FF8C33 → gold tip #E8B34B), New Arrival/Bestseller badges gain a gold hairline (::after on span.bg-flame / span.bg-royal), .rule-flame gains a gold segment, .btn-flame a faint gold ring, the hero image frame a warm gold border; exactly two subtle animated gradient moments — a breathing warm glow behind the hero + slow flame-drift on the hero flame word and collection banner frames (CSS-only, reduced-motion honoured, zero layout shift). Zero copy changes. Dark theme was not requested — out of scope. Testing agent verified all routes, animation scope, regression (normal mode untouched) at 1440/390 with no overflow or console errors.
 
 ## Backlog
-- **P0**: Replace ENQUIRY_EMAIL + WhatsApp number before launch
+- **P0**: Replace ENQUIRY_EMAIL (currently a test address) before launch — WhatsApp number done (2026-10-13)
 - **P1**: Real catalogue data + photography; Instagram link; domain + sitemap update; extend FESTIVE_WINDOWS annually after 2030
 - **P2**: Instagram feed embed, gift-finder quiz, CMS-backed catalogue, multi-image zoom lightbox

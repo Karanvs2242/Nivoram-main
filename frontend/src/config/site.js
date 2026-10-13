@@ -3,8 +3,8 @@
  *
  * ── LAUNCH CHECKLIST (business must supply) ─────────────────────────────
  *  whatsappNumber : official WhatsApp business number in international
- *                   format without "+", e.g. "919876543210". Currently a
- *                   PLACEHOLDER — buttons show an honest fallback until set.
+ *                   format without "+", e.g. "919876543210". CONFIGURED —
+ *                   all WhatsApp buttons across the site are live.
  *  instagramUrl   : official Instagram profile URL.
  *  contactEmail   : official business email.
  *  siteUrl + domainConfirmed : final production domain. Once the domain is
@@ -20,7 +20,7 @@ export const SITE_CONFIG = {
   siteUrl: "https://nivoram.com", // PLACEHOLDER — final domain
   domainConfirmed: false, // flip to true once the production domain is live
   supportMessage: "Thoughtfully Selected Décor & Meaningful Gifts | India & UAE Enquiries",
-  whatsappNumber: "", // PLACEHOLDER — official WhatsApp business number
+  whatsappNumber: "917760511222", // official WhatsApp business number (+91 77605 11222)
   instagramUrl: "https://www.instagram.com/nivoram.shop", // official — from the catalogue
   instagramHandle: "@nivoram.shop", // official — from the catalogue
   contactEmail: "hello@nivoram.com", // PLACEHOLDER — official business email
