@@ -48,18 +48,20 @@ export default function CollectionDetail() {
 
   return (
     <div data-testid="collection-detail-page">
-      {/* Banner */}
+      {/* Banner — gradient framed */}
       <section className="relative">
-        <div className="relative h-[38vh] min-h-[300px] overflow-hidden bg-white">
-          <motion.img
-            src={collection.image}
-            alt={collection.alt}
-            initial={{ scale: 1.08, opacity: 0.6 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 1.2, ease: EASE }}
-            className="absolute inset-0 w-full h-full object-cover"
-            fetchPriority="high"
-          />
+        <div className="p-[2px] bg-flame" data-testid="collection-banner-frame">
+          <div className="relative h-[38vh] min-h-[300px] overflow-hidden bg-white">
+            <motion.img
+              src={collection.image}
+              alt={collection.alt}
+              initial={{ scale: 1.08, opacity: 0.6 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 1.2, ease: EASE }}
+              className="absolute inset-0 w-full h-full object-cover"
+              fetchPriority="high"
+            />
+          </div>
         </div>
       </section>
 
@@ -109,7 +111,7 @@ export default function CollectionDetail() {
                 data-testid={`collection-filter-${key}`}
                 className={`text-[11px] uppercase tracking-[0.16em] px-4 py-2 border transition-colors duration-300 ${
                   occasion === key
-                    ? "border-ink bg-ink text-cream"
+                    ? "border-transparent bg-flame text-white"
                     : "border-sand text-ink/60 hover:border-ink hover:text-ink"
                 }`}
               >
@@ -120,60 +122,62 @@ export default function CollectionDetail() {
         )}
       </section>
 
-      {/* Products */}
-      <section className="max-w-[1240px] mx-auto px-5 sm:px-8 pb-20">
-        <p className="text-[11px] uppercase tracking-[0.2em] text-ink/40 mb-8" data-testid="collection-count">
-          {filtered.length} {filtered.length === 1 ? "piece" : "pieces"}
-        </p>
-        {filtered.length === 0 ? (
-          <div className="border border-sand bg-white p-10 text-center">
-            <p className="text-[14px] text-ink/55">
-              No pieces match this filter yet — try another occasion, or enquire directly.
-            </p>
-          </div>
-        ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {filtered.map((p, i) => (
-              <ProductCard key={p.id} product={p} index={i} />
-            ))}
-          </div>
-        )}
+      {/* Products — warm band */}
+      <section className="bg-warmwhite border-y border-sand py-14">
+        <div className="max-w-[1240px] mx-auto px-5 sm:px-8">
+          <p className="text-[11px] uppercase tracking-[0.2em] text-ink/40 mb-8" data-testid="collection-count">
+            {filtered.length} {filtered.length === 1 ? "piece" : "pieces"}
+          </p>
+          {filtered.length === 0 ? (
+            <div className="border border-sand bg-white p-10 text-center">
+              <p className="text-[14px] text-ink/55">
+                No pieces match this filter yet — try another occasion, or enquire directly.
+              </p>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {filtered.map((p, i) => (
+                <ProductCard key={p.id} product={p} index={i} />
+              ))}
+            </div>
+          )}
 
-        {/* Enquiry CTA */}
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="show"
-          viewport={viewportOnce}
-          className="mt-16 border border-sand bg-white p-8 sm:p-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6"
-          data-testid="collection-enquiry-panel"
-        >
-          <div>
-            <h2 className="font-display text-3xl text-ink">Enquire about this collection</h2>
-            <p className="mt-2 text-[14px] text-ink/55 max-w-lg">
-              Share the piece or occasion you have in mind — we'll respond with
-              current pricing, availability and details.
-            </p>
-          </div>
-          <WhatsAppButton
-            context="general"
-            label="Enquire on WhatsApp"
-            variant="solid"
-            className="shrink-0"
-            testid="collection-whatsapp-btn"
-          />
-        </motion.div>
-
-        {/* Related collections */}
-        <div className="mt-24">
-          <h2 className="font-display text-3xl text-ink mb-8">You may also like</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            {related.map((c, i) => (
-              <CollectionCard key={c.slug} collection={c} index={i} />
-            ))}
-          </div>
+          {/* Enquiry CTA */}
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="show"
+            viewport={viewportOnce}
+            className="mt-16 border border-sand bg-white p-8 sm:p-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6"
+            data-testid="collection-enquiry-panel"
+          >
+            <div>
+              <h2 className="font-display text-3xl text-ink">Enquire about this collection</h2>
+              <p className="mt-2 text-[14px] text-ink/55 max-w-lg">
+                Share the piece or occasion you have in mind — we'll respond with
+                current pricing, availability and details.
+              </p>
+            </div>
+            <WhatsAppButton
+              context="general"
+              label="Enquire on WhatsApp"
+              variant="solid"
+              className="shrink-0"
+              testid="collection-whatsapp-btn"
+            />
+          </motion.div>
         </div>
       </section>
+
+      {/* Related collections */}
+      <div className="max-w-[1240px] mx-auto px-5 sm:px-8 mt-16 pb-24">
+        <h2 className="font-display text-3xl text-ink mb-8">You may also like</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+          {related.map((c, i) => (
+            <CollectionCard key={c.slug} collection={c} index={i} />
+          ))}
+        </div>
+      </div>
     </div>
   );
 }

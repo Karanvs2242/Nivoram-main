@@ -93,56 +93,56 @@ export default function Shop({ mode = "all" }) {
         <SectionHeading eyebrow={meta.eyebrow} title={meta.title} intro={meta.intro} />
       </section>
 
-      {showFilters && (
-        <section className="max-w-[1240px] mx-auto px-5 sm:px-8 pb-10">
-          <div className="flex flex-wrap items-center gap-3" data-testid="shop-filters">
-            <span className="text-[10px] uppercase tracking-[0.22em] text-ink/40 mr-2">
-              Filter by occasion
-            </span>
-            {[["all", "All"], ...OCCASIONS.map((o) => [o.key, OCCASION_LABELS[o.key] || o.label])].map(
-              ([key, label]) => (
-                <button
-                  key={key}
-                  type="button"
-                  onClick={() => setOccasion(key)}
-                  data-testid={`shop-filter-${key}`}
-                  className={`text-[11px] uppercase tracking-[0.16em] px-4 py-2 border transition-colors duration-300 ${
-                    occasion === key
-                      ? "border-ink bg-ink text-cream"
-                      : "border-sand text-ink/60 hover:border-ink hover:text-ink"
-                  }`}
-                >
-                  {label}
-                </button>
-              )
-            )}
-          </div>
-        </section>
-      )}
+      <section className="bg-warmwhite border-y border-sand py-12">
+        <div className="max-w-[1240px] mx-auto px-5 sm:px-8">
+          {showFilters && (
+            <div className="flex flex-wrap items-center gap-3 mb-10" data-testid="shop-filters">
+              <span className="text-[10px] uppercase tracking-[0.22em] text-ink/40 mr-2">
+                Filter by occasion
+              </span>
+              {[["all", "All"], ...OCCASIONS.map((o) => [o.key, OCCASION_LABELS[o.key] || o.label])].map(
+                ([key, label]) => (
+                  <button
+                    key={key}
+                    type="button"
+                    onClick={() => setOccasion(key)}
+                    data-testid={`shop-filter-${key}`}
+                    className={`text-[11px] uppercase tracking-[0.16em] px-4 py-2 border transition-colors duration-300 ${
+                      occasion === key
+                        ? "border-transparent bg-flame text-white"
+                        : "border-sand text-ink/60 hover:border-ink hover:text-ink bg-white"
+                    }`}
+                  >
+                    {label}
+                  </button>
+                )
+              )}
+            </div>
+          )}
 
-      <section className="max-w-[1240px] mx-auto px-5 sm:px-8 pb-24">
-        {base.length === 0 ? (
-          <EmptyEdit mode={mode} />
-        ) : (
-          <>
-            <p className="text-[11px] uppercase tracking-[0.2em] text-ink/40 mb-8" data-testid="shop-count">
-              {products.length} {products.length === 1 ? "piece" : "pieces"}
-            </p>
-            {products.length === 0 ? (
-              <div className="border border-sand bg-white p-10 text-center" data-testid="shop-filter-empty">
-                <p className="text-[14px] text-ink/55">
-                  No pieces match this occasion yet — try another filter, or browse everything.
-                </p>
-              </div>
-            ) : (
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                {products.map((p, i) => (
-                  <ProductCard key={p.id} product={p} index={i} />
-                ))}
-              </div>
-            )}
-          </>
-        )}
+          {base.length === 0 ? (
+            <EmptyEdit mode={mode} />
+          ) : (
+            <>
+              <p className="text-[11px] uppercase tracking-[0.2em] text-ink/40 mb-8" data-testid="shop-count">
+                {products.length} {products.length === 1 ? "piece" : "pieces"}
+              </p>
+              {products.length === 0 ? (
+                <div className="border border-sand bg-white p-10 text-center" data-testid="shop-filter-empty">
+                  <p className="text-[14px] text-ink/55">
+                    No pieces match this occasion yet — try another filter, or browse everything.
+                  </p>
+                </div>
+              ) : (
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                  {products.map((p, i) => (
+                    <ProductCard key={p.id} product={p} index={i} />
+                  ))}
+                </div>
+              )}
+            </>
+          )}
+        </div>
       </section>
     </div>
   );

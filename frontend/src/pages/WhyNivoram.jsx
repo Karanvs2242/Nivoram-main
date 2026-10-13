@@ -58,7 +58,7 @@ export default function WhyNivoram() {
         </motion.p>
       </section>
 
-      <section className="bg-white border-y border-sand py-20 sm:py-28">
+      <section className="bg-warmwhite border-y border-sand py-20 sm:py-28">
         <div className="max-w-[1240px] mx-auto px-5 sm:px-8">
           <SectionHeading eyebrow="What Guides Every Choice" title="Four Things We Hold To." className="mb-14" />
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-12">

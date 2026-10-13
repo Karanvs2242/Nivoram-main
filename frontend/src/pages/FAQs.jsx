@@ -68,16 +68,18 @@ export default function FAQs() {
         />
       </section>
 
-      <section className="max-w-[900px] mx-auto px-5 sm:px-8 pb-24">
-        <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={viewportOnce} className="border-t border-sand" data-testid="faqs-list">
-          {FAQS.map(([q, a], i) => (
-            <Faq key={i} q={q} a={a} i={i} />
-          ))}
-        </motion.div>
-        <p className="mt-8 text-[13px] text-ink/45">
-          Still unsure? The general enquiry form or any WhatsApp button across
-          the site reaches the team directly.
-        </p>
+      <section className="bg-warmwhite border-y border-sand py-12">
+        <div className="max-w-[900px] mx-auto px-5 sm:px-8">
+          <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={viewportOnce} className="border-t border-sand" data-testid="faqs-list">
+            {FAQS.map(([q, a], i) => (
+              <Faq key={i} q={q} a={a} i={i} />
+            ))}
+          </motion.div>
+          <p className="mt-8 text-[13px] text-ink/45">
+            Still unsure? The general enquiry form or any WhatsApp button across
+            the site reaches the team directly.
+          </p>
+        </div>
       </section>
     </div>
   );

@@ -79,7 +79,7 @@ export default function OurStory() {
       </section>
 
       {/* Values */}
-      <section className="bg-white border-y border-sand py-20 sm:py-28">
+      <section className="bg-warmwhite border-y border-sand py-20 sm:py-28">
         <div className="max-w-[1240px] mx-auto px-5 sm:px-8">
           <SectionHeading eyebrow="What We Believe" title="Three Things Guide Every Choice." className="mb-14" />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">

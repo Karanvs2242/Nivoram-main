@@ -95,7 +95,7 @@ export default function CustomOrders() {
         </motion.div>
       </section>
 
-      <section className="bg-white border-t border-sand py-20 sm:py-24">
+      <section className="bg-warmwhite border-t border-sand py-20 sm:py-24">
         <div className="max-w-[900px] mx-auto px-5 sm:px-8">
           <SectionHeading
             eyebrow="Custom Order Enquiry"

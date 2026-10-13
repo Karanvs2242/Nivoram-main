@@ -118,8 +118,9 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* General form */}
-      <section className="max-w-[900px] mx-auto px-5 sm:px-8 pb-24">
+      {/* General form — warm band */}
+      <section className="bg-warmwhite border-t border-sand py-16">
+        <div className="max-w-[900px] mx-auto px-5 sm:px-8">
         <SectionHeading
           eyebrow="General Enquiry"
           title="Send Us a Note."
@@ -127,6 +128,7 @@ export default function Contact() {
           className="mb-12"
         />
         <EnquiryForm variant="general" testidPrefix="contact" />
+        </div>
       </section>
     </div>
   );

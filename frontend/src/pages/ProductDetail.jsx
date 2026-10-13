@@ -41,7 +41,7 @@ export default function ProductDetail() {
 
   return (
     <div data-testid="product-detail-page">
-      <section className="max-w-[1240px] mx-auto px-5 sm:px-8 pt-10 pb-20">
+      <section className="max-w-[1240px] mx-auto px-5 sm:px-8 pt-10 pb-16">
         <nav className="flex items-center flex-wrap gap-2 text-[11px] uppercase tracking-[0.18em] text-ink/45 mb-10" aria-label="Breadcrumb">
           <Link to="/" className="hover:text-ink">Home</Link>
           <ChevronRight size={12} />
@@ -87,7 +87,7 @@ export default function ProductDetail() {
                     aria-current={active === i}
                     data-testid={`product-thumb-${i}`}
                     className={`relative shrink-0 w-20 h-20 border overflow-hidden transition-colors duration-300 ${
-                      active === i ? "border-ink" : "border-sand hover:border-ink/40"
+                      active === i ? "border-transparent shadow-[0_0_0_2px_#EA3A2E]" : "border-sand hover:border-ink/40"
                     }`}
                   >
                     <img src={img} alt="" className="absolute inset-0 w-full h-full object-cover" />
@@ -158,7 +158,7 @@ export default function ProductDetail() {
                   <Link
                     key={slug}
                     to={`/collections/${slug}`}
-                    className="text-[10px] uppercase tracking-[0.18em] border border-sand px-3 py-2 text-ink/60 hover:border-ink hover:text-ink transition-colors duration-300"
+                    className="text-[10px] uppercase tracking-[0.18em] border border-sand px-3 py-2 text-ink/60 hover:border-royal hover:text-royal transition-colors duration-300"
                     data-testid={`product-collection-chip-${slug}`}
                   >
                     {c.name}
@@ -191,10 +191,12 @@ export default function ProductDetail() {
             </p>
           </div>
         </div>
+      </section>
 
-        {/* Related */}
-        {related.length > 0 && (
-          <div className="mt-24">
+      {/* Related — warm band */}
+      {related.length > 0 && (
+        <section className="bg-warmwhite border-t border-sand py-16">
+          <div className="max-w-[1240px] mx-auto px-5 sm:px-8">
             <h2 className="font-display text-3xl text-ink mb-8" data-testid="related-products-heading">Related pieces</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {related.map((p, i) => (
@@ -202,8 +204,8 @@ export default function ProductDetail() {
               ))}
             </div>
           </div>
-        )}
-      </section>
+        </section>
+      )}
     </div>
   );
 }
