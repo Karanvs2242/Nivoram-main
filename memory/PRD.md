@@ -36,6 +36,7 @@ Build a complete, responsive, production-ready brand showcase website for NIVORA
 - New pages: /shop (+ new-arrivals, bestsellers), /gifts/:key ×4, /why-nivoram, /craftsmanship, /contact/custom-orders, /faqs (with FAQPage JSON-LD).
 - Old collection routes redirect (spiritual-pooja-decor→sacred-elegance etc.).
 - SEO per farm-seo-setup skill: canonical/og:url gated behind domainConfirmed flag, upgraded robots.txt (AI crawler groups + /api/ disallow), sitemap.xml with all new routes, llms.txt, static OG tags + noscript fallback in index.html, per-route titles.
+- Logo (2026-10-13): official supplied Nivoram logo integrated as-is in header + footer (cream chip on dark), mandala motif isolated from the logo centre for favicon.ico / favicon.png / apple-touch-icon.png and the footer mark. Share image (og:image) still uses photography until the production domain is confirmed.
 
 ## Backlog
 - **P0**: Replace ENQUIRY_EMAIL + WhatsApp number before launch

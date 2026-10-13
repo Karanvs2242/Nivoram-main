@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import Logo, { LogoMark } from "@/components/Logo";
+import Logo, { MandalaMark } from "@/components/Logo";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { SITE_CONFIG } from "@/config/site";
 
@@ -121,7 +121,7 @@ export default function Footer() {
           </div>
           <div className="md:col-span-4 flex md:justify-end items-start">
             <div className="hidden md:block">
-              <LogoMark dark size={44} />
+              <MandalaMark size={44} />
             </div>
           </div>
         </div>

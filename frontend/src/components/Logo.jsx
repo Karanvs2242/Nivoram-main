@@ -1,49 +1,36 @@
 import { Link } from "react-router-dom";
-import { SITE_CONFIG } from "@/config/site";
 
-export const LogoMark = ({ size = 34, dark = false }) => (
-  <svg
-    width={size}
-    height={size}
-    viewBox="0 0 64 64"
-    fill="none"
-    aria-hidden="true"
-    className="shrink-0"
-  >
-    <path d="M32 8 L54 32 L32 56 L10 32 Z" stroke={dark ? "#E5DCD0" : "#302B32"} strokeWidth="1.5" />
-    <path d="M23 44 V20 L41 44 V20" stroke={dark ? "#F8F3EB" : "#302B32"} strokeWidth="3" strokeLinecap="square" />
-  </svg>
-);
-
+/** Official supplied Nivoram logo (public/logo.png) — used as-is,
+ *  never recoloured or distorted. The dark variant sits on a cream chip
+ *  so the white logo background reads cleanly on the charcoal footer. */
 export default function Logo({ dark = false, compact = false }) {
   return (
     <Link
       to="/"
       data-testid="logo-link"
-      className="flex items-center gap-3 group"
-      aria-label="Nivoram — home"
+      className={`flex items-center group ${dark ? "bg-cream px-3.5 py-2.5" : ""}`}
+      aria-label="Nivoram — Inspired Decor, Thoughtful Gifting"
     >
-      <LogoMark dark={dark} />
-      <span className="flex flex-col leading-none">
-        <span
-          className={`font-display font-semibold text-[19px] sm:text-[21px] tracking-[0.34em] uppercase ${
-            dark ? "text-cream" : "text-ink"
-          }`}
-          style={{ marginRight: "-0.34em" }}
-        >
-          {SITE_CONFIG.brand}
-        </span>
-        {!compact && (
-          <span
-            className={`mt-1 text-[8px] tracking-[0.3em] uppercase font-sans ${
-              dark ? "text-cream/50" : "text-ink/50"
-            }`}
-            style={{ marginRight: "-0.3em" }}
-          >
-            Elegance That Lasts
-          </span>
-        )}
-      </span>
+      <img
+        src={`${process.env.PUBLIC_URL}/logo.png`}
+        alt="Nivoram — Inspired Decor | Thoughtful Gifting"
+        className={`w-auto transition-opacity duration-300 group-hover:opacity-80 ${
+          compact ? "h-7 sm:h-8" : dark ? "h-11" : "h-8 sm:h-10"
+        }`}
+        fetchPriority="high"
+      />
     </Link>
   );
 }
+
+/** The mandala motif from the logo centre — used as a small decorative mark. */
+export const MandalaMark = ({ size = 40, className = "" }) => (
+  <img
+    src={`${process.env.PUBLIC_URL}/mandala.png`}
+    alt=""
+    aria-hidden="true"
+    width={size}
+    height={size}
+    className={`inline-block ${className}`}
+  />
+);
