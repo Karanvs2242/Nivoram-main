@@ -157,6 +157,72 @@ html.lenis, html.lenis body { height: auto; }
   to { transform: scale(1.06); }
 }
 
+/* ── Festive seasonal mode (auto-calendar — see src/config/festive.js) ──
+   While .festive sits on <html>, the flame system warms up — deeper
+   coral into molten orange with a celebratory gold tip — badges, rules
+   and buttons pick up quiet gold sparks, and the hero plus collection
+   banners carry the two slow animated gradient moments. */
+html.festive {
+  --flame-gradient: linear-gradient(90deg, #F0341F 0%, #FF8C33 58%, #E8B34B 100%);
+  --flame-gradient-deep: linear-gradient(90deg, #DC2B17 0%, #FF8433 62%, #E3AC44 100%);
+}
+
+/* Gold sparks — product badges */
+html.festive span.bg-flame, html.festive span.bg-royal { position: relative; }
+html.festive span.bg-flame::after, html.festive span.bg-royal::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(217, 164, 65, 0) 0%, #D9A441 50%, rgba(217, 164, 65, 0) 100%);
+}
+
+/* Gold sparks — gradient rule picks up a gold segment */
+html.festive .rule-flame {
+  background: linear-gradient(90deg, transparent 0%, #F0341F 18%, #FF8C33 46%, #E8B34B 66%, #AC2FCB 84%, transparent 100%);
+}
+
+/* Gold sparks — flame buttons carry a faint gold ring */
+html.festive .btn-flame { box-shadow: 0 10px 26px -14px rgba(240, 52, 31, 0.6), 0 0 0 1px rgba(217, 164, 65, 0.4); }
+html.festive .btn-flame:hover { box-shadow: 0 14px 30px -14px rgba(240, 52, 31, 0.7), 0 0 0 1px rgba(217, 164, 65, 0.6); }
+
+/* Animated gradient moment 1 — hero: warm glow breathes behind the hero,
+   the flame word drifts slowly through the warmer ramp */
+html.festive [data-testid="hero-section"]::before {
+  content: "";
+  position: absolute;
+  inset: -12% -18%;
+  pointer-events: none;
+  background:
+    radial-gradient(42% 55% at 16% 40%, rgba(240, 52, 31, 0.09), transparent 70%),
+    radial-gradient(40% 52% at 84% 28%, rgba(217, 164, 65, 0.13), transparent 70%);
+  animation: festive-breathe 7s ease-in-out infinite alternate;
+}
+html.festive [data-testid="hero-section"] .text-flame {
+  background-size: 220% 100%;
+  animation: flame-drift 9s ease-in-out infinite alternate;
+}
+
+/* Animated gradient moment 2 — collection banner frames drift slowly */
+html.festive [data-testid="collection-banner-frame"] {
+  background-size: 320% 100%;
+  animation: flame-drift 12s ease-in-out infinite alternate;
+}
+
+/* The hero image frame takes a warm gold hairline instead of sand */
+html.festive [data-testid="hero-section"] .border-sand { border-color: rgba(217, 164, 65, 0.45); }
+
+@keyframes flame-drift {
+  from { background-position: 0% 0; }
+  to { background-position: 100% 0; }
+}
+@keyframes festive-breathe {
+  from { opacity: 0.5; }
+  to { opacity: 1; }
+}
+
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   .marquee-track { animation: none; }

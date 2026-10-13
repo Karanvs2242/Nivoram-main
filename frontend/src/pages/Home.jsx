@@ -35,7 +35,7 @@ export default function Home() {
     <div data-testid="home-page">
       {/* ── HERO ── */}
       <section className="relative overflow-hidden" data-testid="hero-section">
-        <div className="max-w-[1240px] mx-auto px-5 sm:px-8 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center min-h-[calc(100vh-170px)] py-14 lg:py-0">
+        <div className="relative max-w-[1240px] mx-auto px-5 sm:px-8 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center min-h-[calc(100vh-170px)] py-14 lg:py-0">
           <div className="lg:col-span-7 order-2 lg:order-1">
             <motion.p
               initial={{ opacity: 0, y: 10 }}

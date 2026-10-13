@@ -101,3 +101,68 @@
 #====================================================================================================
 # Testing Data - Main Agent and testing sub agent both should log testing data below this section
 #====================================================================================================
+
+## user_problem_statement: "Phase 3 Reskin: festive Diwali seasonal mode — warmer flame intensity + celebratory gold accents, auto-activated by calendar during the Diwali window each year, plus subtle animated gradient moments on hero + collection banners only. No copy changes. Balanced intensity with Whisper restraint."
+## backend:
+##   - task: "None (visual/frontend feature)"
+##     implemented: true
+##     working: "NA"
+##     file: "NA"
+##     stuck_count: 0
+##     priority: "low"
+##     needs_retesting: false
+##     status_history:
+##         -working: "NA"
+##         -agent: "main"
+##         -comment: "No backend changes in this phase."
+## frontend:
+##   - task: "Festive seasonal mode (auto-calendar Diwali window)"
+##     implemented: true
+##     working: true
+##     file: "frontend/src/config/festive.js"
+##     stuck_count: 0
+##     priority: "high"
+##     needs_retesting: true
+##     status_history:
+##         -working: true
+##         -agent: "main"
+##         -comment: "New src/config/festive.js with FESTIVE_WINDOWS (Diwali 2025-2030, Lakshmi Puja ±3-4 days) and isFestiveSeason() with ?festive=1 / ?festive=0 URL overrides. Node test: 12/12 date cases + both overrides PASS."
+##   - task: "Festive CSS layer (warmer flame + gold sparks + 2 animated gradient moments)"
+##     implemented: true
+##     working: true
+##     file: "frontend/src/index.css"
+##     stuck_count: 0
+##     priority: "high"
+##     needs_retesting: true
+##     status_history:
+##         -working: true
+##         -agent: "main"
+##         -comment: "html.festive redefines --flame-gradient/--flame-gradient-deep (coral #F0341F → molten #FF8C33 → gold tip #E8B34B); gold hairline on product badges via span.bg-flame/span.bg-royal::after; rule-flame gains gold segment; btn-flame gains gold ring; hero ::before breathing warm glow (hero-section) + flame-drift on hero .text-flame and collection-banner-frame. Reduced-motion catch-all already disables animations. Verified via computed styles + screenshots on external preview: festive class on, animations flame-drift/festive-breathe running, badges gold spark present, no overflow-x at 1440 and 390; normal mode regression clean (class off, standard #EA3A2E→#F98140, animationName none)."
+##   - task: "App mount wiring + hero stacking fix"
+##     implemented: true
+##     working: true
+##     file: "frontend/src/App.js, frontend/src/pages/Home.jsx"
+##     stuck_count: 0
+##     priority: "high"
+##     needs_retesting: true
+##     status_history:
+##         -working: true
+##         -agent: "main"
+##         -comment: "App.js toggles 'festive' class on documentElement at mount; Home hero inner container got 'relative' so the absolute glow ::before paints behind hero content."
+## metadata:
+##   created_by: "main_agent"
+##   version: "1.0"
+##   test_sequence: 0
+##   run_ui: true
+## test_plan:
+##   current_focus:
+##     - "Festive mode renders on all key routes with ?festive=1 (home, collection detail, product detail, shop, gift finder)"
+##     - "Animated gradient moments exist ONLY on hero + collection banners"
+##     - "Normal mode regression: no festive class, standard gradient, no visual change"
+##     - "No overflow-x / console errors on desktop 1440x900 and mobile 390x844"
+##   stuck_tasks: []
+##   test_all: false
+##   test_priority: "high_first"
+## agent_communication:
+##     -agent: "main"
+##     -message: "Phase 3 festive mode implemented. Preview override: append ?festive=1 (force on) or ?festive=0 (force off) to any URL — auto-calendar alone only activates during Diwali windows (Oct 16-24 2025 next). No backend involved. Please verify festive rendering across routes, animation scope, gold sparks on badges/buttons/rule, mobile layout, and normal-mode regression."

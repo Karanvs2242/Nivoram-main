@@ -6,6 +6,7 @@ import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import ScrollToTop from "@/components/ScrollToTop";
 import { Toaster } from "@/components/ui/sonner";
 import { initLenis } from "@/lib/lenis";
+import { isFestiveSeason } from "@/config/festive";
 
 import Home from "@/pages/Home";
 import Shop from "@/pages/Shop";
@@ -55,6 +56,7 @@ class ErrorBoundary extends Component {
 export default function App() {
   useEffect(() => {
     initLenis();
+    document.documentElement.classList.toggle("festive", isFestiveSeason());
   }, []);
 
   return (
