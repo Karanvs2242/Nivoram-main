@@ -186,7 +186,7 @@ export default function EnquiryForm({ variant = "general", dark = false, testidP
           type="submit"
           disabled={isSubmitting}
           data-testid={`${testidPrefix}-submit`}
-          className="btn-sweep btn-sweep-dark inline-flex items-center justify-center gap-2.5 border border-ink bg-ink text-cream text-[11px] uppercase tracking-[0.2em] px-8 h-12 disabled:opacity-60"
+          className="btn-flame inline-flex items-center justify-center gap-2.5 border border-transparent text-[11px] uppercase tracking-[0.2em] px-8 h-12 disabled:opacity-60"
         >
           <span>
             {isSubmitting ? "Sending…" : isBulk ? "Request a Bulk Quote" : "Send Enquiry"}

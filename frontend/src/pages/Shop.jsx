@@ -48,7 +48,7 @@ const EmptyEdit = ({ mode }) => (
     className="border border-sand bg-white p-10 sm:p-14 text-center max-w-2xl mx-auto"
     data-testid={`shop-${mode}-empty`}
   >
-    <p className="text-[11px] uppercase tracking-[0.24em] text-terra mb-4">Edit refreshing</p>
+    <p className="text-[11px] uppercase tracking-[0.24em] text-royal mb-4">Edit refreshing</p>
     <h2 className="font-display text-3xl text-ink">Nothing marked here yet.</h2>
     <p className="mt-3 text-[14px] leading-relaxed text-ink/55">
       {mode === "new"

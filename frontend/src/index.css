@@ -7,8 +7,11 @@
   --ink: #302B32;
   --terra: #E04A36;
   --royal: #AC2FCB;
+  --lav: #C77FEA;
   --sand: #E5DCD0;
   --wa: #25D366;
+  --flame-gradient: linear-gradient(90deg, #EA3A2E 0%, #F98140 100%);
+  --flame-gradient-deep: linear-gradient(90deg, #D6372A 0%, #F98140 100%);
   --background: 37 48% 95%;
   --foreground: 283 7% 18%;
   --border: 36 33% 86%;
@@ -47,6 +50,34 @@ html.lenis, html.lenis body { height: auto; }
   background-size: 220px 220px;
 }
 
+/* ── Mandala & Flame gradient system ── */
+.text-flame {
+  background-image: var(--flame-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.bg-flame { background-image: var(--flame-gradient-deep); }
+.rule-flame {
+  height: 1px;
+  border: 0;
+  background: linear-gradient(90deg, transparent 0%, #EA3A2E 22%, #F98140 55%, #AC2FCB 82%, transparent 100%);
+  opacity: 0.55;
+}
+.btn-flame {
+  position: relative;
+  background-image: var(--flame-gradient-deep);
+  background-size: 220% 100%;
+  background-position: 0% 0;
+  color: #FFFFFF;
+  transition: background-position 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+  box-shadow: 0 10px 26px -14px rgba(224, 74, 54, 0.55);
+}
+.btn-flame:hover {
+  background-position: 92% 0;
+  box-shadow: 0 14px 30px -14px rgba(224, 74, 54, 0.65);
+}
+
 /* Marquee */
 @keyframes marquee-x {
   from { transform: translateX(0); }
@@ -59,16 +90,17 @@ html.lenis, html.lenis body { height: auto; }
 }
 .marquee:hover .marquee-track { animation-play-state: paused; }
 
-/* Nav underline */
+/* Nav underline — flame gradient */
 .nav-link { position: relative; }
 .nav-link::after {
   content: "";
   position: absolute;
   left: 0;
   bottom: -5px;
-  height: 1px;
+  height: 2px;
   width: 100%;
-  background: currentColor;
+  background: var(--flame-gradient);
+  border-radius: 2px;
   transform: scaleX(0);
   transform-origin: right;
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
@@ -93,7 +125,7 @@ html.lenis, html.lenis body { height: auto; }
 }
 .link-underline:hover::after { transform: scaleX(0); transform-origin: left; }
 
-/* Button sweep fill */
+/* Button sweep fill (secondary buttons) */
 .btn-sweep { position: relative; overflow: hidden; isolation: isolate; }
 .btn-sweep > span { position: relative; z-index: 1; transition: color 0.35s cubic-bezier(0.16,1,0.3,1); }
 .btn-sweep::before {
@@ -130,6 +162,7 @@ html.lenis, html.lenis body { height: auto; }
   .marquee-track { animation: none; }
   .wa-pulse { animation: none; }
   .btn-sweep::before { display: none; }
+  .btn-flame { background-position: 50% 0; }
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;

@@ -47,6 +47,8 @@ Build a complete, responsive, production-ready brand showcase website for NIVORA
 
 - Instagram sync (2026-10-13): backend `GET /api/instagram/feed` (Graph API via META_ACCESS_TOKEN + IG_USER_ID env vars, Mongo-cached 10 min in `instagram_feed_cache`, stale-serve on failures, token never leaves the server); homepage social section now renders live posts (up to 8, permalinks to Instagram) when ≥4 cached posts exist, otherwise the real-catalogue fallback grid. Awaiting the owner's Meta app token + IG user id to go live.
 
+- "Mandala & Flame" reskin — Phase 1 (2026-10-13): flame gradient tokens (#EA3A2E → #F98140; deep variant for buttons) with utilities .text-flame / .bg-flame / .btn-flame / .rule-flame; gradient nav underlines; hero "Elegance" + chosen section-heading words in flame gradient (SectionHeading highlight prop); primary CTAs (hero, gift-finder, closing, form submits) on the flame ramp with hover shift; marquee diamonds upgraded (flame/lav/orchid); product & collection cards get warm-tinted hover rings + shadows; New Arrival badge = flame gradient, Bestseller = orchid; "Price on enquiry" + eyebrow labels in orchid; barely-warm white (bg-warmwhite #FDF8F0) on featured/why sections; footer flame top rule + lavender column headings. WhatsApp green preserved; body text charcoal; reduced-motion honoured (bg-position pinned). Phases 2–3 pending approval.
+
 ## Backlog
 - **P0**: Replace ENQUIRY_EMAIL + WhatsApp number before launch
 - **P1**: Real catalogue data + photography; Instagram link; domain + sitemap update

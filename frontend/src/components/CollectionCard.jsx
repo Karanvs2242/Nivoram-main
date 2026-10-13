@@ -16,7 +16,7 @@ export default function CollectionCard({ collection, className = "", aspect = "a
       data-testid={`collection-card-${collection.slug}`}
     >
       <Link to={`/collections/${collection.slug}`} className="block" aria-label={`${collection.name} collection`}>
-        <div className={`relative overflow-hidden bg-white border border-sand ${aspect}`}>
+        <div className={`relative overflow-hidden bg-white border border-sand transition-shadow duration-500 group-hover:shadow-[0_0_0_1px_rgba(234,58,46,0.35),0_20px_44px_-26px_rgba(224,74,54,0.3)] ${aspect}`}>
           <img
             src={collection.image}
             alt={collection.alt}

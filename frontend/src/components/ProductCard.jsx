@@ -23,7 +23,7 @@ export default function ProductCard({ product, index = 0 }) {
       whileInView="show"
       viewport={viewportOnce}
       transition={{ duration: 0.7, delay: (index % 4) * 0.07 }}
-      className="group bg-white border border-sand hover:border-ink/25 hover:-translate-y-1 hover:shadow-[0_18px_40px_-24px_rgba(48,43,50,0.25)] transition-all duration-300 flex flex-col"
+      className="group bg-white border border-sand hover:border-transparent hover:-translate-y-1 hover:shadow-[0_0_0_1px_rgba(234,58,46,0.35),0_18px_40px_-22px_rgba(224,74,54,0.3)] transition-all duration-300 flex flex-col"
       data-testid={`product-card-${product.slug}`}
     >
       <Link to={`/products/${product.slug}`} className="block relative overflow-hidden aspect-[4/5]" aria-label={product.name}>
@@ -41,10 +41,14 @@ export default function ProductCard({ product, index = 0 }) {
         {(product.isNew || product.isBestseller) && (
           <div className="absolute top-3 right-3 flex flex-col items-end gap-1.5" data-testid={`product-badges-${product.slug}`}>
             {product.isNew && (
-              <span className="bg-ink text-cream text-[9px] uppercase tracking-[0.2em] px-2.5 py-1.5">New Arrival</span>
+              <span className="bg-flame text-white text-[9px] uppercase tracking-[0.2em] px-2.5 py-1.5 shadow-[0_6px_16px_-8px_rgba(224,74,54,0.7)]">
+                New Arrival
+              </span>
             )}
             {product.isBestseller && (
-              <span className="bg-terra text-white text-[9px] uppercase tracking-[0.2em] px-2.5 py-1.5">Bestseller</span>
+              <span className="bg-royal text-white text-[9px] uppercase tracking-[0.2em] px-2.5 py-1.5 shadow-[0_6px_16px_-8px_rgba(172,47,203,0.7)]">
+                Bestseller
+              </span>
             )}
           </div>
         )}
@@ -72,7 +76,7 @@ export default function ProductCard({ product, index = 0 }) {
           </button>
         </div>
         <div className="mt-auto pt-4 flex items-center justify-between">
-          <span className="text-[12px] text-terra">Price on enquiry</span>
+          <span className="text-[12px] text-royal">Price on enquiry</span>
           <Link
             to={`/products/${product.slug}`}
             className="text-[10px] uppercase tracking-[0.22em] text-ink/60 hover:text-ink transition-colors duration-300"

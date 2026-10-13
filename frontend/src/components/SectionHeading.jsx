@@ -4,6 +4,7 @@ import { EASE, viewportOnce, fadeUp, stagger } from "@/lib/motion";
 export default function SectionHeading({
   eyebrow,
   title,
+  highlight,
   intro,
   align = "left",
   dark = false,
@@ -12,6 +13,19 @@ export default function SectionHeading({
   children,
 }) {
   const alignCls = align === "center" ? "text-center items-center" : "text-left items-start";
+  const renderTitle = () => {
+    if (highlight && typeof title === "string" && title.includes(highlight)) {
+      const [before, after] = title.split(highlight);
+      return (
+        <>
+          {before}
+          <span className="text-flame">{highlight}</span>
+          {after || ""}
+        </>
+      );
+    }
+    return title;
+  };
   return (
     <div className={`flex flex-col ${alignCls} ${className}`}>
       {eyebrow && (
@@ -21,7 +35,7 @@ export default function SectionHeading({
           whileInView="show"
           viewport={viewportOnce}
           className={`text-[11px] uppercase tracking-[0.28em] mb-5 ${
-            dark ? "text-cream/50" : "text-terra"
+            dark ? "text-lav/80" : "text-royal"
           }`}
         >
           {eyebrow}
@@ -37,7 +51,7 @@ export default function SectionHeading({
             dark ? "text-cream" : "text-ink"
           } ${titleClassName}`}
         >
-          {title}
+          {renderTitle()}
         </motion.h2>
       </div>
       {intro && (

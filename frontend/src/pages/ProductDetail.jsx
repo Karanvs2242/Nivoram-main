@@ -99,18 +99,18 @@ export default function ProductDetail() {
 
           {/* Details */}
           <div className="lg:col-span-5">
-            <p className="text-[11px] uppercase tracking-[0.24em] text-terra mb-3" data-testid="product-sku">
+            <p className="text-[11px] uppercase tracking-[0.24em] text-royal mb-3" data-testid="product-sku">
               {product.sku}
             </p>
             {(product.isNew || product.isBestseller) && (
               <div className="flex flex-wrap gap-2 mb-4" data-testid="product-status-badges">
                 {product.isNew && (
-                  <span className="text-[9px] uppercase tracking-[0.2em] bg-ink text-cream px-2.5 py-1.5">
+                  <span className="bg-flame text-white text-[9px] uppercase tracking-[0.2em] px-2.5 py-1.5">
                     New Arrival
                   </span>
                 )}
                 {product.isBestseller && (
-                  <span className="text-[9px] uppercase tracking-[0.2em] bg-terra text-white px-2.5 py-1.5">
+                  <span className="bg-royal text-white text-[9px] uppercase tracking-[0.2em] px-2.5 py-1.5">
                     Bestseller
                   </span>
                 )}
@@ -146,7 +146,7 @@ export default function ProductDetail() {
               ))}
               <div className="flex items-baseline justify-between gap-6 py-3 border-b border-sand">
                 <dt className="text-[10px] uppercase tracking-[0.2em] text-ink/45 shrink-0">Price</dt>
-                <dd className="text-[14px] text-terra">Price on enquiry</dd>
+                <dd className="text-[14px] text-royal">Price on enquiry</dd>
               </div>
             </dl>
 

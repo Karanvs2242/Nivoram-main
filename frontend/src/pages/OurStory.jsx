@@ -23,7 +23,7 @@ export default function OurStory() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: EASE, delay: 0.1 }}
-          className="text-[11px] uppercase tracking-[0.3em] text-terra mb-6"
+          className="text-[11px] uppercase tracking-[0.3em] text-royal mb-6"
         >
           Our Story
         </motion.p>

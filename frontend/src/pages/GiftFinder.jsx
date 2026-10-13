@@ -150,7 +150,7 @@ export default function GiftFinder() {
     <div className="min-h-[70vh]" data-testid="gift-finder-page">
       <section className="max-w-[900px] mx-auto px-5 sm:px-8 pt-14 sm:pt-20 pb-24">
         <div className="flex items-center justify-between mb-10">
-          <p className="text-[11px] uppercase tracking-[0.3em] text-terra flex items-center gap-2">
+          <p className="text-[11px] uppercase tracking-[0.3em] text-royal flex items-center gap-2">
             <Sparkles size={13} /> Gift Finder
           </p>
           <p className="text-[11px] uppercase tracking-[0.22em] text-ink/40" data-testid="gf-progress">
@@ -159,7 +159,7 @@ export default function GiftFinder() {
         </div>
         <div className="h-px bg-sand relative overflow-hidden mb-12" aria-hidden="true">
           <motion.div
-            className="absolute inset-y-0 left-0 bg-terra"
+            className="absolute inset-y-0 left-0 bg-flame"
             initial={false}
             animate={{ width: `${(Math.min(step, 3) / 3) * 100}%` }}
             transition={{ duration: 0.5, ease: EASE }}

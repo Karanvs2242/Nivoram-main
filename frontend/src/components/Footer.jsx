@@ -41,7 +41,7 @@ const CONTACT = [
 
 const Col = ({ title, links, testidPrefix }) => (
   <div>
-    <h3 className="text-[10px] uppercase tracking-[0.26em] text-cream/40 mb-5">{title}</h3>
+    <h3 className="text-[10px] uppercase tracking-[0.26em] text-lav/80 mb-5">{title}</h3>
     <ul className="space-y-2.5">
       {links.map(([label, to]) => (
         <li key={to}>
@@ -61,6 +61,7 @@ const Col = ({ title, links, testidPrefix }) => (
 export default function Footer() {
   return (
     <footer className="bg-ink text-cream" data-testid="footer">
+      <div className="h-[3px] bg-flame" aria-hidden="true" />
       <div className="max-w-[1240px] mx-auto px-5 sm:px-8 pt-16 sm:pt-20 pb-8">
         <div className="grid grid-cols-2 md:grid-cols-12 gap-10 md:gap-8">
           <div className="col-span-2 md:col-span-4">

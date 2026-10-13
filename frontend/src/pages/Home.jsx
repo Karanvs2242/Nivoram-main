@@ -12,7 +12,6 @@ import { ParallaxImage, Reveal } from "@/components/Reveal";
 import { useSEO, organizationJsonLd } from "@/lib/seo";
 import { EASE, lineMask, viewportOnce, fadeUp } from "@/lib/motion";
 import { COLLECTIONS, PRODUCTS, OCCASIONS, IMAGES, productsInCollection } from "@/data/catalog";
-import { SITE_CONFIG } from "@/config/site";
 
 const HERO_LINES = ["Elegance", "That Lasts."];
 
@@ -42,7 +41,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: EASE, delay: 0.15 }}
-              className="text-[11px] uppercase tracking-[0.3em] text-terra mb-6"
+              className="text-[11px] uppercase tracking-[0.3em] text-royal mb-6"
             >
               999 Silver-Plated &amp; Gold-Coated Décor
             </motion.p>
@@ -50,7 +49,7 @@ export default function Home() {
               {HERO_LINES.map((line, i) => (
                 <span key={i} className="block overflow-hidden pb-1">
                   <motion.span
-                    className="block"
+                    className={`block ${i === 0 ? "text-flame" : ""}`}
                     custom={i}
                     variants={lineMask}
                     initial="hidden"
@@ -79,9 +78,9 @@ export default function Home() {
               <Link
                 to="/collections"
                 data-testid="hero-explore-collections"
-                className="btn-sweep btn-sweep-dark inline-flex items-center gap-3 border border-ink bg-ink text-cream text-[11px] uppercase tracking-[0.2em] px-8 h-12"
+                className="btn-flame inline-flex items-center gap-3 border border-transparent text-[11px] uppercase tracking-[0.2em] px-8 h-12"
               >
-                <span>Explore Collections</span>
+                <span className="relative z-[1]">Explore Collections</span>
                 <ArrowRight size={14} className="relative z-[1]" />
               </Link>
               <Link
@@ -163,7 +162,7 @@ export default function Home() {
       </section>
 
       {/* ── FEATURED PRODUCTS ── */}
-      <section className="py-20 sm:py-28 bg-white border-y border-sand" data-testid="home-featured">
+      <section className="py-20 sm:py-28 bg-warmwhite border-y border-sand" data-testid="home-featured">
         <div className="max-w-[1240px] mx-auto px-5 sm:px-8">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">
             <SectionHeading eyebrow="Featured Pieces" title="Currently in Focus" />
@@ -187,6 +186,7 @@ export default function Home() {
           <SectionHeading
             eyebrow="Shop by Occasion"
             title="What Are You Shopping For?"
+            highlight="Shopping For?"
             intro="Two ways to explore Nivoram — by collection, or by the occasion you're shopping for."
             className="mb-12"
           />
@@ -233,7 +233,7 @@ export default function Home() {
             className="bg-white border border-sand grid grid-cols-1 lg:grid-cols-2 gap-10 items-center p-8 sm:p-12 hover:shadow-[0_24px_60px_-36px_rgba(48,43,50,0.35)] transition-shadow duration-500"
           >
             <div>
-              <p className="text-[11px] uppercase tracking-[0.3em] text-terra mb-4 flex items-center gap-2">
+              <p className="text-[11px] uppercase tracking-[0.3em] text-royal mb-4 flex items-center gap-2">
                 <Sparkles size={13} /> Gift Finder
               </p>
               <h2 className="font-display text-4xl sm:text-5xl leading-[1.05] tracking-tight text-ink">
@@ -246,9 +246,9 @@ export default function Home() {
               <Link
                 to="/gift-finder"
                 data-testid="home-gift-finder-cta"
-                className="mt-7 btn-sweep btn-sweep-dark inline-flex items-center gap-3 border border-ink bg-ink text-cream text-[11px] uppercase tracking-[0.2em] px-8 h-12"
+                className="mt-7 btn-flame inline-flex items-center gap-3 border border-transparent text-[11px] uppercase tracking-[0.2em] px-8 h-12"
               >
-                <span>Find the Perfect Gift</span>
+                <span className="relative z-[1]">Find the Perfect Gift</span>
                 <ArrowRight size={14} className="relative z-[1]" />
               </Link>
             </div>
@@ -276,11 +276,12 @@ export default function Home() {
       </section>
 
       {/* ── WHY NIVORAM ── */}
-      <section className="bg-white border-y border-sand py-20 sm:py-28" data-testid="home-why-nivoram">
+      <section className="bg-warmwhite border-y border-sand py-20 sm:py-28" data-testid="home-why-nivoram">
         <div className="max-w-[1240px] mx-auto px-5 sm:px-8">
           <SectionHeading
             eyebrow="Why Nivoram"
             title="Thoughtful Details. Meaningful Moments."
+            highlight="Thoughtful Details."
             intro="Every piece is shortlisted with one question — would you keep this gift? Three things guide the answer."
             className="mb-14"
           />
@@ -299,7 +300,7 @@ export default function Home() {
                 transition={{ duration: 0.7, delay: i * 0.1 }}
                 className="border-t-2 border-terra/50 pt-6"
               >
-                <p className="text-[11px] uppercase tracking-[0.24em] text-terra/80 mb-3">{n}</p>
+                <p className="text-[11px] uppercase tracking-[0.24em] text-royal/80 mb-3">{n}</p>
                 <h3 className="font-display text-2xl text-ink">{t}</h3>
                 <p className="mt-2 text-[14px] leading-relaxed text-ink/55">{d}</p>
               </motion.div>
@@ -395,31 +396,35 @@ export default function Home() {
       </section>
 
       {/* ── FINAL CTA ── */}
-      <section className="py-20 sm:py-32 border-t border-sand" data-testid="home-closing-cta">
-        <div className="max-w-[1240px] mx-auto px-5 sm:px-8 text-center">
-          <SectionHeading
-            align="center"
-            eyebrow="Nivoram"
-            title="Find Something Meaningful."
-            titleClassName="mx-auto max-w-3xl"
-            intro="Whether it's a gift for someone specific or a piece for your own space — start with the catalogue, or simply tell us what the moment is."
-          />
-          <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={viewportOnce} className="mt-10 flex flex-wrap justify-center gap-4">
-            <Link
-              to="/shop"
-              data-testid="closing-explore-catalogue"
-              className="btn-sweep btn-sweep-dark inline-flex items-center gap-3 border border-ink bg-ink text-cream text-[11px] uppercase tracking-[0.2em] px-8 h-12"
-            >
-              <span>Explore the Catalogue</span>
-            </Link>
-            <Link
-              to="/contact"
-              data-testid="closing-contact-nivoram"
-              className="inline-flex items-center border border-ink/30 text-ink text-[11px] uppercase tracking-[0.2em] px-8 h-12 hover:border-ink hover:bg-ink hover:text-cream transition-colors duration-300"
-            >
-              Contact Nivoram
-            </Link>
-          </motion.div>
+      <section className="py-20 sm:py-32" data-testid="home-closing-cta">
+        <div className="max-w-[1240px] mx-auto px-5 sm:px-8">
+          <div className="rule-flame mb-16" aria-hidden="true" />
+          <div className="text-center">
+            <SectionHeading
+              align="center"
+              eyebrow="Nivoram"
+              title="Find Something Meaningful."
+              highlight="Meaningful."
+              titleClassName="mx-auto max-w-3xl"
+              intro="Whether it's a gift for someone specific or a piece for your own space — start with the catalogue, or simply tell us what the moment is."
+            />
+            <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={viewportOnce} className="mt-10 flex flex-wrap justify-center gap-4">
+              <Link
+                to="/shop"
+                data-testid="closing-explore-catalogue"
+                className="btn-flame inline-flex items-center gap-3 border border-transparent text-[11px] uppercase tracking-[0.2em] px-8 h-12"
+              >
+                <span className="relative z-[1]">Explore the Catalogue</span>
+              </Link>
+              <Link
+                to="/contact"
+                data-testid="closing-contact-nivoram"
+                className="inline-flex items-center border border-ink/30 text-ink text-[11px] uppercase tracking-[0.2em] px-8 h-12 hover:border-ink hover:bg-ink hover:text-cream transition-colors duration-300"
+              >
+                Contact Nivoram
+              </Link>
+            </motion.div>
+          </div>
         </div>
       </section>
     </div>

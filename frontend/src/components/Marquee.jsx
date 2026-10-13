@@ -7,7 +7,7 @@ export default function Marquee({ items }) {
             {item}
           </span>
           <span
-            className={`inline-block h-1.5 w-1.5 rotate-45 ${["bg-terra/70", "bg-coral/70", "bg-lav/80"][i % 3]}`}
+            className={`inline-block h-2 w-2 rotate-45 ${["bg-flame", "bg-lav/80", "bg-royal/60"][i % 3]}`}
             aria-hidden="true"
           />
         </span>
