@@ -38,6 +38,16 @@ export default function ProductCard({ product, index = 0 }) {
             Sample imagery
           </span>
         )}
+        {(product.isNew || product.isBestseller) && (
+          <div className="absolute top-3 right-3 flex flex-col items-end gap-1.5" data-testid={`product-badges-${product.slug}`}>
+            {product.isNew && (
+              <span className="bg-ink text-cream text-[9px] uppercase tracking-[0.2em] px-2.5 py-1.5">New Arrival</span>
+            )}
+            {product.isBestseller && (
+              <span className="bg-terra text-white text-[9px] uppercase tracking-[0.2em] px-2.5 py-1.5">Bestseller</span>
+            )}
+          </div>
+        )}
       </Link>
       <div className="p-5 flex flex-col flex-1 border-t border-sand">
         <div className="flex items-start justify-between gap-3">

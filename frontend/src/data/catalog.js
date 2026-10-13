@@ -153,7 +153,7 @@ export const PRODUCTS = [
     description: "A silver-plated Ganesha idol with fine detailing, presented on a display stand — a considered piece for a pooja shelf, console or entryway.",
     image: P("p08-x185.jpg"), images: [P("p08-x185.jpg"), P("p06-x167.jpg")],
     collections: ["sacred-elegance", "divine-grace"], occasions: ["weddings", "housewarming", "festive"],
-    featured: true, bulkEligible: false, placeholder: false, isNew: false, isBestseller: false,
+    featured: true, bulkEligible: false, placeholder: false, isNew: false, isBestseller: true,
   },
   {
     id: "nvr-202", sku: "NVR-202", slug: "krishna-with-flute",
@@ -185,7 +185,7 @@ export const PRODUCTS = [
     description: "A silver-plated Radha-Krishna pair with intricate detailing — a classic blessing for weddings, anniversaries and festive gifting.",
     image: P("p07-x173.jpg"), images: [P("p07-x173.jpg"), P("p08-x189.jpg")],
     collections: ["sacred-elegance", "thoughtful-gifting"], occasions: ["weddings", "festive"],
-    featured: true, bulkEligible: false, placeholder: false, isNew: false, isBestseller: false,
+    featured: true, bulkEligible: false, placeholder: false, isNew: false, isBestseller: true,
   },
   {
     id: "nvr-206", sku: "NVR-206", slug: "feather-in-hand-sculpture",
@@ -193,7 +193,7 @@ export const PRODUCTS = [
     description: "An artistic silver sculpture of hands cradling a peacock feather — an evocative, contemporary devotional piece for styled interiors.",
     image: P("p06-x165.jpg"), images: [P("p06-x165.jpg"), P("p06-x167.jpg")],
     collections: ["sacred-elegance", "statement-decor"], occasions: ["housewarming", "weddings"],
-    featured: false, bulkEligible: false, placeholder: false, isNew: false, isBestseller: false,
+    featured: false, bulkEligible: false, placeholder: false, isNew: true, isBestseller: false,
   },
   {
     id: "nvr-207", sku: "NVR-207", slug: "carved-shankha",
@@ -243,7 +243,7 @@ export const PRODUCTS = [
     description: "A pair of silver-plated vases with intricate relief carvings — styled beautifully with flowers, books or on their own.",
     image: P("p10-x229.jpg"), images: [P("p10-x229.jpg"), P("p11-x239.jpg"), P("p11-x246.jpg")],
     collections: ["statement-decor"], occasions: ["weddings", "housewarming"],
-    featured: true, bulkEligible: false, placeholder: false, isNew: false, isBestseller: false,
+    featured: true, bulkEligible: false, placeholder: false, isNew: false, isBestseller: true,
   },
   {
     id: "nvr-213", sku: "NVR-213", slug: "tall-figural-vase",
@@ -259,7 +259,7 @@ export const PRODUCTS = [
     description: "A pair of silver-plated peacocks standing beside carved vases — a coordinated statement for consoles and sideboards.",
     image: P("p10-x232.jpg"), images: [P("p10-x232.jpg")],
     collections: ["statement-decor"], occasions: ["housewarming", "weddings"],
-    featured: false, bulkEligible: false, placeholder: false, isNew: false, isBestseller: false,
+    featured: false, bulkEligible: false, placeholder: false, isNew: true, isBestseller: false,
   },
   {
     id: "nvr-215", sku: "NVR-215", slug: "swan-figurine",
@@ -291,7 +291,7 @@ export const PRODUCTS = [
     description: "A silver-plated wall clock with divine figures arranged around the dial — devotional detailing for everyday moments.",
     image: P("p12-x259.jpg"), images: [P("p12-x259.jpg")],
     collections: ["statement-decor"], occasions: ["housewarming", "festive"],
-    featured: false, bulkEligible: false, placeholder: false, isNew: false, isBestseller: false,
+    featured: false, bulkEligible: false, placeholder: false, isNew: true, isBestseller: false,
   },
   {
     id: "nvr-219", sku: "NVR-219", slug: "starburst-wall-clock",
@@ -463,7 +463,7 @@ export const PRODUCTS = [
     description: "A silver-plated Lakshmi seated on the lotus, finished with colourful adornments — grace and abundance for the pooja shelf.",
     image: P("p19-x356.jpg"), images: [P("p19-x356.jpg")],
     collections: ["divine-grace", "sacred-elegance"], occasions: ["festive", "weddings"],
-    featured: true, bulkEligible: false, placeholder: false, isNew: false, isBestseller: false,
+    featured: true, bulkEligible: false, placeholder: false, isNew: false, isBestseller: true,
   },
   {
     id: "nvr-240", sku: "NVR-240", slug: "rama-darbar-idol-set",
@@ -577,7 +577,7 @@ export const PRODUCTS = [
     description: "An ivory-toned ornate box with silver detailing — for jewellery and small treasures, and a graceful return gift.",
     image: P("p25-x416.jpg"), images: [P("p25-x416.jpg")],
     collections: ["thoughtful-gifting"], occasions: ["weddings", "return"],
-    featured: false, bulkEligible: true, placeholder: false, isNew: false, isBestseller: false,
+    featured: false, bulkEligible: true, placeholder: false, isNew: false, isBestseller: true,
   },
   {
     id: "nvr-254", sku: "NVR-254", slug: "floral-elephant-pair",
@@ -593,7 +593,7 @@ export const PRODUCTS = [
     description: "A silver-plated box shaped like a vintage car with carved detailing — a playful, memorable gift for the person who has everything.",
     image: P("p26-x421.jpg"), images: [P("p26-x421.jpg")],
     collections: ["thoughtful-gifting"], occasions: ["return", "corporate"],
-    featured: false, bulkEligible: true, placeholder: false, isNew: false, isBestseller: false,
+    featured: false, bulkEligible: true, placeholder: false, isNew: true, isBestseller: false,
   },
   {
     id: "nvr-256", sku: "NVR-256", slug: "owl-on-coin-stack",
@@ -601,7 +601,7 @@ export const PRODUCTS = [
     description: "A silver-plated owl perched on a stack of coins, presented in a glass case — wealth symbolism with a collector's feel.",
     image: P("p26-x426.jpg"), images: [P("p26-x426.jpg")],
     collections: ["thoughtful-gifting", "auspicious-living"], occasions: ["housewarming", "return", "corporate"],
-    featured: false, bulkEligible: false, placeholder: false, isNew: false, isBestseller: false,
+    featured: false, bulkEligible: false, placeholder: false, isNew: true, isBestseller: false,
   },
   {
     id: "nvr-257", sku: "NVR-257", slug: "floating-candle-urli-tray",
@@ -617,7 +617,7 @@ export const PRODUCTS = [
     description: "An ornate silver-plated diya with floral patterns — the piece that lights up festivals, poojas and gifting lists.",
     image: P("p27-x435.jpg"), images: [P("p27-x435.jpg")],
     collections: ["thoughtful-gifting", "sacred-elegance"], occasions: ["festive", "return"],
-    featured: false, bulkEligible: true, placeholder: false, isNew: false, isBestseller: false,
+    featured: false, bulkEligible: true, placeholder: false, isNew: false, isBestseller: true,
   },
   {
     id: "nvr-259", sku: "NVR-259", slug: "elephant-motif-clock",
