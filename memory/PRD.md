@@ -45,6 +45,8 @@ Build a complete, responsive, production-ready brand showcase website for NIVORA
 - Gift Finder (2026-10-13): /gift-finder quiz — three questions (occasion, recipient, budget tier with no invented prices) score the real catalogue and recommend the top two collections plus four matching pieces, with a WhatsApp shortlist CTA (prefilled via the custom-message support in waMessage). Added to the Gifting dropdown, footer, and the homepage hero's "Find the Perfect Gift" CTA; in the sitemap. Compact homepage banner section (home-gift-finder-banner) sits between Shop by Occasion and Why Nivoram — two-column card with the three-step preview and sweep CTA.
 - Shop statuses (2026-10-13): on the owner's instruction, 5 pieces marked New Arrivals (Feather-in-Hand Sculpture, Peacock Pair with Vases, Divine-Dial Clock, Vintage Car Keepsake Box, Owl on Coin Stack) and 6 marked Bestsellers (Ganesha Idol on Display Stand, Radha-Krishna Pair, Relief-Carved Vase Pair, Lakshmi on Lotus, Ivory Keepsake Box, Ornate Diya) — flags live in catalog.js (isNew/isBestseller) and can be swapped any time; badges render on shop cards and product pages.
 
+- Instagram sync (2026-10-13): backend `GET /api/instagram/feed` (Graph API via META_ACCESS_TOKEN + IG_USER_ID env vars, Mongo-cached 10 min in `instagram_feed_cache`, stale-serve on failures, token never leaves the server); homepage social section now renders live posts (up to 8, permalinks to Instagram) when ≥4 cached posts exist, otherwise the real-catalogue fallback grid. Awaiting the owner's Meta app token + IG user id to go live.
+
 ## Backlog
 - **P0**: Replace ENQUIRY_EMAIL + WhatsApp number before launch
 - **P1**: Real catalogue data + photography; Instagram link; domain + sitemap update

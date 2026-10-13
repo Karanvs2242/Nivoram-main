@@ -7,6 +7,7 @@ import CollectionCard from "@/components/CollectionCard";
 import ProductCard from "@/components/ProductCard";
 import Marquee from "@/components/Marquee";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import InstagramFeed from "@/components/InstagramFeed";
 import { ParallaxImage, Reveal } from "@/components/Reveal";
 import { useSEO, organizationJsonLd } from "@/lib/seo";
 import { EASE, lineMask, viewportOnce, fadeUp } from "@/lib/motion";
@@ -389,29 +390,7 @@ export default function Home() {
             intro="Styling notes, festive edits and new pieces — straight from @nivoram.shop."
             className="mb-10"
           />
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
-            {IMAGES.socialGrid.map((src, i) => (
-              <motion.a
-                key={i}
-                href={SITE_CONFIG.instagramUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                variants={fadeUp}
-                initial="hidden"
-                whileInView="show"
-                viewport={viewportOnce}
-                transition={{ duration: 0.6, delay: i * 0.07 }}
-                className="group relative aspect-square overflow-hidden bg-white border border-sand"
-                aria-label="Open Instagram"
-                data-testid={`social-tile-${i}`}
-              >
-                <img src={src} alt="Nivoram styling inspiration" loading="lazy" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.05]" />
-                <span className="absolute inset-0 flex items-center justify-center bg-ink/0 group-hover:bg-ink/25 transition-colors duration-300">
-                  <Instagram size={22} className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </span>
-              </motion.a>
-            ))}
-          </div>
+          <InstagramFeed />
         </div>
       </section>
 

@@ -301,6 +301,75 @@ async def create_enquiry(input: EnquiryCreate, request: Request):
 
     return {"status": "received", "email_notified": email_notified}
 
+# ---- Instagram Graph API feed (token stays server-side) ----
+META_ACCESS_TOKEN = os.environ.get("META_ACCESS_TOKEN", "")
+IG_USER_ID = os.environ.get("IG_USER_ID", "")
+META_GRAPH_API_VERSION = os.environ.get("META_GRAPH_API_VERSION", "v21.0")
+IG_CACHE_TTL = int(os.environ.get("INSTAGRAM_CACHE_TTL_SECONDS", "600"))
+
+IG_FIELDS = (
+    "id,caption,media_type,media_url,thumbnail_url,permalink,timestamp,"
+    "children{id,media_type,media_url,thumbnail_url}"
+)
+
+def _ig_normalize(item: dict) -> dict:
+    # Carousels have no top-level media_url — use the first child image.
+    media_url = item.get("media_url")
+    thumb = item.get("thumbnail_url")
+    children = item.get("children", {}).get("data", [])
+    if item.get("media_type") == "CAROUSEL_ALBUM" and children:
+        first = children[0]
+        media_url = first.get("media_url") or media_url
+        thumb = first.get("thumbnail_url") or thumb or media_url
+    return {
+        "id": item.get("id", ""),
+        "caption": item.get("caption", ""),
+        "media_type": item.get("media_type", "IMAGE"),
+        "media_url": media_url,
+        "thumbnail_url": thumb or media_url,
+        "permalink": item.get("permalink", "https://www.instagram.com/nivoram.shop/"),
+        "timestamp": item.get("timestamp", ""),
+    }
+
+async def _ig_cached():
+    doc = await db.instagram_feed_cache.find_one({"_id": "nivoram.shop"})
+    if not doc:
+        return [], True
+    age = (datetime.now(timezone.utc) - doc["updated_at"]).total_seconds()
+    return doc.get("posts", []), age > IG_CACHE_TTL
+
+async def _ig_fetch_and_cache() -> list:
+    url = f"https://graph.facebook.com/{META_GRAPH_API_VERSION}/{IG_USER_ID}/media"
+    params = {"fields": IG_FIELDS, "limit": 12, "access_token": META_ACCESS_TOKEN}
+    async with httpx.AsyncClient(timeout=10) as http:
+        resp = await http.get(url, params=params)
+        if resp.status_code != 200:
+            # log a redacted status only — never the URL (it carries the token)
+            logger.error(f"Instagram feed fetch failed with status {resp.status_code}")
+            raise ValueError("instagram_fetch_failed")
+        raw = resp.json().get("data", [])
+    posts = [_ig_normalize(x) for x in raw if x.get("permalink")]
+    await db.instagram_feed_cache.replace_one(
+        {"_id": "nivoram.shop"},
+        {"_id": "nivoram.shop", "updated_at": datetime.now(timezone.utc), "posts": posts},
+        upsert=True,
+    )
+    return posts
+
+@api_router.get("/instagram/feed")
+async def instagram_feed():
+    old, expired = await _ig_cached()
+    if not META_ACCESS_TOKEN or not IG_USER_ID:
+        return {"configured": False, "stale": bool(old), "posts": old}
+    if not expired and old:
+        return {"configured": True, "stale": False, "posts": old}
+    try:
+        fresh = await _ig_fetch_and_cache()
+        return {"configured": True, "stale": False, "posts": fresh}
+    except Exception:
+        # Meta down, token expired or rate-limited — serve cache, never break the homepage
+        return {"configured": True, "stale": bool(old), "posts": old}
+
 app.include_router(api_router)
 
 app.add_middleware(
