@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowRight, ArrowUpRight, Instagram } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Instagram, Sparkles } from "lucide-react";
 import SectionHeading from "@/components/SectionHeading";
 import CollectionCard from "@/components/CollectionCard";
 import ProductCard from "@/components/ProductCard";
@@ -218,6 +218,59 @@ export default function Home() {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ── GIFT FINDER BANNER ── */}
+      <section className="py-14 sm:py-20" data-testid="home-gift-finder-banner">
+        <div className="max-w-[1240px] mx-auto px-5 sm:px-8">
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="show"
+            viewport={viewportOnce}
+            className="bg-white border border-sand grid grid-cols-1 lg:grid-cols-2 gap-10 items-center p-8 sm:p-12 hover:shadow-[0_24px_60px_-36px_rgba(48,43,50,0.35)] transition-shadow duration-500"
+          >
+            <div>
+              <p className="text-[11px] uppercase tracking-[0.3em] text-terra mb-4 flex items-center gap-2">
+                <Sparkles size={13} /> Gift Finder
+              </p>
+              <h2 className="font-display text-4xl sm:text-5xl leading-[1.05] tracking-tight text-ink">
+                Three Questions. One Lovely Match.
+              </h2>
+              <p className="mt-4 text-[15px] leading-relaxed text-ink/60 max-w-md">
+                Tell us the moment, the person and the budget — the Gift Finder
+                curates a shortlist from the collection in under a minute.
+              </p>
+              <Link
+                to="/gift-finder"
+                data-testid="home-gift-finder-cta"
+                className="mt-7 btn-sweep btn-sweep-dark inline-flex items-center gap-3 border border-ink bg-ink text-cream text-[11px] uppercase tracking-[0.2em] px-8 h-12"
+              >
+                <span>Find the Perfect Gift</span>
+                <ArrowRight size={14} className="relative z-[1]" />
+              </Link>
+            </div>
+            <div className="bg-cream border border-sand p-7 sm:p-8">
+              {[
+                ["01", "The occasion", "Weddings, Diwali, housewarmings — or no occasion at all"],
+                ["02", "The recipient", "Couples, elders, friends, clients and hosts"],
+                ["03", "The budget", "Mindful keepsakes, premium statements, or surprise us"],
+              ].map(([n, t, d], i) => (
+                <div
+                  key={n}
+                  className={`flex items-start gap-5 py-4 ${i > 0 ? "border-t border-sand" : ""}`}
+                  data-testid={`gf-banner-step-${i}`}
+                >
+                  <span className="font-display text-lg text-terra/80 shrink-0">{n}</span>
+                  <div>
+                    <p className="font-display text-xl text-ink leading-snug">{t}</p>
+                    <p className="text-[13px] text-ink/50 mt-0.5">{d}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </section>
 
