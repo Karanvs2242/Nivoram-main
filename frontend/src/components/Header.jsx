@@ -22,6 +22,7 @@ const COLLECTION_ITEMS = COLLECTIONS.map((c) => ({
 }));
 
 const GIFTING_ITEMS = [
+  { label: "Gift Finder", to: "/gift-finder", desc: "Three questions, lovely matches" },
   ...GIFT_OCCASIONS.map((o) => ({ label: o.label, to: o.page })),
   { label: "Corporate Gifting", to: "/corporate-gifting", desc: "Bulk & business enquiries" },
 ];

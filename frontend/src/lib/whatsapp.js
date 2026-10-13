@@ -7,7 +7,8 @@ const MESSAGES = {
     "Hi Nivoram, I'd like to discuss a bulk / corporate gifting requirement.",
 };
 
-export function waMessage({ productName, sku, context } = {}) {
+export function waMessage({ productName, sku, context, custom } = {}) {
+  if (custom) return custom;
   if (productName) {
     const skuPart = sku ? ` (SKU: ${sku})` : "";
     return `Hi Nivoram, I'm interested in ${productName}${skuPart}. Please share the current price, availability and product details.`;

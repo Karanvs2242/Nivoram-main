@@ -12,6 +12,7 @@ import Shop from "@/pages/Shop";
 import Collections from "@/pages/Collections";
 import CollectionDetail from "@/pages/CollectionDetail";
 import OccasionGifts from "@/pages/OccasionGifts";
+import GiftFinder from "@/pages/GiftFinder";
 import ProductDetail from "@/pages/ProductDetail";
 import OurStory from "@/pages/OurStory";
 import WhyNivoram from "@/pages/WhyNivoram";
@@ -76,6 +77,7 @@ export default function App() {
               <Route path="/collections/:slug" element={<CollectionDetail />} />
 
               {/* Gifting by occasion */}
+              <Route path="/gift-finder" element={<GiftFinder />} />
               <Route path="/gifts/:key" element={<OccasionGifts />} />
 
               {/* Products */}

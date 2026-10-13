@@ -84,7 +84,7 @@ export default function Home() {
                 <ArrowRight size={14} className="relative z-[1]" />
               </Link>
               <Link
-                to="/collections/thoughtful-gifting"
+                to="/gift-finder"
                 data-testid="hero-find-perfect-gift"
                 className="inline-flex items-center border border-ink/30 text-ink text-[11px] uppercase tracking-[0.2em] px-8 h-12 hover:border-ink hover:bg-ink hover:text-cream transition-colors duration-300"
               >

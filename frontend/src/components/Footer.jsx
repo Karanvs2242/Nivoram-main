@@ -18,6 +18,7 @@ const COLLECTIONS = [
 ];
 
 const GIFTING = [
+  ["Gift Finder", "/gift-finder"],
   ["Wedding Gifts", "/gifts/weddings"],
   ["Housewarming Gifts", "/gifts/housewarming"],
   ["Festive Gifts", "/gifts/festive"],

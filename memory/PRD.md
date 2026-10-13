@@ -42,6 +42,8 @@ Build a complete, responsive, production-ready brand showcase website for NIVORA
 
 - Real catalogue swap (2026-10-13): official catalogue PDF parsed — 49 real products across the catalogue's 5 collections (Sacred Elegance, Statement Décor, Auspicious Living, Divine Grace, Thoughtful Gifting; the placeholder-only "Timeless Accents"/"Frames & Keepsakes" edits were retired with redirects). 89 product photos extracted from the PDF into /public/products/ (optimised JPEG, max 1400px). Verified facts now on site: 999 silver-plated & gold/silver-coated materials, @nivoram.shop Instagram (linked in social section/contact/footer), collection copy from the catalogue. Product names are descriptive of photographed pieces; SKUs NVR-2xx are generated pending official codes; all specs stay "On request"; prices stay "on enquiry"; isNew/isBestseller still false until confirmed. Stock imagery remains only in the corporate-gifting WhatsApp fallback text context — all page imagery (hero, story, occasions, use-cases, social) now uses real catalogue photos.
 
+- Gift Finder (2026-10-13): /gift-finder quiz — three questions (occasion, recipient, budget tier with no invented prices) score the real catalogue and recommend the top two collections plus four matching pieces, with a WhatsApp shortlist CTA (prefilled via the custom-message support in waMessage). Added to the Gifting dropdown, footer, and the homepage hero's "Find the Perfect Gift" CTA; in the sitemap.
+
 ## Backlog
 - **P0**: Replace ENQUIRY_EMAIL + WhatsApp number before launch
 - **P1**: Real catalogue data + photography; Instagram link; domain + sitemap update
