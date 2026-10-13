@@ -30,6 +30,13 @@ Build a complete, responsive, production-ready brand showcase website for NIVORA
 4. Official Instagram URL, contact email, final domain (update sitemap/robots/siteUrl)
 5. Journal article approvals; legal page finalisation
 
+## Restructure (2026-10-13)
+- Navigation rebuilt: Home · Shop▾ (Shop All / New Arrivals / Bestsellers) · Collections▾ (Sacred Elegance, Statement Décor, Timeless Accents, Frames & Keepsakes, Auspicious Living, Thoughtful Gifting) · Gifting▾ (Wedding/Housewarming/Festive/Return gifts pages + Corporate) · About Us▾ (Our Story / Why Nivoram / Craftsmanship) · Contact▾ (Enquiries / Custom Orders / FAQs). Slim support strip beneath nav, editable in SITE_CONFIG.supportMessage.
+- Catalogue re-mapped: 6 curated collections, occasion tags (weddings/housewarming/festive/return/corporate), isNew/isBestseller flags (false until studio confirms — Shop pages show honest empty states).
+- New pages: /shop (+ new-arrivals, bestsellers), /gifts/:key ×4, /why-nivoram, /craftsmanship, /contact/custom-orders, /faqs (with FAQPage JSON-LD).
+- Old collection routes redirect (spiritual-pooja-decor→sacred-elegance etc.).
+- SEO per farm-seo-setup skill: canonical/og:url gated behind domainConfirmed flag, upgraded robots.txt (AI crawler groups + /api/ disallow), sitemap.xml with all new routes, llms.txt, static OG tags + noscript fallback in index.html, per-route titles.
+
 ## Backlog
 - **P0**: Replace ENQUIRY_EMAIL + WhatsApp number before launch
 - **P1**: Real catalogue data + photography; Instagram link; domain + sitemap update

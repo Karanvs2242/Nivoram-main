@@ -10,7 +10,7 @@ export default function Collections() {
   useSEO({
     title: "Collections",
     description:
-      "Explore Nivoram collections — spiritual & pooja décor, statement home décor, auspicious living, thoughtful gifting and more.",
+      "Explore the Nivoram collections — Sacred Elegance, Statement Décor, Timeless Accents, Frames & Keepsakes, Auspicious Living and Thoughtful Gifting.",
     path: "/collections",
   });
 
@@ -20,7 +20,7 @@ export default function Collections() {
         <SectionHeading
           eyebrow="Collections"
           title="Explore the Nivoram Edit"
-          intro="Seven edits, one point of view — silver-tone pieces for Indian homes, rituals and the people we gift them to. Products may appear in more than one collection where they belong."
+          intro="Six curated edits, one point of view — silver-tone pieces for Indian homes, rituals and the people we gift them to. Products may appear in more than one collection where they belong."
         />
       </section>
 
@@ -33,9 +33,8 @@ export default function Collections() {
               { span: "lg:col-span-4", aspect: "aspect-[4/3]" },
               { span: "lg:col-span-4", aspect: "aspect-[4/3]" },
               { span: "lg:col-span-4", aspect: "aspect-[4/3]" },
-              { span: "lg:col-span-6", aspect: "aspect-[16/9]" },
-              { span: "lg:col-span-6", aspect: "aspect-[16/9]" },
-            ][i];
+              { span: "lg:col-span-12", aspect: "aspect-[16/8] sm:aspect-[21/9]" },
+            ][i] || { span: "lg:col-span-6", aspect: "aspect-[16/9]" };
             return (
               <CollectionCard
                 key={c.slug}

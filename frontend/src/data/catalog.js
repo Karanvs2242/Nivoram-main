@@ -7,7 +7,12 @@
  *    verifies the data — the UI renders "On request" placeholders.
  *  - placeholder: true renders the "Sample listing" honesty chip. Set to
  *    false once real studio photography + verified copy replace it.
- *  - Collections live in COLLECTIONS; products may belong to several.
+ *  - isNew / isBestseller: flip to true ONLY when the studio explicitly
+ *    confirms a piece's status — the Shop menu pages read these flags and
+ *    no label is shown while they are false.
+ *  - Collections live in COLLECTIONS (six curated edits); products may
+ *    belong to several. Occasion tags (weddings, housewarming, festive,
+ *    return, corporate) power the Gifting pages.
  */
 
 const u = (id, w = 1200) =>
@@ -36,12 +41,14 @@ export const IMAGES = {
   diyasColor: p(3135229),
   vasesPair: u("1677761640321-b80251be00ca"),
   vasesClay: u("1631125915902-d8abe9225ff2"),
+  compote: u("1509511715017-077da45196ff"),
 };
 
+/* ── Curated collections (navigation: Collections dropdown) ── */
 export const COLLECTIONS = [
   {
-    slug: "spiritual-pooja-decor",
-    name: "Spiritual & Pooja Décor",
+    slug: "sacred-elegance",
+    name: "Sacred Elegance",
     short: "Silver-tone idols and pooja accents for quiet devotion.",
     description:
       "Idols, thalis and accents finished in silver tone — chosen for daily rituals, festive mornings and thoughtful offerings. Each piece is meant to sit comfortably in a modern Indian home without losing its sanctity.",
@@ -49,13 +56,31 @@ export const COLLECTIONS = [
     alt: "Spiritual décor in a warm home shrine setting",
   },
   {
-    slug: "statement-home-decor",
-    name: "Statement Home Décor",
+    slug: "statement-decor",
+    name: "Statement Décor",
     short: "Sculptural pieces that anchor a room, quietly.",
     description:
       "Vases, candelabra and sculptural showpieces with a silver-tone finish — designed to hold a console, mantel or entryway on their own, no styling fuss required.",
     image: IMAGES.hero,
     alt: "Ornate silver-tone statement showpiece",
+  },
+  {
+    slug: "timeless-accents",
+    name: "Timeless Accents",
+    short: "Table accents and centrepieces, finished to keep.",
+    description:
+      "Compotes, bowls and serving accents with a silver-tone finish — the kind of table pieces that move from festival to festival and stay in the family.",
+    image: IMAGES.compote,
+    alt: "Silver-tone pedestal compote bowl",
+  },
+  {
+    slug: "frames-keepsakes",
+    name: "Frames & Keepsakes",
+    short: "For photographs, trinkets and small treasures.",
+    description:
+      "Ornate frames and silver-tone keepsake boxes — gifts that hold something personal, made to sit on dressers, desks and shrine shelves for years.",
+    image: IMAGES.silverBoxes,
+    alt: "Stack of ornate silver-tone keepsake boxes",
   },
   {
     slug: "auspicious-living",
@@ -75,43 +100,62 @@ export const COLLECTIONS = [
     image: IMAGES.giftRibbon,
     alt: "Elegantly wrapped gift boxes",
   },
+];
+
+/* ── Occasion-led gifting pages (navigation: Gifting dropdown) ── */
+export const GIFT_OCCASIONS = [
   {
-    slug: "wedding-anniversary-gifts",
-    name: "Wedding & Anniversary Gifts",
-    short: "Gifts made to be kept, used and remembered.",
-    description:
-      "Silver-tone keepsakes, pooja sets and table accents for weddings, anniversaries and milestone celebrations — the kind of gifts that stay on display for years.",
-    image: IMAGES.silverBoxes,
-    alt: "Stack of ornate silver-tone keepsake boxes",
+    key: "weddings",
+    label: "Wedding Gifts",
+    page: "/gifts/weddings",
+    image: IMAGES.weddingAccessories,
+    blurb:
+      "For weddings, anniversaries and the milestones around them — silver-tone keepsakes, pooja sets and table accents made to be kept, used and remembered.",
   },
   {
-    slug: "festive-occasion-gifts",
-    name: "Festive & Occasion Gifts",
-    short: "For the festivals that bring everyone home.",
-    description:
-      "Diwali, Navratri, housewarmings and every celebration in between — festive pieces and gifts with a warm, restrained sense of occasion.",
+    key: "housewarming",
+    label: "Housewarming Gifts",
+    page: "/gifts/housewarming",
+    image: IMAGES.styling,
+    blurb:
+      "Moving in is chaotic — the best housewarming gifts already have a place ready for them. Accents, idols and bowls that go to work on day one.",
+  },
+  {
+    key: "festive",
+    label: "Festive Gifts",
+    page: "/gifts/festive",
     image: IMAGES.diyas,
-    alt: "Diyas glowing during a festive celebration",
+    blurb:
+      "For the festivals that bring everyone home — Diwali and celebration gifting with a warm, restrained sense of occasion.",
   },
   {
-    slug: "corporate-bulk-gifting",
-    name: "Corporate & Bulk Gifting",
-    short: "Considered gifting for teams, clients and events.",
-    description:
-      "Curated gift selections for employee recognition, client appreciation, conferences and weddings at scale. Enquire with your requirements and our team will share a tailored quote.",
-    image: IMAGES.giftMono,
-    alt: "Monochrome gift boxes with ribbon bows",
+    key: "return",
+    label: "Return Gifts",
+    page: "/gifts/return",
+    image: IMAGES.giftFloral,
+    blurb:
+      "Considered favours for guests and gatherings — small pieces that say thank you beautifully, whether for ten guests or a hundred.",
   },
 ];
 
+/* Home occasion strip = four gifting pages + corporate page */
 export const OCCASIONS = [
-  { key: "weddings", label: "Weddings & Anniversaries", link: "/collections/wedding-anniversary-gifts", image: IMAGES.weddingAccessories },
-  { key: "festive", label: "Festive Celebrations", link: "/collections/festive-occasion-gifts", image: IMAGES.diyasColor },
-  { key: "housewarming", label: "Housewarming", link: "/collections/statement-home-decor", image: IMAGES.styling },
-  { key: "spiritual", label: "Spiritual Occasions", link: "/collections/spiritual-pooja-decor", image: IMAGES.temple },
-  { key: "corporate", label: "Corporate Gifting", link: "/corporate-gifting", image: IMAGES.corporateBox },
+  { key: "weddings", label: "Weddings & Anniversaries", page: "/gifts/weddings", image: IMAGES.weddingAccessories },
+  { key: "housewarming", label: "Housewarming", page: "/gifts/housewarming", image: IMAGES.styling },
+  { key: "festive", label: "Festive Celebrations", page: "/gifts/festive", image: IMAGES.diyasColor },
+  { key: "return", label: "Return Gifts", page: "/gifts/return", image: IMAGES.giftFloral },
+  { key: "corporate", label: "Corporate Gifting", page: "/corporate-gifting", image: IMAGES.corporateBox },
 ];
 
+export const OCCASION_LABELS = {
+  weddings: "Weddings",
+  housewarming: "Housewarming",
+  festive: "Festive",
+  return: "Return gifts",
+  corporate: "Corporate",
+};
+
+/* ── Products ── */
 export const PRODUCTS = [
   {
     id: "nvr-101",
@@ -122,11 +166,13 @@ export const PRODUCTS = [
       "A silver-tone Ganesha idol with fine detailing — sized for a pooja shelf, console or study table. A considered gift for griha pravesh, festivals and new beginnings.",
     image: u("1726092972512-7900b8e4bca4"),
     images: [u("1726092972512-7900b8e4bca4"), "https://images.unsplash.com/flagged/photo-1573894156182-8df0f4bc5764?auto=format&fit=crop&w=1200&q=80"],
-    collections: ["spiritual-pooja-decor", "festive-occasion-gifts"],
-    occasions: ["spiritual", "festive", "housewarming"],
+    collections: ["sacred-elegance", "thoughtful-gifting"],
+    occasions: ["festive", "housewarming", "return"],
     featured: true,
     bulkEligible: true,
     placeholder: true,
+    isNew: false,
+    isBestseller: false,
   },
   {
     id: "nvr-102",
@@ -137,11 +183,13 @@ export const PRODUCTS = [
       "A silver-tone pooja plate with raised detailing — for aarti, festive mornings and wedding rituals. Presented in protective packaging suitable for gifting.",
     image: u("1731345356052-fa162523666d"),
     images: [u("1731345356052-fa162523666d"), u("1717409047809-d9e66fc0f172")],
-    collections: ["spiritual-pooja-decor", "wedding-anniversary-gifts"],
-    occasions: ["weddings", "spiritual", "festive"],
+    collections: ["sacred-elegance", "timeless-accents"],
+    occasions: ["weddings", "festive"],
     featured: false,
     bulkEligible: true,
     placeholder: true,
+    isNew: false,
+    isBestseller: false,
   },
   {
     id: "nvr-103",
@@ -152,11 +200,13 @@ export const PRODUCTS = [
       "A compact silver-tone Ganesha made for car dashboards — a small, thoughtful gift that travels with the person.",
     image: p(5254655),
     images: [p(5254655)],
-    collections: ["spiritual-pooja-decor", "thoughtful-gifting"],
-    occasions: ["spiritual", "corporate"],
+    collections: ["sacred-elegance", "thoughtful-gifting"],
+    occasions: ["return", "corporate"],
     featured: false,
     bulkEligible: true,
     placeholder: true,
+    isNew: false,
+    isBestseller: false,
   },
   {
     id: "nvr-104",
@@ -167,11 +217,13 @@ export const PRODUCTS = [
       "A five-arm candelabra with a silver-tone finish — a dining table or mantel centrepiece for celebrations and quiet evenings alike.",
     image: u("1672518194432-4c23cbcec1c4"),
     images: [u("1672518194432-4c23cbcec1c4"), u("1783148609207-e19bf1db5f53")],
-    collections: ["statement-home-decor", "wedding-anniversary-gifts"],
+    collections: ["statement-decor", "timeless-accents"],
     occasions: ["weddings", "housewarming", "festive"],
     featured: true,
     bulkEligible: false,
     placeholder: true,
+    isNew: false,
+    isBestseller: false,
   },
   {
     id: "nvr-105",
@@ -182,11 +234,13 @@ export const PRODUCTS = [
       "A rounded, sculptural vase with a soft metallic finish — strong enough to stand alone, quiet enough to hold a single stem.",
     image: u("1643569556871-91ec60671ed7"),
     images: [u("1643569556871-91ec60671ed7"), u("1612196808214-b8e1d6145a8c")],
-    collections: ["statement-home-decor"],
+    collections: ["statement-decor"],
     occasions: ["housewarming", "weddings"],
     featured: true,
     bulkEligible: false,
     placeholder: true,
+    isNew: false,
+    isBestseller: false,
   },
   {
     id: "nvr-106",
@@ -197,11 +251,13 @@ export const PRODUCTS = [
       "A silver-tone pedestal bowl in the classical compote form — for dry fruits at festivals, flowers on a console, or simply as a sculptural object.",
     image: u("1509511715017-077da45196ff"),
     images: [u("1509511715017-077da45196ff")],
-    collections: ["statement-home-decor", "wedding-anniversary-gifts"],
+    collections: ["timeless-accents", "statement-decor"],
     occasions: ["weddings", "festive", "housewarming"],
     featured: false,
     bulkEligible: true,
     placeholder: true,
+    isNew: false,
+    isBestseller: false,
   },
   {
     id: "nvr-107",
@@ -217,6 +273,8 @@ export const PRODUCTS = [
     featured: true,
     bulkEligible: false,
     placeholder: true,
+    isNew: false,
+    isBestseller: false,
   },
   {
     id: "nvr-108",
@@ -227,11 +285,13 @@ export const PRODUCTS = [
       "A silver-tone picture frame with ornate relief work — for photographs that deserve more than a metal clip on a wall.",
     image: u("1765137102463-95933b20b481"),
     images: [u("1765137102463-95933b20b481"), u("1686504244155-77dc3dc2d2c2")],
-    collections: ["statement-home-decor", "thoughtful-gifting"],
+    collections: ["frames-keepsakes"],
     occasions: ["housewarming", "weddings"],
     featured: false,
     bulkEligible: false,
     placeholder: true,
+    isNew: false,
+    isBestseller: false,
   },
   {
     id: "nvr-109",
@@ -242,11 +302,13 @@ export const PRODUCTS = [
       "A fluted silver-tone compote with a figural detail — a conversation piece for festive tables and a natural fit for occasion gifting.",
     image: u("1717409047809-d9e66fc0f172"),
     images: [u("1717409047809-d9e66fc0f172")],
-    collections: ["statement-home-decor", "festive-occasion-gifts"],
+    collections: ["timeless-accents", "statement-decor"],
     occasions: ["festive", "weddings"],
     featured: false,
     bulkEligible: true,
     placeholder: true,
+    isNew: false,
+    isBestseller: false,
   },
   {
     id: "nvr-110",
@@ -257,11 +319,13 @@ export const PRODUCTS = [
       "An incense burner with embossed detailing and a stable base — for daily rituals and festive evenings.",
     image: u("1703648314239-8eba281beeb4"),
     images: [u("1703648314239-8eba281beeb4")],
-    collections: ["spiritual-pooja-decor", "auspicious-living"],
-    occasions: ["spiritual", "festive"],
+    collections: ["sacred-elegance", "auspicious-living"],
+    occasions: ["festive", "housewarming", "return"],
     featured: false,
     bulkEligible: false,
     placeholder: true,
+    isNew: false,
+    isBestseller: false,
   },
   {
     id: "nvr-111",
@@ -272,11 +336,13 @@ export const PRODUCTS = [
       "A set of six small silver-tone keepsake boxes with embossed lids — for wedding hampers, return gifts and festive favours at scale.",
     image: p(36355530),
     images: [p(36355530)],
-    collections: ["wedding-anniversary-gifts", "corporate-bulk-gifting", "festive-occasion-gifts"],
-    occasions: ["weddings", "festive", "corporate"],
+    collections: ["frames-keepsakes", "thoughtful-gifting"],
+    occasions: ["weddings", "return", "corporate", "festive"],
     featured: true,
     bulkEligible: true,
     placeholder: true,
+    isNew: false,
+    isBestseller: false,
   },
   {
     id: "nvr-112",
@@ -287,11 +353,13 @@ export const PRODUCTS = [
       "A pair of clear candle holders with a silver-tone base — soft light for dinner tables, festive corners and gifting lists.",
     image: u("1631521785964-7ed26b416ed7"),
     images: [u("1631521785964-7ed26b416ed7")],
-    collections: ["festive-occasion-gifts", "thoughtful-gifting"],
-    occasions: ["festive", "housewarming"],
+    collections: ["statement-decor", "thoughtful-gifting"],
+    occasions: ["festive", "housewarming", "return"],
     featured: true,
     bulkEligible: false,
     placeholder: true,
+    isNew: false,
+    isBestseller: false,
   },
   {
     id: "nvr-113",
@@ -302,11 +370,13 @@ export const PRODUCTS = [
       "A smaller candelabra in a deeper finish with an ivory candle — moody, editorial, and at home on a study desk or bookshelf.",
     image: u("1783148609207-e19bf1db5f53"),
     images: [u("1783148609207-e19bf1db5f53")],
-    collections: ["statement-home-decor", "festive-occasion-gifts"],
+    collections: ["statement-decor", "frames-keepsakes"],
     occasions: ["festive", "housewarming"],
     featured: false,
     bulkEligible: false,
     placeholder: true,
+    isNew: false,
+    isBestseller: false,
   },
   {
     id: "nvr-114",
@@ -317,11 +387,13 @@ export const PRODUCTS = [
       "A low silver-tone bowl holding a circular sculpture with gemstone accents — a desk object, a centrepiece, a gift that reads as design.",
     image: u("1786310146664-3c19248bb6e0"),
     images: [u("1786310146664-3c19248bb6e0")],
-    collections: ["auspicious-living", "thoughtful-gifting"],
-    occasions: ["housewarming", "corporate"],
+    collections: ["auspicious-living", "timeless-accents"],
+    occasions: ["housewarming", "corporate", "return"],
     featured: false,
     bulkEligible: true,
     placeholder: true,
+    isNew: false,
+    isBestseller: false,
   },
 ];
 
@@ -384,10 +456,27 @@ export const JOURNAL = [
   },
 ];
 
+/* ── Honest FAQs (visible on /faqs; no policy commitments) ── */
+export const FAQS = [
+  ["How do I enquire about a piece?", "Open any product and use the Enquire on WhatsApp button — your message will include the product name and SKU automatically. You can also send the general enquiry form and we'll respond on the details you leave."],
+  ["Are the pieces solid silver?", "Nivoram specialises in silver-coated (silver-tone) décor. Each product's exact material and finish are confirmed on the product page where verified, or during your enquiry. We never describe a coated piece as solid silver."],
+  ["What are the delivery timelines?", "Delivery timelines are confirmed for every enquiry and quote before you commit — we don't publish blanket delivery promises."],
+  ["Is customisation available?", "Customisation varies from piece to piece and isn't confirmed across the catalogue. Share your requirement and we'll confirm exactly what's possible for the pieces you like."],
+  ["Do you accept bulk or corporate orders?", "Yes. Share the occasion, approximate quantity and budget on the Corporate Gifting page and we'll respond with a curated shortlist and a tailored quote."],
+  ["Which regions do you serve?", "Enquiries from India and the UAE are welcome. Availability and shipping options for your location are confirmed during your enquiry."],
+  ["Why do some listings say 'On request'?", "We publish only verified product details. Specifications, dimensions and prices appear once confirmed by the studio — until then they're shown as on request rather than guessed."],
+];
+
+/* ── Helpers ── */
 export const getCollectionsFor = (keys) =>
   COLLECTIONS.filter((c) => keys.includes(c.slug));
 export const getProduct = (slug) => PRODUCTS.find((pr) => pr.slug === slug);
 export const getCollection = (slug) => COLLECTIONS.find((c) => c.slug === slug);
 export const productsInCollection = (slug) =>
   PRODUCTS.filter((pr) => pr.collections.includes(slug));
+export const productsForOccasion = (key) =>
+  PRODUCTS.filter((pr) => pr.occasions.includes(key));
+export const newArrivals = () => PRODUCTS.filter((pr) => pr.isNew);
+export const bestsellers = () => PRODUCTS.filter((pr) => pr.isBestseller);
 export const getArticle = (slug) => JOURNAL.find((a) => a.slug === slug);
+export const getGiftOccasion = (key) => GIFT_OCCASIONS.find((o) => o.key === key);

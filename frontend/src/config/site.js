@@ -7,14 +7,19 @@
  *                   PLACEHOLDER — buttons show an honest fallback until set.
  *  instagramUrl   : official Instagram profile URL.
  *  contactEmail   : official business email.
- *  siteUrl        : final production domain (also update public/robots.txt,
- *                   public/sitemap.xml and backend ENQUIRY_EMAIL).
+ *  siteUrl + domainConfirmed : final production domain. Once the domain is
+ *                   live, set siteUrl to it and flip domainConfirmed to true
+ *                   (this enables canonical/og:url tags) and update
+ *                   public/robots.txt + public/sitemap.xml.
+ *  supportMessage : the slim strip beneath the navigation — edit here only.
  * ─────────────────────────────────────────────────────────────────────────
  */
 export const SITE_CONFIG = {
   brand: "Nivoram",
   tagline: "Elegance That Lasts.",
   siteUrl: "https://nivoram.com", // PLACEHOLDER — final domain
+  domainConfirmed: false, // flip to true once the production domain is live
+  supportMessage: "Thoughtfully Selected Décor & Meaningful Gifts | India & UAE Enquiries",
   whatsappNumber: "", // PLACEHOLDER — official WhatsApp business number
   instagramUrl: "", // PLACEHOLDER — official Instagram URL
   instagramHandle: "@nivoram", // PLACEHOLDER — official handle

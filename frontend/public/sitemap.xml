@@ -1,17 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Placeholder domain — replace https://nivoram.com with the final domain before launch -->
+<!-- NOTE: replace https://nivoram.com with the final production domain
+     before launch (also update frontend/src/config/site.js). -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://nivoram.com/</loc><priority>1.0</priority></url>
-  <url><loc>https://nivoram.com/collections</loc><priority>0.9</priority></url>
-  <url><loc>https://nivoram.com/collections/spiritual-pooja-decor</loc><priority>0.8</priority></url>
-  <url><loc>https://nivoram.com/collections/statement-home-decor</loc><priority>0.8</priority></url>
-  <url><loc>https://nivoram.com/collections/auspicious-living</loc><priority>0.8</priority></url>
-  <url><loc>https://nivoram.com/collections/thoughtful-gifting</loc><priority>0.8</priority></url>
-  <url><loc>https://nivoram.com/collections/wedding-anniversary-gifts</loc><priority>0.8</priority></url>
-  <url><loc>https://nivoram.com/collections/festive-occasion-gifts</loc><priority>0.8</priority></url>
-  <url><loc>https://nivoram.com/collections/corporate-bulk-gifting</loc><priority>0.8</priority></url>
-  <url><loc>https://nivoram.com/our-story</loc><priority>0.7</priority></url>
-  <url><loc>https://nivoram.com/corporate-gifting</loc><priority>0.7</priority></url>
-  <url><loc>https://nivoram.com/contact</loc><priority>0.7</priority></url>
-  <url><loc>https://nivoram.com/journal</loc><priority>0.5</priority></url>
+  <url><loc>https://nivoram.com/</loc><lastmod>2026-10-07</lastmod></url>
+  <url><loc>https://nivoram.com/shop</loc><lastmod>2026-10-07</lastmod></url>
+  <url><loc>https://nivoram.com/shop/new-arrivals</loc><lastmod>2026-10-07</lastmod></url>
+  <url><loc>https://nivoram.com/shop/bestsellers</loc><lastmod>2026-10-07</lastmod></url>
+  <url><loc>https://nivoram.com/collections</loc><lastmod>2026-10-07</lastmod></url>
+  <url><loc>https://nivoram.com/collections/sacred-elegance</loc><lastmod>2026-10-07</lastmod></url>
+  <url><loc>https://nivoram.com/collections/statement-decor</loc><lastmod>2026-10-07</lastmod></url>
+  <url><loc>https://nivoram.com/collections/timeless-accents</loc><lastmod>2026-10-07</lastmod></url>
+  <url><loc>https://nivoram.com/collections/frames-keepsakes</loc><lastmod>2026-10-07</lastmod></url>
+  <url><loc>https://nivoram.com/collections/auspicious-living</loc><lastmod>2026-10-07</lastmod></url>
+  <url><loc>https://nivoram.com/collections/thoughtful-gifting</loc><lastmod>2026-10-07</lastmod></url>
+  <url><loc>https://nivoram.com/gifts/weddings</loc><lastmod>2026-10-07</lastmod></url>
+  <url><loc>https://nivoram.com/gifts/housewarming</loc><lastmod>2026-10-07</lastmod></url>
+  <url><loc>https://nivoram.com/gifts/festive</loc><lastmod>2026-10-07</lastmod></url>
+  <url><loc>https://nivoram.com/gifts/return</loc><lastmod>2026-10-07</lastmod></url>
+  <url><loc>https://nivoram.com/corporate-gifting</loc><lastmod>2026-10-07</lastmod></url>
+  <url><loc>https://nivoram.com/our-story</loc><lastmod>2026-10-07</lastmod></url>
+  <url><loc>https://nivoram.com/why-nivoram</loc><lastmod>2026-10-07</lastmod></url>
+  <url><loc>https://nivoram.com/craftsmanship</loc><lastmod>2026-10-07</lastmod></url>
+  <url><loc>https://nivoram.com/contact</loc><lastmod>2026-10-07</lastmod></url>
+  <url><loc>https://nivoram.com/contact/custom-orders</loc><lastmod>2026-10-07</lastmod></url>
+  <url><loc>https://nivoram.com/faqs</loc><lastmod>2026-10-07</lastmod></url>
+  <url><loc>https://nivoram.com/journal</loc><lastmod>2026-10-07</lastmod></url>
 </urlset>

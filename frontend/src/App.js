@@ -1,5 +1,5 @@
 import { useEffect, Component } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
@@ -8,12 +8,18 @@ import { Toaster } from "@/components/ui/sonner";
 import { initLenis } from "@/lib/lenis";
 
 import Home from "@/pages/Home";
+import Shop from "@/pages/Shop";
 import Collections from "@/pages/Collections";
 import CollectionDetail from "@/pages/CollectionDetail";
+import OccasionGifts from "@/pages/OccasionGifts";
 import ProductDetail from "@/pages/ProductDetail";
 import OurStory from "@/pages/OurStory";
+import WhyNivoram from "@/pages/WhyNivoram";
+import Craftsmanship from "@/pages/Craftsmanship";
 import CorporateGifting from "@/pages/CorporateGifting";
 import Contact from "@/pages/Contact";
+import CustomOrders from "@/pages/CustomOrders";
+import FAQs from "@/pages/FAQs";
 import Journal from "@/pages/Journal";
 import JournalArticle from "@/pages/JournalArticle";
 import Privacy from "@/pages/Privacy";
@@ -59,16 +65,50 @@ export default function App() {
           <main>
             <Routes>
               <Route path="/" element={<Home />} />
+
+              {/* Shop */}
+              <Route path="/shop" element={<Shop mode="all" />} />
+              <Route path="/shop/new-arrivals" element={<Shop mode="new" />} />
+              <Route path="/shop/bestsellers" element={<Shop mode="bestsellers" />} />
+
+              {/* Collections */}
               <Route path="/collections" element={<Collections />} />
               <Route path="/collections/:slug" element={<CollectionDetail />} />
+
+              {/* Gifting by occasion */}
+              <Route path="/gifts/:key" element={<OccasionGifts />} />
+
+              {/* Products */}
               <Route path="/products/:slug" element={<ProductDetail />} />
+
+              {/* About Us */}
               <Route path="/our-story" element={<OurStory />} />
+              <Route path="/why-nivoram" element={<WhyNivoram />} />
+              <Route path="/craftsmanship" element={<Craftsmanship />} />
+
+              {/* Corporate */}
               <Route path="/corporate-gifting" element={<CorporateGifting />} />
+
+              {/* Contact */}
               <Route path="/contact" element={<Contact />} />
+              <Route path="/contact/custom-orders" element={<CustomOrders />} />
+              <Route path="/faqs" element={<FAQs />} />
+
+              {/* Journal */}
               <Route path="/journal" element={<Journal />} />
               <Route path="/journal/:slug" element={<JournalArticle />} />
+
+              {/* Legal */}
               <Route path="/privacy-policy" element={<Privacy />} />
               <Route path="/terms-conditions" element={<Terms />} />
+
+              {/* Redirects from the previous collection structure */}
+              <Route path="/collections/spiritual-pooja-decor" element={<Navigate to="/collections/sacred-elegance" replace />} />
+              <Route path="/collections/statement-home-decor" element={<Navigate to="/collections/statement-decor" replace />} />
+              <Route path="/collections/wedding-anniversary-gifts" element={<Navigate to="/gifts/weddings" replace />} />
+              <Route path="/collections/festive-occasion-gifts" element={<Navigate to="/gifts/festive" replace />} />
+              <Route path="/collections/corporate-bulk-gifting" element={<Navigate to="/corporate-gifting" replace />} />
+
               <Route path="*" element={<NotFound />} />
             </Routes>
           </main>

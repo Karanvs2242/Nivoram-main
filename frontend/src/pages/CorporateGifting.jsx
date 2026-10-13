@@ -8,7 +8,7 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import CollectionCard from "@/components/CollectionCard";
 import { useSEO } from "@/lib/seo";
 import { EASE, viewportOnce, fadeUp } from "@/lib/motion";
-import { IMAGES } from "@/data/catalog";
+import { IMAGES, getCollection, productsInCollection } from "@/data/catalog";
 
 const USE_CASES = [
   { title: "Employee Recognition", desc: "Milestones, onboarding and long service — gifts people actually display.", image: IMAGES.sideboard },
@@ -140,19 +140,13 @@ export default function CorporateGifting() {
       <section className="max-w-[1240px] mx-auto px-5 sm:px-8 pb-20">
         <SectionHeading eyebrow="Gifting Collections" title="Where Bulk Gifting Begins." className="mb-10" />
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-          {["corporate-bulk-gifting", "thoughtful-gifting", "wedding-anniversary-gifts"].map((slug, i) => {
-            const c = { corporate: null };
-            return (
-              <CollectionCard
-                key={slug}
-                index={i}
-                collection={{
-                  ...require_catalog(slug),
-                  count: require_count(slug),
-                }}
-              />
-            );
-          })}
+          {["thoughtful-gifting", "timeless-accents", "frames-keepsakes"].map((slug, i) => (
+            <CollectionCard
+              key={slug}
+              index={i}
+              collection={{ ...getCollection(slug), count: productsInCollection(slug).length }}
+            />
+          ))}
         </div>
       </section>
 
@@ -213,13 +207,4 @@ export default function CorporateGifting() {
       </section>
     </div>
   );
-}
-
-// helpers imported lazily to keep this file tidy
-import { COLLECTIONS, productsInCollection } from "@/data/catalog";
-function require_catalog(slug) {
-  return COLLECTIONS.find((c) => c.slug === slug);
-}
-function require_count(slug) {
-  return productsInCollection(slug).length;
 }

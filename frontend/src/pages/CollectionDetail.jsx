@@ -8,6 +8,7 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import NotFound from "@/pages/NotFound";
 import { useSEO } from "@/lib/seo";
 import { EASE, viewportOnce, fadeUp } from "@/lib/motion";
+import { OCCASION_LABELS } from "@/data/catalog";
 import { COLLECTIONS, getCollection, productsInCollection } from "@/data/catalog";
 
 export default function CollectionDetail() {
@@ -57,7 +58,7 @@ export default function CollectionDetail() {
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 1.2, ease: EASE }}
             className="absolute inset-0 w-full h-full object-cover"
-            fetchpriority="high"
+            fetchPriority="high"
           />
         </div>
       </section>
@@ -100,7 +101,7 @@ export default function CollectionDetail() {
         {occasionOptions.length > 1 && (
           <div className="mt-10 flex flex-wrap items-center gap-3" data-testid="collection-filters">
             <span className="text-[10px] uppercase tracking-[0.22em] text-ink/40 mr-2">Filter by occasion</span>
-            {[["all", "All"], ...occasionOptions.map((o) => [o, o.charAt(0).toUpperCase() + o.slice(1)])].map(([key, label]) => (
+            {[["all", "All"], ...occasionOptions.map((o) => [o, OCCASION_LABELS[o] || o])].map(([key, label]) => (
               <button
                 key={key}
                 type="button"

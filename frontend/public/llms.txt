@@ -1,0 +1,43 @@
+# Nivoram
+
+Nivoram is a premium Indian home décor and gifting brand specialising in
+silver-coated (silver-tone) home décor, decorative showpieces, spiritual
+pieces and thoughtful gifting. The site is an enquiry-led brand showcase —
+pricing, availability and specifications are shared on enquiry rather than
+checked out online.
+
+## Pages
+
+- / — brand home: hero, collections, featured pieces, occasions, corporate gifting
+- /shop — the complete active product catalogue, filterable by occasion
+- /shop/new-arrivals — pieces explicitly marked new by the studio (empty until configured)
+- /shop/bestsellers — pieces explicitly marked as bestsellers (empty until configured)
+- /collections — overview of the six curated collections
+- /collections/sacred-elegance — silver-tone idols and pooja accents
+- /collections/statement-decor — sculptural showpieces, vases and candelabra
+- /collections/timeless-accents — compotes, bowls and table accents
+- /collections/frames-keepsakes — ornate frames and keepsake boxes
+- /collections/auspicious-living — auspicious motifs for everyday spaces
+- /collections/thoughtful-gifting — the gifting edit
+- /gifts/weddings — wedding and anniversary gifting
+- /gifts/housewarming — housewarming gifting
+- /gifts/festive — festive gifting
+- /gifts/return — return gifts and favours
+- /corporate-gifting — bulk and business gifting with enquiry form
+- /our-story — the brand story
+- /why-nivoram — brand values and approach
+- /craftsmanship — approach to silver-tone finishes and care
+- /contact — enquiries via form, email and WhatsApp
+- /contact/custom-orders — custom order and bespoke requirement enquiries
+- /faqs — frequently asked questions
+- /journal — editorial drafts (gifting guides and care notes)
+
+## Content notes
+
+- Product listings marked "sample" are placeholders pending verified
+  photography and specifications; specifications not yet verified render
+  as "on request".
+- Nivoram pieces are silver-coated (silver-tone), not solid silver; product
+  pages state material details only where verified.
+- Contact details (WhatsApp number, email, Instagram) are pending official
+  confirmation and are not listed here.

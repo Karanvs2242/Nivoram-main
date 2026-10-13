@@ -69,7 +69,7 @@ export default function ProductDetail() {
               className="relative aspect-[4/5] sm:aspect-[5/4] bg-white border border-sand overflow-hidden"
               data-testid="product-gallery-main"
             >
-              <img src={main} alt={product.name} className="absolute inset-0 w-full h-full object-cover" fetchpriority="high" />
+              <img src={main} alt={product.name} className="absolute inset-0 w-full h-full object-cover" fetchPriority="high" />
               {product.placeholder && (
                 <span className="absolute top-3 left-3 bg-cream/90 text-ink/70 text-[9px] uppercase tracking-[0.2em] px-2.5 py-1.5">
                   Sample imagery
@@ -102,6 +102,20 @@ export default function ProductDetail() {
             <p className="text-[11px] uppercase tracking-[0.24em] text-terra mb-3" data-testid="product-sku">
               {product.sku}
             </p>
+            {(product.isNew || product.isBestseller) && (
+              <div className="flex flex-wrap gap-2 mb-4" data-testid="product-status-badges">
+                {product.isNew && (
+                  <span className="text-[9px] uppercase tracking-[0.2em] bg-ink text-cream px-2.5 py-1.5">
+                    New Arrival
+                  </span>
+                )}
+                {product.isBestseller && (
+                  <span className="text-[9px] uppercase tracking-[0.2em] bg-terra text-white px-2.5 py-1.5">
+                    Bestseller
+                  </span>
+                )}
+              </div>
+            )}
             <h1 className="font-display text-4xl sm:text-5xl leading-[1.05] tracking-tight text-ink" data-testid="product-name">
               {product.name}
             </h1>

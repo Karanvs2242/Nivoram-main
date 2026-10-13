@@ -1,23 +1,55 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
-import { Menu, X, ChevronDown, ArrowUpRight } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import Logo from "@/components/Logo";
+import NavDropdown from "@/components/NavDropdown";
 import WhatsAppButton from "@/components/WhatsAppButton";
-import { COLLECTIONS } from "@/data/catalog";
+import { COLLECTIONS, GIFT_OCCASIONS } from "@/data/catalog";
+import { SITE_CONFIG } from "@/config/site";
 import { EASE } from "@/lib/motion";
 
-const NAV = [
-  { label: "Home", to: "/" },
-  { label: "Our Story", to: "/our-story" },
-  { label: "Corporate Gifting", to: "/corporate-gifting" },
-  { label: "Contact", to: "/contact" },
+const SHOP_ITEMS = [
+  { label: "Shop All", to: "/shop", desc: "The complete active catalogue" },
+  { label: "New Arrivals", to: "/shop/new-arrivals", desc: "Freshly added pieces" },
+  { label: "Bestsellers", to: "/shop/bestsellers", desc: "The most-loved pieces" },
+];
+
+const COLLECTION_ITEMS = COLLECTIONS.map((c) => ({
+  label: c.name,
+  to: `/collections/${c.slug}`,
+  desc: c.short,
+}));
+
+const GIFTING_ITEMS = [
+  ...GIFT_OCCASIONS.map((o) => ({ label: o.label, to: o.page })),
+  { label: "Corporate Gifting", to: "/corporate-gifting", desc: "Bulk & business enquiries" },
+];
+
+const ABOUT_ITEMS = [
+  { label: "Our Story", to: "/our-story", desc: "Objects that make moments meaningful" },
+  { label: "Why Nivoram", to: "/why-nivoram", desc: "What guides every choice" },
+  { label: "Craftsmanship", to: "/craftsmanship", desc: "Our approach to finish & detail" },
+];
+
+const CONTACT_ITEMS = [
+  { label: "Enquiries", to: "/contact", desc: "WhatsApp, email & enquiry form" },
+  { label: "Custom Orders", to: "/contact/custom-orders", desc: "Tell us what you have in mind" },
+  { label: "FAQs", to: "/faqs", desc: "Honest answers, no fine print" },
+];
+
+const MOBILE_SECTIONS = [
+  { label: "Shop", items: SHOP_ITEMS, testid: "mobile-shop" },
+  { label: "Collections", items: COLLECTION_ITEMS, testid: "mobile-collections" },
+  { label: "Gifting", items: GIFTING_ITEMS, testid: "mobile-gifting" },
+  { label: "About Us", items: ABOUT_ITEMS, testid: "mobile-about" },
+  { label: "Contact", items: CONTACT_ITEMS, testid: "mobile-contact" },
 ];
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
-  const [dropOpen, setDropOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [openSection, setOpenSection] = useState(null);
   const location = useLocation();
 
   useEffect(() => {
@@ -28,16 +60,21 @@ export default function Header() {
   }, []);
 
   useEffect(() => {
-    setDropOpen(false);
     setMobileOpen(false);
+    setOpenSection(null);
   }, [location.pathname]);
 
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [mobileOpen]);
 
-  const isCollections = location.pathname.startsWith("/collections");
+  const path = location.pathname;
+  const isActive = (to) => path === to;
+  const sectionActive = (items) =>
+    items.some((it) => path === it.to || (it.to !== "/" && path.startsWith(it.to)));
 
   return (
     <header
@@ -46,78 +83,24 @@ export default function Header() {
         scrolled ? "border-sand shadow-[0_10px_30px_-24px_rgba(48,43,50,0.35)]" : "border-transparent"
       }`}
     >
-      <div className="max-w-[1240px] mx-auto px-5 sm:px-8 h-[72px] flex items-center justify-between gap-6">
+      {/* Main nav bar */}
+      <div className="max-w-[1240px] mx-auto px-5 sm:px-8 h-[70px] flex items-center justify-between gap-6">
         <Logo />
 
-        <nav className="hidden lg:flex items-center gap-8" aria-label="Primary">
-          <Link to="/" className="nav-link text-[12px] uppercase tracking-[0.18em] text-ink/75 hover:text-ink" data-testid="nav-home">
+        <nav className="hidden lg:flex items-center gap-7" aria-label="Primary">
+          <Link
+            to="/"
+            className="nav-link text-[12px] uppercase tracking-[0.18em] text-ink/75 hover:text-ink"
+            data-active={isActive("/")}
+            data-testid="nav-home"
+          >
             Home
           </Link>
-
-          <div
-            className="relative"
-            onMouseEnter={() => setDropOpen(true)}
-            onMouseLeave={() => setDropOpen(false)}
-          >
-            <button
-              type="button"
-              onClick={() => setDropOpen((v) => !v)}
-              onFocus={() => setDropOpen(true)}
-              aria-expanded={dropOpen}
-              aria-haspopup="true"
-              data-testid="nav-collections-trigger"
-              className={`nav-link flex items-center gap-1.5 text-[12px] uppercase tracking-[0.18em] ${
-                isCollections ? "text-ink" : "text-ink/75 hover:text-ink"
-              }`}
-              data-active={isCollections}
-            >
-              Collections
-              <ChevronDown size={13} className={`transition-transform duration-300 ${dropOpen ? "rotate-180" : ""}`} />
-            </button>
-            <AnimatePresence>
-              {dropOpen && (
-                <motion.div
-                  initial={{ opacity: 0, y: 8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 6 }}
-                  transition={{ duration: 0.25, ease: EASE }}
-                  className="absolute left-1/2 -translate-x-1/2 top-full pt-4"
-                  data-testid="collections-dropdown"
-                >
-                  <div className="bg-cream border border-sand shadow-[0_24px_60px_-30px_rgba(48,43,50,0.35)] p-2 grid grid-cols-1 w-[340px]">
-                    {COLLECTIONS.map((c) => (
-                      <Link
-                        key={c.slug}
-                        to={`/collections/${c.slug}`}
-                        className="flex items-center justify-between gap-4 px-4 py-3 hover:bg-white group"
-                        data-testid={`dropdown-collection-${c.slug}`}
-                      >
-                        <span>
-                          <span className="block text-[13px] text-ink group-hover:text-terra transition-colors duration-300">{c.name}</span>
-                          <span className="block text-[11px] text-ink/45 mt-0.5">{c.short}</span>
-                        </span>
-                        <ArrowUpRight size={14} className="text-ink/30 group-hover:text-terra transition-colors" />
-                      </Link>
-                    ))}
-                    <Link to="/collections" className="mt-1 border-t border-sand px-4 py-3 text-[10px] uppercase tracking-[0.22em] text-terra hover:text-ink transition-colors" data-testid="dropdown-view-all">
-                      View all collections
-                    </Link>
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
-
-          {NAV.slice(1).map((n) => (
-            <Link
-              key={n.to}
-              to={n.to}
-              className="nav-link text-[12px] uppercase tracking-[0.18em] text-ink/75 hover:text-ink"
-              data-testid={`nav-${n.to.replace(/\//g, "")}`}
-            >
-              {n.label}
-            </Link>
-          ))}
+          <NavDropdown label="Shop" items={SHOP_ITEMS} active={sectionActive(SHOP_ITEMS)} testid="nav-shop" />
+          <NavDropdown label="Collections" items={COLLECTION_ITEMS} active={sectionActive(COLLECTION_ITEMS)} testid="nav-collections" />
+          <NavDropdown label="Gifting" items={GIFTING_ITEMS} active={sectionActive(GIFTING_ITEMS)} testid="nav-gifting" />
+          <NavDropdown label="About Us" items={ABOUT_ITEMS} active={sectionActive(ABOUT_ITEMS)} testid="nav-about" />
+          <NavDropdown label="Contact" items={CONTACT_ITEMS} active={sectionActive(CONTACT_ITEMS)} testid="nav-contact" />
         </nav>
 
         <div className="flex items-center gap-3">
@@ -142,6 +125,14 @@ export default function Header() {
         </div>
       </div>
 
+      {/* Slim supporting message — edit in src/config/site.js */}
+      <div className="bg-ink text-cream/70" data-testid="support-strip">
+        <p className="max-w-[1240px] mx-auto px-5 sm:px-8 py-[7px] text-center text-[9.5px] uppercase tracking-[0.22em]">
+          {SITE_CONFIG.supportMessage}
+        </p>
+      </div>
+
+      {/* Mobile drawer */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
@@ -152,7 +143,7 @@ export default function Header() {
             className="fixed inset-0 z-[60] lg:hidden bg-cream flex flex-col"
             data-testid="mobile-menu"
           >
-            <div className="h-[72px] px-5 flex items-center justify-between border-b border-sand">
+            <div className="h-[70px] px-5 flex items-center justify-between border-b border-sand">
               <Logo compact />
               <button
                 type="button"
@@ -164,40 +155,61 @@ export default function Header() {
                 <X size={18} strokeWidth={1.8} />
               </button>
             </div>
-            <nav className="flex-1 overflow-y-auto px-6 py-8" aria-label="Mobile">
-              <motion.div
-                initial="hidden"
-                animate="show"
-                variants={{ hidden: {}, show: { transition: { staggerChildren: 0.06, delayChildren: 0.1 } } }}
-                className="flex flex-col"
+
+            <nav className="flex-1 overflow-y-auto px-6 py-4" aria-label="Mobile">
+              <Link
+                to="/"
+                className="block py-3.5 font-display text-[26px] text-ink border-b border-sand"
+                data-testid="mobile-nav-home"
               >
-                {[{ label: "Home", to: "/" }, { label: "All Collections", to: "/collections" }, ...NAV.slice(1)].map((n) => (
-                  <motion.div key={n.to} variants={{ hidden: { opacity: 0, y: 18 }, show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: EASE } } }}>
-                    <Link
-                      to={n.to}
-                      className="block py-4 font-display text-3xl text-ink border-b border-sand"
-                      data-testid={`mobile-nav-${n.to.replace(/\//g, "")}`}
+                Home
+              </Link>
+              {MOBILE_SECTIONS.map((s) => {
+                const open = openSection === s.label;
+                return (
+                  <div key={s.label} className="border-b border-sand" data-testid={s.testid}>
+                    <button
+                      type="button"
+                      onClick={() => setOpenSection(open ? null : s.label)}
+                      aria-expanded={open}
+                      data-testid={`${s.testid}-trigger`}
+                      className="w-full flex items-center justify-between py-3.5 text-left"
                     >
-                      {n.label}
-                    </Link>
-                  </motion.div>
-                ))}
-                <motion.p variants={{ hidden: { opacity: 0, y: 18 }, show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: EASE } } }} className="mt-8 text-[10px] uppercase tracking-[0.26em] text-ink/40 mb-3">
-                  Collections
-                </motion.p>
-                {COLLECTIONS.map((c) => (
-                  <motion.div key={c.slug} variants={{ hidden: { opacity: 0, y: 14 }, show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: EASE } } }}>
-                    <Link
-                      to={`/collections/${c.slug}`}
-                      className="block py-2.5 text-[14px] text-ink/70 hover:text-terra"
-                      data-testid={`mobile-collection-${c.slug}`}
-                    >
-                      {c.name}
-                    </Link>
-                  </motion.div>
-                ))}
-              </motion.div>
+                      <span className="font-display text-[26px] text-ink">{s.label}</span>
+                      <ChevronDown
+                        size={18}
+                        className={`text-ink/50 transition-transform duration-300 ${open ? "rotate-180" : ""}`}
+                      />
+                    </button>
+                    <AnimatePresence initial={false}>
+                      {open && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.3, ease: EASE }}
+                          className="overflow-hidden"
+                        >
+                          <div className="pb-4">
+                            {s.items.map((it) => (
+                              <Link
+                                key={it.to}
+                                to={it.to}
+                                className="block py-2 text-[14px] text-ink/70 hover:text-terra"
+                                data-testid={`${s.testid}-item-${it.to.replace(/\//g, "-").replace(/^-/, "")}`}
+                              >
+                                {it.label}
+                              </Link>
+                            ))}
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                );
+              })}
             </nav>
+
             <div className="p-6 border-t border-sand">
               <WhatsAppButton context="general" label="Enquire on WhatsApp" variant="solid" className="w-full" testid="mobile-whatsapp-btn" />
             </div>

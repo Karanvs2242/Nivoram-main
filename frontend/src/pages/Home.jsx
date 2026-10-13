@@ -1,13 +1,13 @@
 import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowRight, Instagram, ArrowUpRight } from "lucide-react";
-import SectionHeading, {} from "@/components/SectionHeading";
+import { ArrowRight, ArrowUpRight, Instagram } from "lucide-react";
+import SectionHeading from "@/components/SectionHeading";
 import CollectionCard from "@/components/CollectionCard";
 import ProductCard from "@/components/ProductCard";
 import Marquee from "@/components/Marquee";
 import WhatsAppButton from "@/components/WhatsAppButton";
-import { ParallaxImage } from "@/components/Reveal";
+import { ParallaxImage, Reveal } from "@/components/Reveal";
 import { useSEO, organizationJsonLd } from "@/lib/seo";
 import { EASE, lineMask, viewportOnce, fadeUp } from "@/lib/motion";
 import { COLLECTIONS, PRODUCTS, OCCASIONS, IMAGES, productsInCollection } from "@/data/catalog";
@@ -19,7 +19,7 @@ export default function Home() {
   useSEO({
     title: "Nivoram — Elegance That Lasts",
     description:
-      "Silver-coated home décor, decorative showpieces, spiritual pieces and thoughtful gifting for modern Indian homes.",
+      "Silver-coated home décor, decorative showpieces, spiritual pieces and thoughtful gifting for modern Indian homes. Explore collections and enquire directly.",
     path: "/",
     jsonLd: organizationJsonLd,
   });
@@ -33,9 +33,9 @@ export default function Home() {
 
   return (
     <div data-testid="home-page">
-      {/* ── HERO ─────────────────────────────────────────────── */}
+      {/* ── HERO ── */}
       <section className="relative overflow-hidden" data-testid="hero-section">
-        <div className="max-w-[1240px] mx-auto px-5 sm:px-8 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center min-h-[calc(100vh-72px)] py-14 lg:py-0">
+        <div className="max-w-[1240px] mx-auto px-5 sm:px-8 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center min-h-[calc(100vh-170px)] py-14 lg:py-0">
           <div className="lg:col-span-7 order-2 lg:order-1">
             <motion.p
               initial={{ opacity: 0, y: 10 }}
@@ -81,9 +81,15 @@ export default function Home() {
                 className="btn-sweep btn-sweep-dark inline-flex items-center gap-3 border border-ink bg-ink text-cream text-[11px] uppercase tracking-[0.2em] px-8 h-12"
               >
                 <span>Explore Collections</span>
-                <ArrowRight size={14} className="relative z-[1] transition-transform duration-300 group-hover:translate-x-1" />
+                <ArrowRight size={14} className="relative z-[1]" />
               </Link>
-              <WhatsAppButton context="general" variant="outline" label="Enquire on WhatsApp" testid="hero-whatsapp-btn" />
+              <Link
+                to="/collections/thoughtful-gifting"
+                data-testid="hero-find-perfect-gift"
+                className="inline-flex items-center border border-ink/30 text-ink text-[11px] uppercase tracking-[0.2em] px-8 h-12 hover:border-ink hover:bg-ink hover:text-cream transition-colors duration-300"
+              >
+                Find the Perfect Gift
+              </Link>
             </motion.div>
           </div>
 
@@ -101,7 +107,7 @@ export default function Home() {
                   alt={IMAGES.heroAlt}
                   style={reduced ? undefined : { y: imgY }}
                   className="absolute inset-0 w-full h-[115%] object-cover"
-                  fetchpriority="high"
+                  fetchPriority="high"
                 />
               </div>
               <motion.div
@@ -119,31 +125,31 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── MARQUEE ──────────────────────────────────────────── */}
+      {/* ── MARQUEE ── */}
       <Marquee items={["Thoughtful Gifting", "Silver-Tone Craft", "Spiritual Pieces", "Festive Moments", "Made for Indian Homes"]} />
 
-      {/* ── COLLECTIONS ──────────────────────────────────────── */}
+      {/* ── SHOP BY COLLECTION ── */}
       <section className="py-20 sm:py-28" data-testid="home-collections">
         <div className="max-w-[1240px] mx-auto px-5 sm:px-8">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">
             <SectionHeading
-              eyebrow="Explore Our Collections"
+              eyebrow="Shop by Collection"
               title="Curated for Every Corner & Occasion"
               className="sm:max-w-xl"
             />
             <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={viewportOnce}>
               <Link
-                to="/collections"
+                to="/shop"
                 className="nav-link inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.2em] text-ink/70 hover:text-ink pb-1"
-                data-testid="home-collections-view-all"
+                data-testid="home-shop-all-link"
               >
-                All collections <ArrowRight size={13} />
+                Shop all pieces <ArrowRight size={13} />
               </Link>
             </motion.div>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-x-6 gap-y-12">
-            {COLLECTIONS.slice(0, 6).map((c, i) => {
+            {COLLECTIONS.map((c, i) => {
               const pattern = [
                 { span: "lg:col-span-7", aspect: "aspect-[16/11]" },
                 { span: "lg:col-span-5", aspect: "aspect-[16/11]" },
@@ -151,7 +157,7 @@ export default function Home() {
                 { span: "lg:col-span-4", aspect: "aspect-[4/3]" },
                 { span: "lg:col-span-4", aspect: "aspect-[4/3]" },
                 { span: "lg:col-span-12", aspect: "aspect-[16/8] sm:aspect-[21/9]" },
-              ][i] || { span: "lg:col-span-4", aspect: "aspect-[4/3]" };
+              ][i] || { span: "lg:col-span-6", aspect: "aspect-[16/9]" };
               return (
                 <CollectionCard
                   key={c.slug}
@@ -166,13 +172,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── FEATURED PRODUCTS ────────────────────────────────── */}
+      {/* ── FEATURED PRODUCTS ── */}
       <section className="py-20 sm:py-28 bg-white border-y border-sand" data-testid="home-featured">
         <div className="max-w-[1240px] mx-auto px-5 sm:px-8">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">
             <SectionHeading eyebrow="Featured Pieces" title="Currently in Focus" />
             <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={viewportOnce}>
-              <Link to="/collections" className="nav-link inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.2em] text-ink/70 hover:text-ink pb-1" data-testid="home-featured-view-all">
+              <Link to="/shop" className="nav-link inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.2em] text-ink/70 hover:text-ink pb-1" data-testid="home-featured-view-all">
                 Browse everything <ArrowRight size={13} />
               </Link>
             </motion.div>
@@ -185,65 +191,15 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── PHILOSOPHY ───────────────────────────────────────── */}
-      <section className="py-20 sm:py-32" data-testid="home-philosophy">
-        <div className="max-w-[1240px] mx-auto px-5 sm:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          <div>
-            <SectionHeading
-              eyebrow="Brand Philosophy"
-              title="Thoughtful Details. Meaningful Moments."
-              intro="Nivoram exists for the exchange — the wedding gift kept for twenty years, the idol that opens every morning, the housewarming piece that finds its place on day one. We choose silver-tone pieces that carry that meaning into modern Indian homes, at prices that make gifting them genuinely possible."
-            />
-            <div className="mt-10 space-y-6">
-              {[
-                ["01", "Gifting-led", "Every piece is shortlisted with the question — would you keep this gift?"],
-                ["02", "Contemporary Indian design", "Familiar motifs, restrained finishes, made for how homes look today."],
-                ["03", "Affordable premium", "Considered materials and finishing, without the premium-brand markup."],
-              ].map(([n, t, d], i) => (
-                <motion.div
-                  key={n}
-                  variants={fadeUp}
-                  initial="hidden"
-                  whileInView="show"
-                  viewport={viewportOnce}
-                  transition={{ duration: 0.6, delay: i * 0.08 }}
-                  className="flex gap-6 border-t border-sand pt-6"
-                >
-                  <span className="font-display text-lg text-terra/80">{n}</span>
-                  <div>
-                    <h3 className="font-display text-xl text-ink">{t}</h3>
-                    <p className="mt-1 text-[14px] text-ink/55 leading-relaxed max-w-md">{d}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-            <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={viewportOnce} className="mt-10">
-              <Link
-                to="/our-story"
-                data-testid="home-discover-story"
-                className="btn-sweep btn-sweep-dark inline-flex items-center gap-3 border border-ink text-[11px] uppercase tracking-[0.2em] px-8 h-12 text-ink"
-              >
-                <span>Discover Our Story</span>
-              </Link>
-            </motion.div>
-          </div>
-          <ParallaxImage
-            src={IMAGES.storyRoom}
-            alt="Elegant living room with styled décor"
-            className="relative aspect-[4/5] bg-white border border-sand"
-            strength={50}
-          >
-            <span className="absolute bottom-4 left-4 bg-cream/90 text-ink/60 text-[9px] uppercase tracking-[0.2em] px-3 py-2">
-              Sample imagery
-            </span>
-          </ParallaxImage>
-        </div>
-      </section>
-
-      {/* ── OCCASIONS ────────────────────────────────────────── */}
-      <section className="py-20 sm:py-28 border-t border-sand" data-testid="home-occasions">
+      {/* ── SHOP BY OCCASION ── */}
+      <section className="py-20 sm:py-28" data-testid="home-occasions">
         <div className="max-w-[1240px] mx-auto px-5 sm:px-8">
-          <SectionHeading eyebrow="Gifts for Every Occasion" title="What Are You Shopping For?" className="mb-12" />
+          <SectionHeading
+            eyebrow="Shop by Occasion"
+            title="What Are You Shopping For?"
+            intro="Two ways to explore Nivoram — by collection, or by the occasion you're shopping for."
+            className="mb-12"
+          />
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
             {OCCASIONS.map((o, i) => (
               <motion.div
@@ -254,7 +210,7 @@ export default function Home() {
                 viewport={viewportOnce}
                 transition={{ duration: 0.6, delay: i * 0.07 }}
               >
-                <Link to={o.link} className="group block" data-testid={`occasion-card-${o.key}`}>
+                <Link to={o.page} className="group block" data-testid={`occasion-card-${o.key}`}>
                   <div className="relative aspect-[3/4] overflow-hidden bg-white border border-sand">
                     <img
                       src={o.image}
@@ -276,7 +232,89 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── CORPORATE ────────────────────────────────────────── */}
+      {/* ── WHY NIVORAM ── */}
+      <section className="bg-white border-y border-sand py-20 sm:py-28" data-testid="home-why-nivoram">
+        <div className="max-w-[1240px] mx-auto px-5 sm:px-8">
+          <SectionHeading
+            eyebrow="Why Nivoram"
+            title="Thoughtful Details. Meaningful Moments."
+            intro="Every piece is shortlisted with one question — would you keep this gift? Three things guide the answer."
+            className="mb-14"
+          />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+            {[
+              ["01", "Gifting-led", "Every piece is chosen to be kept, displayed and remembered — not merely sold."],
+              ["02", "Contemporary Indian design", "Familiar motifs, restrained silver-tone finishes, made for how homes look today."],
+              ["03", "Affordable premium", "Considered materials and finishing, without the premium-brand markup."],
+            ].map(([n, t, d], i) => (
+              <motion.div
+                key={n}
+                variants={fadeUp}
+                initial="hidden"
+                whileInView="show"
+                viewport={viewportOnce}
+                transition={{ duration: 0.7, delay: i * 0.1 }}
+                className="border-t-2 border-terra/50 pt-6"
+              >
+                <p className="text-[11px] uppercase tracking-[0.24em] text-terra/80 mb-3">{n}</p>
+                <h3 className="font-display text-2xl text-ink">{t}</h3>
+                <p className="mt-2 text-[14px] leading-relaxed text-ink/55">{d}</p>
+              </motion.div>
+            ))}
+          </div>
+          <Reveal className="mt-12">
+            <Link
+              to="/why-nivoram"
+              data-testid="home-why-nivoram-link"
+              className="nav-link inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.2em] text-ink/70 hover:text-ink pb-1"
+            >
+              Read why Nivoram <ArrowRight size={13} />
+            </Link>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ── BRAND STORY ── */}
+      <section className="py-20 sm:py-28" data-testid="home-brand-story">
+        <div className="max-w-[1240px] mx-auto px-5 sm:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          <ParallaxImage
+            src={IMAGES.storyRoom}
+            alt="Elegant living room with styled décor"
+            className="relative aspect-[4/5] bg-white border border-sand order-2 lg:order-1"
+            strength={50}
+          >
+            <span className="absolute bottom-4 left-4 bg-cream/90 text-ink/60 text-[9px] uppercase tracking-[0.2em] px-3 py-2">
+              Sample imagery
+            </span>
+          </ParallaxImage>
+          <div className="order-1 lg:order-2">
+            <SectionHeading
+              eyebrow="Brand Story"
+              title="Born From the Exchange."
+              intro="Nivoram began with a simple observation: the gifts people remember are rarely the expensive ones — they are the ones that stayed. We choose silver-tone pieces that carry that meaning into modern Indian homes."
+            />
+            <Reveal className="mt-6">
+              <p className="text-[15px] leading-relaxed text-ink/60 max-w-xl">
+                Silver tone felt like the natural answer — it carries the
+                auspiciousness Indian traditions associate with silver, sits
+                comfortably in contemporary homes, and photographs the way
+                gifts deserve to be remembered.
+              </p>
+            </Reveal>
+            <Reveal className="mt-9">
+              <Link
+                to="/our-story"
+                data-testid="home-discover-story"
+                className="btn-sweep btn-sweep-dark inline-flex items-center gap-3 border border-ink text-[11px] uppercase tracking-[0.2em] px-8 h-12 text-ink"
+              >
+                <span>Read Our Story</span>
+              </Link>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* ── CORPORATE ── */}
       <section className="bg-ink text-cream py-20 sm:py-28" data-testid="home-corporate">
         <div className="max-w-[1240px] mx-auto px-5 sm:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <div>
@@ -294,13 +332,6 @@ export default function Home() {
               >
                 <span>Request a Bulk Quote</span>
               </Link>
-              <Link
-                to="/corporate-gifting"
-                className="nav-link inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.2em] text-cream/70 hover:text-cream pb-1"
-                data-testid="home-corporate-page-link"
-              >
-                Visit Corporate Gifting <ArrowRight size={13} />
-              </Link>
             </motion.div>
           </div>
           <ParallaxImage
@@ -316,7 +347,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── SOCIAL ───────────────────────────────────────────── */}
+      {/* ── SOCIAL ── */}
       <section className="py-20 sm:py-28" data-testid="home-social">
         <div className="max-w-[1240px] mx-auto px-5 sm:px-8">
           <SectionHeading
@@ -361,7 +392,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── CLOSING CTA ──────────────────────────────────────── */}
+      {/* ── FINAL CTA ── */}
       <section className="py-20 sm:py-32 border-t border-sand" data-testid="home-closing-cta">
         <div className="max-w-[1240px] mx-auto px-5 sm:px-8 text-center">
           <SectionHeading
@@ -369,15 +400,15 @@ export default function Home() {
             eyebrow="Nivoram"
             title="Find Something Meaningful."
             titleClassName="mx-auto max-w-3xl"
-            intro="Whether it's a gift for someone specific or a piece for your own space — start with the collections, or simply tell us what the moment is."
+            intro="Whether it's a gift for someone specific or a piece for your own space — start with the catalogue, or simply tell us what the moment is."
           />
           <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={viewportOnce} className="mt-10 flex flex-wrap justify-center gap-4">
             <Link
-              to="/collections"
-              data-testid="closing-explore-collections"
+              to="/shop"
+              data-testid="closing-explore-catalogue"
               className="btn-sweep btn-sweep-dark inline-flex items-center gap-3 border border-ink bg-ink text-cream text-[11px] uppercase tracking-[0.2em] px-8 h-12"
             >
-              <span>Explore Collections</span>
+              <span>Explore the Catalogue</span>
             </Link>
             <Link
               to="/contact"
