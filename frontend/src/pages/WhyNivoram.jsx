@@ -8,7 +8,7 @@ import { IMAGES } from "@/data/catalog";
 
 const VALUES = [
   ["01", "Meaning first", "A piece must be worth keeping before it is worth selling. If it wouldn't stay on display, it doesn't enter the collection."],
-  ["02", "Restraint is elegance", "No loud finishes, no ornament for ornament's sake. Silver tone, warm neutrals, and detail that rewards a second look."],
+  ["02", "Restraint is elegance", "No loud finishes, no ornament for ornament's sake. Silver plating, warm neutrals, and detail that rewards a second look."],
   ["03", "Accessible premium", "Good design shouldn't need a special-occasion budget. Our pricing keeps genuinely premium-feeling gifts within reach."],
   ["04", "Honesty over hype", "We publish only verified details — no invented purity claims, fake reviews or promised timelines. If something is unconfirmed, it says so."],
 ];
@@ -19,7 +19,7 @@ export default function WhyNivoram() {
     description:
       "What guides every Nivoram choice — gifting-led curation, contemporary Indian design, accessible premium and honest product information.",
     path: "/why-nivoram",
-    image: IMAGES.storyRoom,
+    image: IMAGES.craftElephants,
   });
 
   return (
@@ -115,15 +115,11 @@ export default function WhyNivoram() {
           </Reveal>
         </div>
         <ParallaxImage
-          src={IMAGES.styling}
-          alt="Styled console with silver-tone accents"
+          src={IMAGES.craftElephants}
+          alt="Silver-plated elephant pair with embossed detailing"
           className="relative aspect-[4/5] bg-white border border-sand"
           strength={50}
-        >
-          <span className="absolute bottom-4 left-4 bg-cream/90 text-ink/60 text-[9px] uppercase tracking-[0.2em] px-3 py-2">
-            Sample imagery
-          </span>
-        </ParallaxImage>
+        />
       </section>
     </div>
   );

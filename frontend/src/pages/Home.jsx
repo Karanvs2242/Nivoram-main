@@ -19,7 +19,7 @@ export default function Home() {
   useSEO({
     title: "Nivoram — Elegance That Lasts",
     description:
-      "Silver-coated home décor, decorative showpieces, spiritual pieces and thoughtful gifting for modern Indian homes. Explore collections and enquire directly.",
+      "999 silver-plated and gold & silver-coated décor, divine idols and thoughtful gifting for modern Indian homes. Explore collections and enquire directly.",
     path: "/",
     jsonLd: organizationJsonLd,
   });
@@ -43,7 +43,7 @@ export default function Home() {
               transition={{ duration: 0.6, ease: EASE, delay: 0.15 }}
               className="text-[11px] uppercase tracking-[0.3em] text-terra mb-6"
             >
-              Silver-Coated Home Décor &amp; Gifting
+              999 Silver-Plated &amp; Gold-Coated Décor
             </motion.p>
             <h1 className="font-display text-[17vw] sm:text-7xl lg:text-[104px] leading-[0.95] tracking-tight text-ink">
               {HERO_LINES.map((line, i) => (
@@ -110,23 +110,13 @@ export default function Home() {
                   fetchPriority="high"
                 />
               </div>
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, ease: EASE, delay: 1.05 }}
-                className="absolute -bottom-5 left-6 bg-cream border border-sand px-4 py-3"
-              >
-                <p className="text-[10px] uppercase tracking-[0.24em] text-ink/60">
-                  Sample imagery — studio photographs at launch
-                </p>
-              </motion.div>
             </motion.div>
           </div>
         </div>
       </section>
 
       {/* ── MARQUEE ── */}
-      <Marquee items={["Thoughtful Gifting", "Silver-Tone Craft", "Spiritual Pieces", "Festive Moments", "Made for Indian Homes"]} />
+      <Marquee items={["999 Silver-Plated", "Gold & Silver Coated", "Divine Idols", "Thoughtful Gifting", "Made for Indian Homes"]} />
 
       {/* ── SHOP BY COLLECTION ── */}
       <section className="py-20 sm:py-28" data-testid="home-collections">
@@ -156,7 +146,6 @@ export default function Home() {
                 { span: "lg:col-span-4", aspect: "aspect-[4/3]" },
                 { span: "lg:col-span-4", aspect: "aspect-[4/3]" },
                 { span: "lg:col-span-4", aspect: "aspect-[4/3]" },
-                { span: "lg:col-span-12", aspect: "aspect-[16/8] sm:aspect-[21/9]" },
               ][i] || { span: "lg:col-span-6", aspect: "aspect-[16/9]" };
               return (
                 <CollectionCard
@@ -244,8 +233,8 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {[
               ["01", "Gifting-led", "Every piece is chosen to be kept, displayed and remembered — not merely sold."],
-              ["02", "Contemporary Indian design", "Familiar motifs, restrained silver-tone finishes, made for how homes look today."],
-              ["03", "Affordable premium", "Considered materials and finishing, without the premium-brand markup."],
+              ["02", "Contemporary Indian design", "Familiar motifs in 999 silver-plated and gold & silver-coated finishes, made for how homes look today."],
+              ["03", "Affordable premium", "Considered craftsmanship and detailing, without the premium-brand markup."],
             ].map(([n, t, d], i) => (
               <motion.div
                 key={n}
@@ -278,27 +267,22 @@ export default function Home() {
       <section className="py-20 sm:py-28" data-testid="home-brand-story">
         <div className="max-w-[1240px] mx-auto px-5 sm:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <ParallaxImage
-            src={IMAGES.storyRoom}
-            alt="Elegant living room with styled décor"
+            src={IMAGES.story}
+            alt="Silver-plated Radha-Krishna pair from the Nivoram catalogue"
             className="relative aspect-[4/5] bg-white border border-sand order-2 lg:order-1"
             strength={50}
-          >
-            <span className="absolute bottom-4 left-4 bg-cream/90 text-ink/60 text-[9px] uppercase tracking-[0.2em] px-3 py-2">
-              Sample imagery
-            </span>
-          </ParallaxImage>
+          />
           <div className="order-1 lg:order-2">
             <SectionHeading
               eyebrow="Brand Story"
               title="Born From the Exchange."
-              intro="Nivoram began with a simple observation: the gifts people remember are rarely the expensive ones — they are the ones that stayed. We choose silver-tone pieces that carry that meaning into modern Indian homes."
+              intro="Nivoram began with a simple observation: the gifts people remember are rarely the expensive ones — they are the ones that stayed. We choose 999 silver-plated and gold & silver-coated pieces that carry that meaning into modern Indian homes."
             />
             <Reveal className="mt-6">
               <p className="text-[15px] leading-relaxed text-ink/60 max-w-xl">
-                Silver tone felt like the natural answer — it carries the
-                auspiciousness Indian traditions associate with silver, sits
-                comfortably in contemporary homes, and photographs the way
-                gifts deserve to be remembered.
+                Silver carried the auspiciousness Indian traditions associate
+                with it, sat comfortably in contemporary homes, and
+                photographed the way gifts deserve to be remembered.
               </p>
             </Reveal>
             <Reveal className="mt-9">
@@ -335,15 +319,11 @@ export default function Home() {
             </motion.div>
           </div>
           <ParallaxImage
-            src={IMAGES.corporateBox}
-            alt="Premium gift box"
+            src={IMAGES.corporateGift}
+            alt="Ornate silver-plated keepsake box"
             className="relative aspect-[4/3] border border-cream/20"
             strength={40}
-          >
-            <span className="absolute bottom-4 left-4 bg-ink/80 text-cream/60 text-[9px] uppercase tracking-[0.2em] px-3 py-2">
-              Sample imagery
-            </span>
-          </ParallaxImage>
+          />
         </div>
       </section>
 
@@ -353,40 +333,30 @@ export default function Home() {
           <SectionHeading
             eyebrow="Social Inspiration"
             title="Follow the Studio"
-            intro={
-              SITE_CONFIG.instagramUrl
-                ? "Styling notes, festive edits and new pieces — straight from Nivoram."
-                : "Our official Instagram link is being connected. This space will carry genuine brand imagery and styling notes once live."
-            }
+            intro="Styling notes, festive edits and new pieces — straight from @nivoram.shop."
             className="mb-10"
           />
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
-            {[IMAGES.sideboard, IMAGES.styling, IMAGES.vasesPair, IMAGES.ganeshaDecor].map((src, i) => (
-              <motion.div
+            {IMAGES.socialGrid.map((src, i) => (
+              <motion.a
                 key={i}
+                href={SITE_CONFIG.instagramUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 variants={fadeUp}
                 initial="hidden"
                 whileInView="show"
                 viewport={viewportOnce}
                 transition={{ duration: 0.6, delay: i * 0.07 }}
                 className="group relative aspect-square overflow-hidden bg-white border border-sand"
+                aria-label="Open Instagram"
+                data-testid={`social-tile-${i}`}
               >
                 <img src={src} alt="Nivoram styling inspiration" loading="lazy" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.05]" />
-                <span className="absolute top-3 left-3 bg-cream/90 text-ink/60 text-[9px] uppercase tracking-[0.2em] px-2.5 py-1.5">
-                  Sample imagery
+                <span className="absolute inset-0 flex items-center justify-center bg-ink/0 group-hover:bg-ink/25 transition-colors duration-300">
+                  <Instagram size={22} className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </span>
-                {SITE_CONFIG.instagramUrl && (
-                  <a
-                    href={SITE_CONFIG.instagramUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Open Instagram"
-                    className="absolute inset-0 flex items-center justify-center bg-ink/0 group-hover:bg-ink/25 transition-colors duration-300"
-                  >
-                    <Instagram size={22} className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  </a>
-                )}
-              </motion.div>
+              </motion.a>
             ))}
           </div>
         </div>

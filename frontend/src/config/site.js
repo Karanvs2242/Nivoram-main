@@ -21,7 +21,7 @@ export const SITE_CONFIG = {
   domainConfirmed: false, // flip to true once the production domain is live
   supportMessage: "Thoughtfully Selected Décor & Meaningful Gifts | India & UAE Enquiries",
   whatsappNumber: "", // PLACEHOLDER — official WhatsApp business number
-  instagramUrl: "", // PLACEHOLDER — official Instagram URL
-  instagramHandle: "@nivoram", // PLACEHOLDER — official handle
+  instagramUrl: "https://www.instagram.com/nivoram.shop", // official — from the catalogue
+  instagramHandle: "@nivoram.shop", // official — from the catalogue
   contactEmail: "hello@nivoram.com", // PLACEHOLDER — official business email
 };

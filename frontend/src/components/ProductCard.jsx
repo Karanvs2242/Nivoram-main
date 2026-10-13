@@ -11,8 +11,8 @@ export default function ProductCard({ product, index = 0 }) {
     const href = waLink({ productName: product.name, sku: product.sku });
     if (href) window.open(href, "_blank", "noopener,noreferrer");
     else
-      toast.info("Our official WhatsApp number is being set up. Use the product page enquiry form meanwhile.", {
-        duration: 5000,
+      toast.info("Our official WhatsApp number is being set up. DM @nivoram.shop on Instagram meanwhile.", {
+        duration: 6000,
       });
   };
 

@@ -12,9 +12,8 @@ const SHOP = [
 const COLLECTIONS = [
   ["Sacred Elegance", "sacred-elegance"],
   ["Statement Décor", "statement-decor"],
-  ["Timeless Accents", "timeless-accents"],
-  ["Frames & Keepsakes", "frames-keepsakes"],
   ["Auspicious Living", "auspicious-living"],
+  ["Divine Grace", "divine-grace"],
   ["Thoughtful Gifting", "thoughtful-gifting"],
 ];
 
@@ -66,9 +65,9 @@ export default function Footer() {
           <div className="col-span-2 md:col-span-4">
             <Logo dark />
             <p className="mt-6 text-[14px] leading-relaxed text-cream/60 max-w-sm">
-              Silver-coated home décor, decorative showpieces, spiritual pieces
-              and thoughtful gifting — designed for modern Indian homes and
-              the moments that matter.
+              999 silver-plated and gold &amp; silver-coated décor, divine
+              idols and thoughtful gifts — designed for modern Indian homes
+              and the moments that matter.
             </p>
             <div className="mt-7 flex flex-col items-start gap-4">
               <WhatsAppButton

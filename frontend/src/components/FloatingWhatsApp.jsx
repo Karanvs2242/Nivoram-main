@@ -10,8 +10,8 @@ export default function FloatingWhatsApp() {
     if (!href) {
       e.preventDefault();
       toast.info(
-        "Our official WhatsApp number is being set up. Please use the enquiry form or email for now.",
-        { duration: 5000 }
+        "Our official WhatsApp number is being set up. DM @nivoram.shop on Instagram or use the enquiry form for now.",
+        { duration: 6000 }
       );
     }
   };

@@ -53,7 +53,7 @@ export default function FAQs() {
   useSEO({
     title: "FAQs",
     description:
-      "Honest answers about enquiring, silver-tone finishes, bulk gifting and how Nivoram product information works.",
+      "Honest answers about enquiring, 999 silver-plated finishes, bulk gifting and how Nivoram product information works.",
     path: "/faqs",
     jsonLd,
   });

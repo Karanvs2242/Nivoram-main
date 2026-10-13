@@ -11,9 +11,9 @@ export default function Craftsmanship() {
   useSEO({
     title: "Craftsmanship",
     description:
-      "Nivoram's approach to silver-tone finishes, design detail and caring for coated décor — described honestly, without unverifiable claims.",
+      "Nivoram's approach to 999 silver-plated and gold & silver-coated finishes, design detail and care — described honestly.",
     path: "/craftsmanship",
-    image: IMAGES.compote,
+    image: IMAGES.finish,
   });
 
   return (
@@ -48,34 +48,30 @@ export default function Craftsmanship() {
           className="mt-8 max-w-2xl text-[16px] leading-relaxed text-ink/60"
         >
           Our approach to finish, form and detail — and how to live with
-          silver-tone pieces once they're yours.
+          silver-plated pieces once they're yours.
         </motion.p>
       </section>
 
       {/* The finish */}
       <section className="max-w-[1240px] mx-auto px-5 sm:px-8 pb-20 sm:pb-28 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
         <ParallaxImage
-          src={IMAGES.compote}
-          alt="Silver-tone pedestal compote with fine detailing"
+          src={IMAGES.finish}
+          alt="Silver-plated peacock-rimmed bowl with fine detailing"
           className="relative aspect-[4/5] bg-white border border-sand order-2 lg:order-1"
           strength={50}
-        >
-          <span className="absolute bottom-4 left-4 bg-cream/90 text-ink/60 text-[9px] uppercase tracking-[0.2em] px-3 py-2">
-            Sample imagery
-          </span>
-        </ParallaxImage>
+        />
         <div className="order-1 lg:order-2">
           <SectionHeading
             eyebrow="The Finish"
-            title="Silver Tone, Honestly Described."
-            intro="Nivoram specialises in silver-coated décor — pieces finished in silver tone rather than solid silver. It's a finish we choose deliberately: it carries the auspicious feel of silver, suits contemporary interiors, and keeps genuinely premium-feeling gifts within reach."
+            title="999 Silver-Plated, Honestly Described."
+            intro="Nivoram specialises in 999 silver-plated and gold & silver-coated décor — a finish we choose deliberately. It carries the auspicious feel Indian traditions associate with silver, suits contemporary interiors, and keeps genuinely premium-feeling pieces within reach."
           />
           <Reveal className="mt-6">
             <p className="text-[15px] leading-relaxed text-ink/60 max-w-xl">
-              We never describe a coated piece as solid silver, and we don't
-              publish purity claims. Where a product's material and coating are
-              verified, they're listed on its page; until then, they read "on
-              request" — and one enquiry gets you the confirmed answer.
+              We never describe a plated piece as solid silver, and we don't
+              publish purity claims beyond what's verified. Each piece's exact
+              material and coating are confirmed during your enquiry — and one
+              message gets you the answer.
             </p>
           </Reveal>
         </div>
@@ -87,7 +83,7 @@ export default function Craftsmanship() {
           <SectionHeading eyebrow="The Details" title="What We Look For." className="mb-14" />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {[
-              ["Embossing & relief", "Detail that rewards a second look — raised motifs and fine engraving-style work on keepsakes, idols and accents."],
+              ["Embossing & relief", "Detail that rewards a second look — raised motifs and fine carving-style work on idols, boxes and accents."],
               ["Weight & balance", "Pieces should feel settled in the hand and steady on a surface. Forms are chosen to sit quietly, not to wobble through a festival dinner."],
               ["Gift-ready presentation", "Pieces are shortlisted with gifting in mind, so they present well the moment they're handed over."],
             ].map(([t, d], i) => (
@@ -114,8 +110,8 @@ export default function Craftsmanship() {
           <div className="lg:col-span-7">
             <SectionHeading
               eyebrow="Living With It"
-              title="Caring for Silver-Tone Décor."
-              intro="Finished décor asks for very little: a soft, dry cloth after dusting; no abrasive scrubs, harsh chemicals or long soaks; and a spot away from direct humidity where possible. For detailed pieces, a soft brush reaches what cloth cannot."
+              title="Caring for Silver-Plated Décor."
+              intro="Plated and coated décor asks for very little: a soft, dry cloth after dusting; no abrasive scrubs, harsh chemicals or long soaks; and a spot away from direct humidity where possible. For detailed pieces, a soft brush reaches what cloth cannot."
             />
             <Reveal className="mt-6">
               <p className="text-[15px] leading-relaxed text-ink/60 max-w-xl">
@@ -125,7 +121,7 @@ export default function Craftsmanship() {
             </Reveal>
             <Reveal className="mt-8">
               <Link
-                to="/journal/caring-for-silver-tone-decor"
+                to="/journal/caring-for-silver-plated-decor"
                 data-testid="craftsmanship-care-journal"
                 className="nav-link inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.2em] text-ink/70 hover:text-ink pb-1"
               >

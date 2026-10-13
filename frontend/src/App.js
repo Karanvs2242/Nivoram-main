@@ -108,6 +108,8 @@ export default function App() {
               <Route path="/collections/wedding-anniversary-gifts" element={<Navigate to="/gifts/weddings" replace />} />
               <Route path="/collections/festive-occasion-gifts" element={<Navigate to="/gifts/festive" replace />} />
               <Route path="/collections/corporate-bulk-gifting" element={<Navigate to="/corporate-gifting" replace />} />
+              <Route path="/collections/timeless-accents" element={<Navigate to="/collections/statement-decor" replace />} />
+              <Route path="/collections/frames-keepsakes" element={<Navigate to="/collections/thoughtful-gifting" replace />} />
 
               <Route path="*" element={<NotFound />} />
             </Routes>

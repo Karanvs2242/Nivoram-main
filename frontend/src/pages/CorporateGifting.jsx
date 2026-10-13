@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
-import { ChevronDown, Minus, Plus } from "lucide-react";
+import { Minus, Plus } from "lucide-react";
 import SectionHeading from "@/components/SectionHeading";
 import EnquiryForm from "@/components/EnquiryForm";
 import WhatsAppButton from "@/components/WhatsAppButton";
@@ -11,10 +11,10 @@ import { EASE, viewportOnce, fadeUp } from "@/lib/motion";
 import { IMAGES, getCollection, productsInCollection } from "@/data/catalog";
 
 const USE_CASES = [
-  { title: "Employee Recognition", desc: "Milestones, onboarding and long service — gifts people actually display.", image: IMAGES.sideboard },
-  { title: "Client & Partner Appreciation", desc: "Considered pieces that say thank you without saying marketing.", image: IMAGES.giftMono },
-  { title: "Conferences & Events", desc: "Favours and mementos for weddings, summits and festive gatherings.", image: IMAGES.giftFloral },
-  { title: "Festive Hampers", desc: "Diwali and festive gifting, curated and coordinated at scale.", image: IMAGES.diyas },
+  { title: "Employee Recognition", desc: "Milestones, onboarding and long service — gifts people actually display.", image: IMAGES.recognition },
+  { title: "Client & Partner Appreciation", desc: "Considered pieces that say thank you without saying marketing.", image: IMAGES.clientGift },
+  { title: "Conferences & Events", desc: "Favours and mementos for weddings, summits and festive gatherings.", image: IMAGES.events },
+  { title: "Festive Hampers", desc: "Diwali and festive gifting, curated and coordinated at scale.", image: IMAGES.hampers },
 ];
 
 const STEPS = [
@@ -67,9 +67,9 @@ export default function CorporateGifting() {
   useSEO({
     title: "Corporate & Bulk Gifting",
     description:
-      "Considered silver-tone gifting for teams, clients and events. Request a tailored bulk quote from Nivoram.",
+      "Considered 999 silver-plated gifting for teams, clients and events. Request a tailored bulk quote from Nivoram.",
     path: "/corporate-gifting",
-    image: IMAGES.giftMono,
+    image: IMAGES.corporateGift,
   });
 
   return (
@@ -140,7 +140,7 @@ export default function CorporateGifting() {
       <section className="max-w-[1240px] mx-auto px-5 sm:px-8 pb-20">
         <SectionHeading eyebrow="Gifting Collections" title="Where Bulk Gifting Begins." className="mb-10" />
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-          {["thoughtful-gifting", "timeless-accents", "frames-keepsakes"].map((slug, i) => (
+          {["thoughtful-gifting", "divine-grace", "auspicious-living"].map((slug, i) => (
             <CollectionCard
               key={slug}
               index={i}

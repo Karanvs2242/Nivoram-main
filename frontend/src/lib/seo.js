@@ -33,7 +33,7 @@ export function useSEO({ title, description, path = "/", image, jsonLd } = {}) {
     const fullTitle = title ? `${title} — Nivoram` : "Nivoram — Elegance That Lasts";
     const desc =
       description ||
-      "Silver-coated home décor, decorative showpieces, spiritual pieces and thoughtful gifting.";
+      "999 silver-plated and gold & silver-coated décor, divine idols and thoughtful gifting for modern Indian homes.";
     const img = image || SHARE_IMAGE;
 
     document.title = fullTitle;

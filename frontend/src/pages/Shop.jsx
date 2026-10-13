@@ -19,7 +19,7 @@ const MODES = {
     eyebrow: "Shop All",
     path: "/shop",
     description:
-      "Browse the full Nivoram catalogue — silver-tone décor, spiritual pieces, accents and keepsakes. Filter by occasion or enquire directly.",
+      "Browse the full Nivoram catalogue — 999 silver-plated and gold & silver-coated décor, divine idols, accents and keepsakes. Filter by occasion or enquire directly.",
     intro:
       "Every piece in the active Nivoram catalogue — browse the full edit, or filter by the occasion you're shopping for.",
   },

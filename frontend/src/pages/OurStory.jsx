@@ -10,9 +10,9 @@ export default function OurStory() {
   useSEO({
     title: "Our Story",
     description:
-      "Objects That Make Moments Meaningful — the philosophy behind Nivoram's silver-tone décor and gifting.",
+      "Objects That Make Moments Meaningful — the philosophy behind Nivoram's 999 silver-plated décor and gifting.",
     path: "/our-story",
-    image: IMAGES.storyRoom,
+    image: IMAGES.story,
   });
 
   return (
@@ -47,23 +47,20 @@ export default function OurStory() {
           transition={{ duration: 0.7, ease: EASE, delay: 0.65 }}
           className="mt-8 max-w-2xl text-[16px] leading-relaxed text-ink/60"
         >
-          Nivoram began with a simple observation: the gifts people remember
-          are rarely the expensive ones — they are the ones that stayed.
+          Nivoram brings together thoughtfully selected 999 silver-plated and
+          gold &amp; silver-coated décor, divine idols and gifting pieces —
+          for every celebration, and for every heart.
         </motion.p>
       </section>
 
       {/* Inspiration */}
       <section className="max-w-[1240px] mx-auto px-5 sm:px-8 pb-20 sm:pb-28 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
         <ParallaxImage
-          src={IMAGES.storyRoom}
-          alt="A styled, elegant living space"
+          src={IMAGES.story}
+          alt="Silver-plated Radha-Krishna pair from the Nivoram catalogue"
           className="relative aspect-[4/5] bg-white border border-sand"
           strength={50}
-        >
-          <span className="absolute bottom-4 left-4 bg-cream/90 text-ink/60 text-[9px] uppercase tracking-[0.2em] px-3 py-2">
-            Sample imagery
-          </span>
-        </ParallaxImage>
+        />
         <div>
           <SectionHeading
             eyebrow="The Inspiration"
@@ -72,10 +69,10 @@ export default function OurStory() {
           />
           <Reveal className="mt-6">
             <p className="text-[15px] leading-relaxed text-ink/60 max-w-xl">
-              Silver-tone finishes felt like the natural answer. They carry the
-              auspiciousness Indian traditions associate with silver, they sit
-              comfortably in contemporary homes, and they photograph the way
-              gifts deserve to be remembered.
+              Silver felt like the natural answer. It carries the auspiciousness
+              Indian traditions associate with it, it sits comfortably in
+              contemporary homes, and it photographs the way gifts deserve to
+              be remembered.
             </p>
           </Reveal>
         </div>
@@ -88,7 +85,7 @@ export default function OurStory() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {[
               ["Meaning first", "A piece must be worth keeping before it is worth selling. If it wouldn't stay on display, it doesn't enter the collection."],
-              ["Restraint is elegance", "No loud finishes, no ornament for ornament's sake. Silver tone, warm neutrals, and detail that rewards a second look."],
+              ["Restraint is elegance", "No loud finishes, no ornament for ornament's sake. Silver plating, warm neutrals, and detail that rewards a second look."],
               ["Accessible premium", "Good design shouldn't need a special occasion budget. Our pricing keeps genuinely premium-feeling gifts within reach."],
             ].map(([t, d], i) => (
               <motion.div
@@ -114,7 +111,7 @@ export default function OurStory() {
         <SectionHeading
           eyebrow="The Collections"
           title="Where to Begin."
-          intro="Seven edits organise the collection — by ritual, by room, and by the occasions that bring people together."
+          intro="Five edits organise the collection — by ritual, by room, and by the occasions that bring people together."
           className="mb-12"
         />
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-10">

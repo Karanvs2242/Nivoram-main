@@ -20,7 +20,7 @@ export default function Collections() {
         <SectionHeading
           eyebrow="Collections"
           title="Explore the Nivoram Edit"
-          intro="Six curated edits, one point of view — silver-tone pieces for Indian homes, rituals and the people we gift them to. Products may appear in more than one collection where they belong."
+          intro="Five curated edits, one point of view — 999 silver-plated and gold & silver-coated pieces for Indian homes, rituals and the people we gift them to. Products may appear in more than one collection where they belong."
         />
       </section>
 
