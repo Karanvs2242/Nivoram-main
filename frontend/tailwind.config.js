@@ -15,8 +15,10 @@ module.exports = {
       colors: {
         cream: '#F8F3EB',
         ink: '#302B32',
-        terra: '#C87560',
-        royal: '#6B2D91',
+        terra: '#E04A36',
+        royal: '#AC2FCB',
+        lav: '#C77FEA',
+        coral: '#F4744A',
         sand: '#E5DCD0',
         wa: '#25D366',
         background: 'hsl(var(--background))',

@@ -6,7 +6,10 @@ export default function Marquee({ items }) {
           <span className="font-display italic text-[26px] sm:text-[34px] text-ink/70 px-8 sm:px-12 whitespace-nowrap">
             {item}
           </span>
-          <span className="inline-block h-1.5 w-1.5 rotate-45 bg-terra/60" aria-hidden="true" />
+          <span
+            className={`inline-block h-1.5 w-1.5 rotate-45 ${["bg-terra/70", "bg-coral/70", "bg-lav/80"][i % 3]}`}
+            aria-hidden="true"
+          />
         </span>
       ))}
     </div>
