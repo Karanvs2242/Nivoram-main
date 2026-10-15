@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { EASE, viewportOnce, fadeUp } from "@/lib/motion";
+import FramedImage from "@/components/FramedImage";
 
 export default function CollectionCard({ collection, className = "", aspect = "aspect-[4/3]", index = 0 }) {
   const count = collection.count;
@@ -17,11 +18,11 @@ export default function CollectionCard({ collection, className = "", aspect = "a
     >
       <Link to={`/collections/${collection.slug}`} className="block" aria-label={`${collection.name} collection`}>
         <div className={`relative overflow-hidden bg-white border border-sand transition-shadow duration-500 group-hover:shadow-[0_0_0_1px_rgba(234,58,46,0.35),0_20px_44px_-26px_rgba(224,74,54,0.3)] ${aspect}`}>
-          <img
+          <FramedImage
             src={collection.image}
             alt={collection.alt}
-            loading="lazy"
-            className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.045]"
+            className="h-full w-full"
+            imgClassName="transition-transform duration-700 ease-out group-hover:scale-[1.045]"
           />
           <div className="absolute inset-0 border border-ink/0 group-hover:border-cream/40 m-3 pointer-events-none transition-colors duration-500" />
         </div>

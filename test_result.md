@@ -102,7 +102,7 @@
 # Testing Data - Main Agent and testing sub agent both should log testing data below this section
 #====================================================================================================
 
-## user_problem_statement: "Phase 3 Reskin: festive Diwali seasonal mode — warmer flame intensity + celebratory gold accents, auto-activated by calendar during the Diwali window each year, plus subtle animated gradient moments on hero + collection banners only. No copy changes. Balanced intensity with Whisper restraint."
+## user_problem_statement: "User reported: 'analysis the proper fitting of the all images'. Audit found: collection banners cropped up to 83% of photos, product cards (4/5) cropped up to 71%, product detail desktop (5/4) cropped 30-60% of portrait photos, collection/occasion cards up to 54%. User confirmed fixes: square 1:1 product cards + blurred self-fill treatment (full photo floats centered over a blurred enlarged copy of itself) for collection banners, collection cards, occasion crosslinks, journal cards; product detail shows the full photo at natural ratio."
 ## backend:
 ##   - task: "None (visual/frontend feature)"
 ##     implemented: true
@@ -116,39 +116,17 @@
 ##         -agent: "main"
 ##         -comment: "No backend changes in this phase."
 ## frontend:
-##   - task: "Festive seasonal mode (auto-calendar Diwali window)"
+##   - task: "Image fitting audit + fix (square cards, natural-ratio detail, blur-fill frames)"
 ##     implemented: true
 ##     working: true
-##     file: "frontend/src/config/festive.js"
+##     file: "frontend/src/components/FramedImage.jsx (NEW), ProductCard.jsx, ProductDetail.jsx, CollectionDetail.jsx, CollectionCard.jsx, OccasionGifts.jsx, Journal.jsx, JournalArticle.jsx, Home.jsx"
 ##     stuck_count: 0
 ##     priority: "high"
 ##     needs_retesting: true
 ##     status_history:
 ##         -working: true
 ##         -agent: "main"
-##         -comment: "New src/config/festive.js with FESTIVE_WINDOWS (Diwali 2025-2030, Lakshmi Puja ±3-4 days) and isFestiveSeason() with ?festive=1 / ?festive=0 URL overrides. Node test: 12/12 date cases + both overrides PASS."
-##   - task: "Festive CSS layer (warmer flame + gold sparks + 2 animated gradient moments)"
-##     implemented: true
-##     working: true
-##     file: "frontend/src/index.css"
-##     stuck_count: 0
-##     priority: "high"
-##     needs_retesting: true
-##     status_history:
-##         -working: true
-##         -agent: "main"
-##         -comment: "html.festive redefines --flame-gradient/--flame-gradient-deep (coral #F0341F → molten #FF8C33 → gold tip #E8B34B); gold hairline on product badges via span.bg-flame/span.bg-royal::after; rule-flame gains gold segment; btn-flame gains gold ring; hero ::before breathing warm glow (hero-section) + flame-drift on hero .text-flame and collection-banner-frame. Reduced-motion catch-all already disables animations. Verified via computed styles + screenshots on external preview: festive class on, animations flame-drift/festive-breathe running, badges gold spark present, no overflow-x at 1440 and 390; normal mode regression clean (class off, standard #EA3A2E→#F98140, animationName none)."
-##   - task: "App mount wiring + hero stacking fix"
-##     implemented: true
-##     working: true
-##     file: "frontend/src/App.js, frontend/src/pages/Home.jsx"
-##     stuck_count: 0
-##     priority: "high"
-##     needs_retesting: true
-##     status_history:
-##         -working: true
-##         -agent: "main"
-##         -comment: "App.js toggles 'festive' class on documentElement at mount; Home hero inner container got 'relative' so the absolute glow ::before paints behind hero content."
+##         -comment: "Audit measured crop% for all 49 product photos + collection/IMAGES usages vs container ratios. Fixes: (1) ProductCard aspect-[4/5]→aspect-square + optional per-product pos (objectPosition) support; (2) ProductDetail main image natural ratio (w-full h-auto max-h-[75vh] object-contain, no fixed frame, zero crop on all viewports); (3) NEW FramedImage component (object-contain full photo + blurred scale-1.6 self backdrop) applied to CollectionDetail banner, CollectionCard, OccasionGifts crosslinks, Journal cards, JournalArticle cover; (4) Home corporate teaser image swapped corporateGift (r=0.61, 54% crop in 4/3) → clientGift (r=1.11, 17% crop). Verified via screenshots at 1440x900 + 390x844: worst product (r=2.78) fully visible in detail, tall product (r=0.5) fully visible, sacred-elegance banner shows full photo over blurred fill, journal/occasion cards complete, no overflow-x anywhere, no compile errors."
 ## metadata:
 ##   created_by: "main_agent"
 ##   version: "1.0"
@@ -156,13 +134,14 @@
 ##   run_ui: true
 ## test_plan:
 ##   current_focus:
-##     - "Festive mode renders on all key routes with ?festive=1 (home, collection detail, product detail, shop, gift finder)"
-##     - "Animated gradient moments exist ONLY on hero + collection banners"
-##     - "Normal mode regression: no festive class, standard gradient, no visual change"
-##     - "No overflow-x / console errors on desktop 1440x900 and mobile 390x844"
+##     - "No distortion anywhere (object-fit cover/contain correct, no stretched images)"
+##     - "Square cards on all product grids (shop, home featured, occasion grids, gift finder results, related products)"
+##     - "Blur-fill frames: collection banner, collection cards, occasion crosslinks, journal cards, article cover show the FULL photo"
+##     - "Product detail main photo: full photo visible for wide (r=2.78), tall (r=0.5) and normal products, desktop + mobile"
+##     - "No overflow-x / console errors at 1440x900 and 390x844"
 ##   stuck_tasks: []
 ##   test_all: false
 ##   test_priority: "high_first"
 ## agent_communication:
 ##     -agent: "main"
-##     -message: "Phase 3 festive mode implemented. Preview override: append ?festive=1 (force on) or ?festive=0 (force off) to any URL — auto-calendar alone only activates during Diwali windows (Oct 16-24 2025 next). No backend involved. Please verify festive rendering across routes, animation scope, gold sparks on badges/buttons/rule, mobile layout, and normal-mode regression."
+##     -message: "Image-fitting fix implemented per user-confirmed choices (square cards + blurred self-fill). Previous iteration_1.json covered the festive mode (all passing) — do NOT retest festive; focus on image fitting across surfaces. Note: a previous screenshot script bug (page_url containing /shop caused /shop/products/... 404s) was mine, not an app bug — routes are fine."

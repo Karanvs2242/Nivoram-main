@@ -63,13 +63,13 @@ export default function ProductDetail() {
           <div className="lg:col-span-7">
             <motion.div
               key={main}
-              initial={{ opacity: 0.4, scale: 1.015 }}
-              animate={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0.4 }}
+              animate={{ opacity: 1 }}
               transition={{ duration: 0.5, ease: EASE }}
-              className="relative aspect-[4/5] sm:aspect-[5/4] bg-white border border-sand overflow-hidden"
+              className="relative bg-white border border-sand overflow-hidden"
               data-testid="product-gallery-main"
             >
-              <img src={main} alt={product.name} className="absolute inset-0 w-full h-full object-cover" fetchPriority="high" />
+              <img src={main} alt={product.name} className="w-full h-auto max-h-[75vh] object-contain" fetchPriority="high" />
               {product.placeholder && (
                 <span className="absolute top-3 left-3 bg-cream/90 text-ink/70 text-[9px] uppercase tracking-[0.2em] px-2.5 py-1.5">
                   Sample imagery

@@ -5,6 +5,7 @@ import NotFound from "@/pages/NotFound";
 import { useSEO } from "@/lib/seo";
 import { EASE, viewportOnce, fadeUp } from "@/lib/motion";
 import { getArticle, COLLECTIONS } from "@/data/catalog";
+import FramedImage from "@/components/FramedImage";
 
 export default function JournalArticle() {
   const { slug } = useParams();
@@ -49,7 +50,7 @@ export default function JournalArticle() {
           transition={{ duration: 1.0, ease: EASE, delay: 0.3 }}
           className="mt-10 relative aspect-[16/9] bg-white border border-sand overflow-hidden"
         >
-          <img src={article.image} alt={article.title} className="absolute inset-0 w-full h-full object-cover" />
+          <FramedImage src={article.image} alt={article.title} className="h-full w-full" eager />
         </motion.div>
 
         <div className="mt-10 space-y-6">

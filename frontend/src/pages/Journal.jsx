@@ -5,6 +5,7 @@ import SectionHeading from "@/components/SectionHeading";
 import { useSEO } from "@/lib/seo";
 import { fadeUp, viewportOnce } from "@/lib/motion";
 import { JOURNAL } from "@/data/catalog";
+import FramedImage from "@/components/FramedImage";
 
 export default function Journal() {
   useSEO({
@@ -55,11 +56,11 @@ export default function Journal() {
               >
                 <Link to={`/journal/${a.slug}`} className="block">
                   <div className="relative aspect-[16/10] overflow-hidden bg-white border border-sand">
-                    <img
+                    <FramedImage
                       src={a.image}
                       alt={a.title}
-                      loading="lazy"
-                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.045]"
+                      className="h-full w-full"
+                      imgClassName="transition-transform duration-700 group-hover:scale-[1.045]"
                     />
                     <span className="absolute top-3 left-3 bg-ink text-cream text-[9px] uppercase tracking-[0.2em] px-2.5 py-1.5">
                       Draft

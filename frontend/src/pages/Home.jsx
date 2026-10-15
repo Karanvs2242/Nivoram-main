@@ -374,8 +374,8 @@ export default function Home() {
             </motion.div>
           </div>
           <ParallaxImage
-            src={IMAGES.corporateGift}
-            alt="Ornate silver-plated keepsake box"
+            src={IMAGES.clientGift}
+            alt="Silver-plated peacock finial keepsake box"
             className="relative aspect-[4/3] border border-cream/20"
             strength={40}
           />

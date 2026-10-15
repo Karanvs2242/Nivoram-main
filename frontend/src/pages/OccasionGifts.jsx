@@ -7,6 +7,7 @@ import NotFound from "@/pages/NotFound";
 import { useSEO } from "@/lib/seo";
 import { EASE, viewportOnce, fadeUp } from "@/lib/motion";
 import { GIFT_OCCASIONS, productsForOccasion } from "@/data/catalog";
+import FramedImage from "@/components/FramedImage";
 
 export default function OccasionGifts() {
   const { key } = useParams();
@@ -114,11 +115,11 @@ export default function OccasionGifts() {
               >
                 <Link to={o.page} className="group block" data-testid={`occasion-crosslink-${o.key}`}>
                   <div className="relative aspect-[4/3] overflow-hidden bg-white border border-sand">
-                    <img
+                    <FramedImage
                       src={o.image}
                       alt={o.label}
-                      loading="lazy"
-                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.05]"
+                      className="h-full w-full"
+                      imgClassName="transition-transform duration-700 group-hover:scale-[1.05]"
                     />
                     <span className="absolute top-3 right-3 h-7 w-7 inline-flex items-center justify-center bg-cream/90 text-ink opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       <ArrowUpRight size={13} />

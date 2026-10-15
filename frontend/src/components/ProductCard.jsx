@@ -26,11 +26,12 @@ export default function ProductCard({ product, index = 0 }) {
       className="group bg-white border border-sand hover:border-transparent hover:-translate-y-1 hover:shadow-[0_0_0_1px_rgba(234,58,46,0.35),0_18px_40px_-22px_rgba(224,74,54,0.3)] transition-all duration-300 flex flex-col"
       data-testid={`product-card-${product.slug}`}
     >
-      <Link to={`/products/${product.slug}`} className="block relative overflow-hidden aspect-[4/5]" aria-label={product.name}>
+      <Link to={`/products/${product.slug}`} className="block relative overflow-hidden aspect-square" aria-label={product.name}>
         <img
           src={product.image}
           alt={product.name}
           loading="lazy"
+          style={product.pos ? { objectPosition: product.pos } : undefined}
           className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]"
         />
         {product.placeholder && (

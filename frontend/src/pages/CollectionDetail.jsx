@@ -10,6 +10,7 @@ import { useSEO } from "@/lib/seo";
 import { EASE, viewportOnce, fadeUp } from "@/lib/motion";
 import { OCCASION_LABELS } from "@/data/catalog";
 import { COLLECTIONS, getCollection, productsInCollection } from "@/data/catalog";
+import FramedImage from "@/components/FramedImage";
 
 export default function CollectionDetail() {
   const { slug } = useParams();
@@ -52,15 +53,7 @@ export default function CollectionDetail() {
       <section className="relative">
         <div className="p-[2px] bg-flame" data-testid="collection-banner-frame">
           <div className="relative h-[38vh] min-h-[300px] overflow-hidden bg-white">
-            <motion.img
-              src={collection.image}
-              alt={collection.alt}
-              initial={{ scale: 1.08, opacity: 0.6 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 1.2, ease: EASE }}
-              className="absolute inset-0 w-full h-full object-cover"
-              fetchPriority="high"
-            />
+            <FramedImage src={collection.image} alt={collection.alt} className="h-full w-full" eager />
           </div>
         </div>
       </section>
