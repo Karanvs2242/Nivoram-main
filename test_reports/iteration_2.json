@@ -1,0 +1,31 @@
+{
+  "summary": "Verified the image-fitting refactor across NIVORAM site. Measured rendered <img> boxes vs naturalWidth/Height at 1440x900 and 390x844 on home, shop, new-arrivals, bestsellers, 3 product details (worst-wide 2.78 / tallest 0.5 / normal), /collections, /collections/sacred-elegance banner, /gifts/weddings, /journal + /journal/a-quieter-way-to-choose-a-wedding-gift, /gift-finder (full 3-step flow completed), and related-pieces row on a product page. Zero distortion detected across 170+ images on 12+ pages, zero horizontal overflow on any surface at either breakpoint, product cards are perfectly square (1.000 aspect) and heights are equal within every row on shop (59 cards), new-arrivals (5 cards), gift-finder results (4 cards, 189px uniform). Product detail main image renders with object-contain preserving each photo's natural aspect (2.78, 0.98, 0.98 all drift 0.0% from natural). Sacred-elegance banner correctly layers a blurred cover backdrop + object-contain floating full photo (2 imgs in collection-banner-frame, aria-hidden=true backdrop uses object-cover+blur, foreground uses object-contain). No console errors.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": [
+      {
+        "screen": "Shop square card for 'four-seated-deities' (NVR-241)",
+        "issues": [
+          "Product photo is 2.78 wide (1400x504). In the square card with object-cover (objectPosition 50% 50%), the two outer deities on the left and right are cropped out — only the central Ganesha is visible. The product name is 'Four Seated Deities Set' but just one deity shows. A per-product pos hint cannot save this (center is already the best position for 2.78 into 1:1). Recommend either (a) swap/crop the source photo to a near-square framing, or (b) make this specific product card use the FramedImage treatment (object-contain + blurred self-fill) so all four deities remain visible — same treatment used elsewhere for shape-mismatched surfaces."
+        ]
+      }
+    ]
+  },
+  "test_report_links": [],
+  "action_items": [
+    "Address the 'four-seated-deities' square card: either re-crop the source image to ~1:1 showing all four figures, or opt this card into FramedImage (object-contain + blurred self-fill). No other wide-ratio product (elephant-pair-on-tray 2.20, krishna-with-flute-gold-silver 1.88, auspicious-turtle-pair 1.53, floral-elephant-pair) needs a pos hint — the center 50% 50% crop already keeps the subject(s) visible for each."
+  ],
+  "critical_code_review_comments": [
+    "FramedImage.jsx is clean, lazy-loads correctly, uses pointer-events-none+aria-hidden on the blurred backdrop (good a11y). Consider adding a prop so a page can override backdrop blur/scale when the surface is small (optional).",
+    "ProductCard.jsx correctly supports optional product.pos; aspect-square is enforced on the Link wrapper, which gives bullet-proof grid alignment regardless of image ratio.",
+    "ProductDetail.jsx main image uses w-full h-auto max-h-[75vh] object-contain — natural aspect is preserved exactly (measured drift 0.0% on 3 ratios 2.78/0.5/0.85)."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "N/A (skipped per request)", "frontend": "100% on tested surfaces; 1 design nit on a single product's square crop"},
+  "seed_data_creation": "None",
+  "retest_needed": false,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "Image-fitting refactor fully verified. If main agent applies FramedImage or a re-crop to four-seated-deities, re-check only that one card screenshot. All other surfaces pass; no need to re-run the full matrix. Gift-finder flow testids: gf-option-<key> (first option on each of 3 screens drives to results with product cards)."
+}

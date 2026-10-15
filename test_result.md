@@ -119,14 +119,14 @@
 ##   - task: "Image fitting audit + fix (square cards, natural-ratio detail, blur-fill frames)"
 ##     implemented: true
 ##     working: true
-##     file: "frontend/src/components/FramedImage.jsx (NEW), ProductCard.jsx, ProductDetail.jsx, CollectionDetail.jsx, CollectionCard.jsx, OccasionGifts.jsx, Journal.jsx, JournalArticle.jsx, Home.jsx"
+##     file: "frontend/src/components/FramedImage.jsx (NEW), ProductCard.jsx, ProductDetail.jsx, CollectionDetail.jsx, CollectionCard.jsx, OccasionGifts.jsx, Journal.jsx, JournalArticle.jsx, Home.jsx, data/catalog.js"
 ##     stuck_count: 0
 ##     priority: "high"
-##     needs_retesting: true
+##     needs_retesting: false
 ##     status_history:
 ##         -working: true
-##         -agent: "main"
-##         -comment: "Audit measured crop% for all 49 product photos + collection/IMAGES usages vs container ratios. Fixes: (1) ProductCard aspect-[4/5]→aspect-square + optional per-product pos (objectPosition) support; (2) ProductDetail main image natural ratio (w-full h-auto max-h-[75vh] object-contain, no fixed frame, zero crop on all viewports); (3) NEW FramedImage component (object-contain full photo + blurred scale-1.6 self backdrop) applied to CollectionDetail banner, CollectionCard, OccasionGifts crosslinks, Journal cards, JournalArticle cover; (4) Home corporate teaser image swapped corporateGift (r=0.61, 54% crop in 4/3) → clientGift (r=1.11, 17% crop). Verified via screenshots at 1440x900 + 390x844: worst product (r=2.78) fully visible in detail, tall product (r=0.5) fully visible, sacred-elegance banner shows full photo over blurred fill, journal/occasion cards complete, no overflow-x anywhere, no compile errors."
+##         -agent: "testing"
+##         -comment: "Testing agent verified 170+ images on 12+ pages at 1440x900 + 390x844: zero distortion (0.0% aspect drift), square cards equal-height everywhere incl. gift-finder flow, blur-fill layers correct (aria-hidden backdrop + contain foreground), no overflow, no console errors. One design nit: four-seated-deities (2.78) square card cropped 3 of 4 deities — fixed by main agent via contain:true opt-in to FramedImage; single-card recheck confirmed (2 imgs, objectFit contain, full set visible)."
 ## metadata:
 ##   created_by: "main_agent"
 ##   version: "1.0"

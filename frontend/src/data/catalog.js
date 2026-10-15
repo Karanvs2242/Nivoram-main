@@ -478,6 +478,7 @@ export const PRODUCTS = [
     name: "Four Seated Deities Set",
     description: "A set of four silver-plated seated deities, styled with lanterns — a coordinated devotional arrangement with presence.",
     image: P("p20-x365.jpg"), images: [P("p20-x365.jpg")],
+    contain: true, // very wide photo (2.78) — card shows the full set over a blurred self-fill
     collections: ["divine-grace"], occasions: ["festive", "housewarming"],
     featured: false, bulkEligible: false, placeholder: false, isNew: false, isBestseller: false,
   },

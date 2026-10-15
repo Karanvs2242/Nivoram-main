@@ -4,6 +4,7 @@ import { toast } from "sonner";
 import { MessageCircle } from "lucide-react";
 import { waLink } from "@/lib/whatsapp";
 import { viewportOnce, fadeUp } from "@/lib/motion";
+import FramedImage from "@/components/FramedImage";
 
 export default function ProductCard({ product, index = 0 }) {
   const handleQuickEnquire = (e) => {
@@ -27,13 +28,17 @@ export default function ProductCard({ product, index = 0 }) {
       data-testid={`product-card-${product.slug}`}
     >
       <Link to={`/products/${product.slug}`} className="block relative overflow-hidden aspect-square" aria-label={product.name}>
-        <img
-          src={product.image}
-          alt={product.name}
-          loading="lazy"
-          style={product.pos ? { objectPosition: product.pos } : undefined}
-          className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]"
-        />
+        {product.contain ? (
+          <FramedImage src={product.image} alt={product.name} className="h-full w-full" />
+        ) : (
+          <img
+            src={product.image}
+            alt={product.name}
+            loading="lazy"
+            style={product.pos ? { objectPosition: product.pos } : undefined}
+            className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]"
+          />
+        )}
         {product.placeholder && (
           <span className="absolute top-3 left-3 bg-cream/90 text-ink/70 text-[9px] uppercase tracking-[0.2em] px-2.5 py-1.5">
             Sample imagery
