@@ -30,7 +30,7 @@ const SHARE_IMAGE =
 export function useSEO({ title, description, path = "/", image, jsonLd } = {}) {
   useEffect(() => {
     const confirmed = SITE_CONFIG.domainConfirmed;
-    const fullTitle = title ? `${title} — Nivoram` : "Nivoram — Elegance That Lasts";
+    const fullTitle = title ? `${title} — Nivoram` : "Nivoram — Timeless Elegance for Every Space & Celebration";
     const desc =
       description ||
       "999 silver-plated and gold & silver-coated décor, divine idols and thoughtful gifting for modern Indian homes.";
@@ -72,7 +72,7 @@ export const organizationJsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "Nivoram",
-  slogan: "Elegance That Lasts.",
+  slogan: "Timeless Elegance for Every Space & Celebration.",
   description:
     "Silver-coated home décor, decorative showpieces, spiritual décor and thoughtful gifting.",
   ...(SITE_CONFIG.domainConfirmed ? { url: SITE_CONFIG.siteUrl } : {}),

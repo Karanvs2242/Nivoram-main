@@ -16,7 +16,7 @@
  */
 export const SITE_CONFIG = {
   brand: "Nivoram",
-  tagline: "Elegance That Lasts.",
+  tagline: "Timeless Elegance for Every Space & Celebration.",
   siteUrl: "https://nivoram.com", // PLACEHOLDER — final domain
   domainConfirmed: false, // flip to true once the production domain is live
   supportMessage: "Thoughtfully Selected Décor & Meaningful Gifts | India & UAE Enquiries",

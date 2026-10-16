@@ -13,11 +13,12 @@ import { useSEO, organizationJsonLd } from "@/lib/seo";
 import { EASE, lineMask, viewportOnce, fadeUp } from "@/lib/motion";
 import { COLLECTIONS, PRODUCTS, OCCASIONS, IMAGES, productsInCollection } from "@/data/catalog";
 
-const HERO_LINES = ["Elegance", "That Lasts."];
+const HERO_LINES = ["Timeless", "Elegance"];
+const HERO_SUBLINK = "for Every Space & Celebration.";
 
 export default function Home() {
   useSEO({
-    title: "Nivoram — Elegance That Lasts",
+    title: "Nivoram — Timeless Elegance for Every Space & Celebration",
     description:
       "999 silver-plated and gold & silver-coated décor, divine idols and thoughtful gifting for modern Indian homes. Explore collections and enquire directly.",
     path: "/",
@@ -49,7 +50,7 @@ export default function Home() {
               {HERO_LINES.map((line, i) => (
                 <span key={i} className="block overflow-hidden pb-1">
                   <motion.span
-                    className={`block ${i === 0 ? "text-flame" : ""}`}
+                    className={`block ${i === 1 ? "text-flame" : ""}`}
                     custom={i}
                     variants={lineMask}
                     initial="hidden"
@@ -59,6 +60,17 @@ export default function Home() {
                   </motion.span>
                 </span>
               ))}
+              <span className="block overflow-hidden pb-1 mt-2">
+                <motion.span
+                  className="block text-[6.4vw] sm:text-3xl lg:text-[42px] leading-tight text-ink/80"
+                  custom={2}
+                  variants={lineMask}
+                  initial="hidden"
+                  animate="show"
+                >
+                  {HERO_SUBLINK}
+                </motion.span>
+              </span>
             </h1>
             <motion.p
               initial={{ opacity: 0, y: 14 }}
