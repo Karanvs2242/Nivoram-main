@@ -128,7 +128,7 @@ export default function Home() {
       </section>
 
       {/* ── MARQUEE ── */}
-      <Marquee items={["999 Silver-Plated", "Gold & Silver Coated", "Divine Idols", "Thoughtful Gifting", "Made for Indian Homes"]} />
+      <Marquee items={["Silver-Plated Divine Idols", "Luxury Home Décor", "Gold-Coated Décor", "Wedding & Housewarming Gifts", "Festive Gifting", "Corporate Gifting", "Decorative Showpieces"]} />
 
       {/* ── SHOP BY COLLECTION ── */}
       <section className="py-20 sm:py-28" data-testid="home-collections">
