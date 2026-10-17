@@ -67,9 +67,9 @@ export default function Footer() {
           <div className="col-span-2 md:col-span-4">
             <Logo dark />
             <p className="mt-6 text-[14px] leading-relaxed text-cream/60 max-w-sm">
-              999 silver-plated and gold &amp; silver-coated décor, divine
-              idols and thoughtful gifts — designed for modern Indian homes
-              and the moments that matter.
+              999 Silver Coated &amp; Gold Coated Decor — divine idols,
+              accents and thoughtful gifts for modern Indian homes and the
+              moments that matter.
             </p>
             <div className="mt-7 flex flex-col items-start gap-4">
               <WhatsAppButton
