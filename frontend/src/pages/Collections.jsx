@@ -10,7 +10,7 @@ export default function Collections() {
   useSEO({
     title: "Collections",
     description:
-      "Explore the Nivoram collections — Sacred Elegance, Statement Décor, Auspicious Living and Thoughtful Gifting.",
+      "Explore the Nivoram collections — Sacred Elegance, Statement Décor, Auspicious Living, Divine Grace and Thoughtful Gifting.",
     path: "/collections",
   });
 
@@ -20,7 +20,7 @@ export default function Collections() {
         <SectionHeading
           eyebrow="Collections"
           title="Explore the Nivoram Edit"
-          intro="Four curated edits, one point of view — 999 silver-plated and gold & silver-coated pieces for Indian homes, rituals and the people we gift them to. Products may appear in more than one collection where they belong."
+          intro="Five curated edits, one point of view — 999 silver-plated and gold & silver-coated pieces for Indian homes, rituals and the people we gift them to. Products may appear in more than one collection where they belong."
         />
       </section>
 
@@ -31,8 +31,9 @@ export default function Collections() {
               const pattern = [
                 { span: "lg:col-span-7", aspect: "aspect-[16/11]" },
                 { span: "lg:col-span-5", aspect: "aspect-[16/11]" },
-                { span: "lg:col-span-6", aspect: "aspect-[4/3]" },
-                { span: "lg:col-span-6", aspect: "aspect-[4/3]" },
+                { span: "lg:col-span-4", aspect: "aspect-[4/3]" },
+                { span: "lg:col-span-4", aspect: "aspect-[4/3]" },
+                { span: "lg:col-span-4", aspect: "aspect-[4/3]" },
               ][i] || { span: "lg:col-span-6", aspect: "aspect-[16/9]" };
               return (
                 <CollectionCard

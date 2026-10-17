@@ -72,6 +72,15 @@ export const COLLECTIONS = [
     alt: "Silver-plated elephant pair presented on a tray",
   },
   {
+    slug: "divine-grace",
+    name: "Divine Grace",
+    short: "A celebration of devotion, serenity and timeless beauty.",
+    description:
+      "A celebration of devotion, serenity and timeless beauty. Each piece reflects the grace, symbolism and warmth associated with divine presence — blending meaningful artistry with refined craftsmanship for spaces that feel peaceful, uplifting and deeply connected to tradition.",
+    image: P("p20-x365.jpg"),
+    alt: "Set of four silver-plated seated deities with lanterns",
+  },
+  {
     slug: "thoughtful-gifting",
     name: "Thoughtful Gifting",
     short: "For weddings, housewarmings, festivals and every heart.",
@@ -143,7 +152,7 @@ export const PRODUCTS = [
     name: "Ganesha Idol on Display Stand",
     description: "A silver-plated Ganesha idol with fine detailing, presented on a display stand — a considered piece for a pooja shelf, console or entryway.",
     image: P("p08-x185.jpg"), images: [P("p08-x185.jpg"), P("p06-x167.jpg")],
-    collections: ["sacred-elegance"], occasions: ["weddings", "housewarming", "festive"],
+    collections: ["sacred-elegance", "divine-grace"], occasions: ["weddings", "housewarming", "festive"],
     featured: true, bulkEligible: false, placeholder: false, isNew: false, isBestseller: true,
   },
   {
@@ -453,7 +462,7 @@ export const PRODUCTS = [
     name: "Lakshmi on Lotus",
     description: "A silver-plated Lakshmi seated on the lotus, finished with colourful adornments — grace and abundance for the pooja shelf.",
     image: P("p19-x356.jpg"), images: [P("p19-x356.jpg")],
-    collections: ["sacred-elegance"], occasions: ["festive", "weddings"],
+    collections: ["divine-grace", "sacred-elegance"], occasions: ["festive", "weddings"],
     featured: true, bulkEligible: false, placeholder: false, isNew: false, isBestseller: true,
   },
   {
@@ -461,7 +470,7 @@ export const PRODUCTS = [
     name: "Rama Darbar Idol Set",
     description: "A silver-plated set of Rama, Sita and Lakshmana on a wooden base — a dignified devotional group for the home shrine.",
     image: P("p20-x363.jpg"), images: [P("p20-x363.jpg")],
-    collections: ["sacred-elegance"], occasions: ["festive", "weddings", "housewarming"],
+    collections: ["divine-grace"], occasions: ["festive", "weddings", "housewarming"],
     featured: false, bulkEligible: false, placeholder: false, isNew: false, isBestseller: false,
   },
   {
@@ -470,7 +479,7 @@ export const PRODUCTS = [
     description: "A set of four silver-plated seated deities, styled with lanterns — a coordinated devotional arrangement with presence.",
     image: P("p20-x365.jpg"), images: [P("p20-x365.jpg")],
     contain: true, // very wide photo (2.78) — card shows the full set over a blurred self-fill
-    collections: ["sacred-elegance"], occasions: ["festive", "housewarming"],
+    collections: ["divine-grace"], occasions: ["festive", "housewarming"],
     featured: false, bulkEligible: false, placeholder: false, isNew: false, isBestseller: false,
   },
   {
@@ -478,15 +487,15 @@ export const PRODUCTS = [
     name: "Bal Krishna with Pot",
     description: "A silver-plated Bal Krishna holding his pot of butter — playful, endearing and made for gifting.",
     image: P("p20-x367.jpg"), images: [P("p20-x367.jpg")],
-    collections: ["sacred-elegance", "thoughtful-gifting"], occasions: ["festive", "return"],
+    collections: ["divine-grace", "thoughtful-gifting"], occasions: ["festive", "return"],
     featured: false, bulkEligible: true, placeholder: false, isNew: false, isBestseller: false,
   },
   {
     id: "nvr-243", sku: "NVR-243", slug: "ganesha-idol-divine-grace",
-    name: "Ganesha Idol",
+    name: "Ganesha Idol — Divine Grace",
     description: "A silver-plated Ganesha with gentle colour accents on the pedestal — a warm blessing for new homes and new beginnings.",
     image: P("p20-x369.jpg"), images: [P("p20-x369.jpg"), P("p21-x375.jpg")],
-    collections: ["sacred-elegance"], occasions: ["weddings", "festive", "housewarming"],
+    collections: ["divine-grace", "sacred-elegance"], occasions: ["weddings", "festive", "housewarming"],
     featured: false, bulkEligible: false, placeholder: false, isNew: false, isBestseller: false,
   },
   {
@@ -494,7 +503,7 @@ export const PRODUCTS = [
     name: "Ganesha on Ornate Platform",
     description: "A silver-plated Ganesha seated on a detailed platform — a devotional piece with a strong sense of craftsmanship.",
     image: P("p22-x384.jpg"), images: [P("p22-x384.jpg"), P("p22-x386.jpg")],
-    collections: ["sacred-elegance"], occasions: ["weddings", "festive", "housewarming"],
+    collections: ["divine-grace"], occasions: ["weddings", "festive", "housewarming"],
     featured: false, bulkEligible: false, placeholder: false, isNew: false, isBestseller: false,
   },
   {
@@ -502,7 +511,7 @@ export const PRODUCTS = [
     name: "Standing Krishna with Flute",
     description: "A silver-plated Krishna standing with his flute on a patterned base — serene presence for pooja corners and consoles.",
     image: P("p22-x388.jpg"), images: [P("p22-x388.jpg")],
-    collections: ["sacred-elegance"], occasions: ["festive", "housewarming"],
+    collections: ["divine-grace", "sacred-elegance"], occasions: ["festive", "housewarming"],
     featured: false, bulkEligible: false, placeholder: false, isNew: false, isBestseller: false,
   },
   {
@@ -510,7 +519,7 @@ export const PRODUCTS = [
     name: "Lakshmi-Vishnu Seated Pair",
     description: "A silver-plated Lakshmi and Vishnu seated together — a blessed pairing for weddings, anniversaries and the family shrine.",
     image: P("p21-x375.jpg"), images: [P("p21-x375.jpg")], // x373.jpg was never extracted (bad xref in source PDF) — using the pair photo from the same styled set; name/description needs owner verification
-    collections: ["sacred-elegance"], occasions: ["weddings", "festive"],
+    collections: ["divine-grace"], occasions: ["weddings", "festive"],
     featured: false, bulkEligible: false, placeholder: false, isNew: false, isBestseller: false,
   },
   {
@@ -518,7 +527,7 @@ export const PRODUCTS = [
     name: "Venkateswara Archway Idol",
     description: "A silver-plated standing deity within an ornate archway — a striking devotional piece that anchors any pooja space.",
     image: P("p21-x378.jpg"), images: [P("p21-x378.jpg"), P("p23-x393.jpg"), P("p23-x395.jpg")],
-    collections: ["sacred-elegance"], occasions: ["weddings", "festive", "housewarming"],
+    collections: ["divine-grace", "sacred-elegance"], occasions: ["weddings", "festive", "housewarming"],
     featured: true, bulkEligible: false, placeholder: false, isNew: false, isBestseller: false,
   },
   {
@@ -526,7 +535,7 @@ export const PRODUCTS = [
     name: "Meditating Shiva",
     description: "A silver-plated Shiva seated in meditation with his trident — calm, powerful presence for quiet corners.",
     image: P("p21-x372.jpg"), images: [P("p21-x372.jpg")],
-    collections: ["sacred-elegance"], occasions: ["festive", "housewarming"],
+    collections: ["divine-grace"], occasions: ["festive", "housewarming"],
     featured: false, bulkEligible: false, placeholder: false, isNew: false, isBestseller: false,
   },
 

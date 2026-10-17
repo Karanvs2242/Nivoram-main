@@ -140,7 +140,7 @@ export default function CorporateGifting() {
       <section className="max-w-[1240px] mx-auto px-5 sm:px-8 pb-20">
         <SectionHeading eyebrow="Gifting Collections" title="Where Bulk Gifting Begins." className="mb-10" />
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-          {["thoughtful-gifting", "sacred-elegance", "auspicious-living"].map((slug, i) => (
+          {["thoughtful-gifting", "divine-grace", "auspicious-living"].map((slug, i) => (
             <CollectionCard
               key={slug}
               index={i}
