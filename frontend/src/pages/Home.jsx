@@ -1,13 +1,11 @@
 import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowRight, ArrowUpRight, Instagram, Sparkles } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Sparkles, Star } from "lucide-react";
 import SectionHeading from "@/components/SectionHeading";
 import CollectionCard from "@/components/CollectionCard";
 import ProductCard from "@/components/ProductCard";
-import Marquee from "@/components/Marquee";
 import WhatsAppButton from "@/components/WhatsAppButton";
-import InstagramFeed from "@/components/InstagramFeed";
 import { ParallaxImage, Reveal } from "@/components/Reveal";
 import { useSEO, organizationJsonLd } from "@/lib/seo";
 import { EASE, lineMask, viewportOnce, fadeUp } from "@/lib/motion";
@@ -15,6 +13,13 @@ import { COLLECTIONS, PRODUCTS, OCCASIONS, IMAGES, productsInCollection } from "
 
 const HERO_LINES = ["Timeless", "Elegance"];
 const HERO_SUBLINK = "for Every Space & Celebration.";
+
+// SAMPLE reviews (placeholder content — replace with verified customer feedback)
+const REVIEWS = [
+  { quote: "The idol finish is beautiful — our pooja corner finally feels complete.", name: "Meera S.", city: "Bengaluru" },
+  { quote: "Ordered 25 return gifts for Diwali. Everyone asked where they were from.", name: "Rohit K.", city: "Delhi" },
+  { quote: "Elegant, well-packed and right on time. A perfect housewarming gift.", name: "Ananya P.", city: "Mumbai" },
+];
 
 export default function Home() {
   useSEO({
@@ -30,7 +35,7 @@ export default function Home() {
   const imgY = useTransform(scrollYProgress, [0, 1], [0, 90]);
   const reduced = typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  const featured = PRODUCTS.filter((p) => p.featured).slice(0, 6);
+  const bestsellers = PRODUCTS.filter((p) => p.isBestseller).slice(0, 6);
 
   return (
     <div data-testid="home-page">
@@ -127,9 +132,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── MARQUEE ── */}
-      <Marquee items={["Silver-Plated Divine Idols", "Luxury Home Décor", "Gold-Coated Décor", "Wedding & Housewarming Gifts", "Festive Gifting", "Corporate Gifting", "Decorative Showpieces"]} />
-
       {/* ── SHOP BY COLLECTION ── */}
       <section className="py-20 sm:py-28" data-testid="home-collections">
         <div className="max-w-[1240px] mx-auto px-5 sm:px-8">
@@ -174,18 +176,18 @@ export default function Home() {
       </section>
 
       {/* ── FEATURED PRODUCTS ── */}
-      <section className="py-20 sm:py-28 bg-warmwhite border-y border-sand" data-testid="home-featured">
+      <section className="py-20 sm:py-28 bg-warmwhite border-y border-sand" data-testid="home-bestsellers">
         <div className="max-w-[1240px] mx-auto px-5 sm:px-8">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">
-            <SectionHeading eyebrow="Featured Pieces" title="Currently in Focus" />
+            <SectionHeading eyebrow="Bestsellers" title="Loved in Many Homes" />
             <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={viewportOnce}>
-              <Link to="/shop" className="nav-link inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.2em] text-ink/70 hover:text-ink pb-1" data-testid="home-featured-view-all">
-                Browse everything <ArrowRight size={13} />
+              <Link to="/shop/bestsellers" className="nav-link inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.2em] text-ink/70 hover:text-ink pb-1" data-testid="home-bestsellers-view-all">
+                Shop bestsellers <ArrowRight size={13} />
               </Link>
             </motion.div>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {featured.map((p, i) => (
+            {bestsellers.map((p, i) => (
               <ProductCard key={p.id} product={p} index={i} />
             ))}
           </div>
@@ -197,8 +199,8 @@ export default function Home() {
         <div className="max-w-[1240px] mx-auto px-5 sm:px-8">
           <SectionHeading
             eyebrow="Shop by Occasion"
-            title="What Are You Shopping For?"
-            highlight="Shopping For?"
+            title="Make Every Celebration Extraordinary with Nivoram."
+            highlight="Extraordinary"
             intro="Two ways to explore Nivoram — by collection, or by the occasion you're shopping for."
             className="mb-12"
           />
@@ -330,41 +332,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── BRAND STORY ── */}
-      <section className="py-20 sm:py-28" data-testid="home-brand-story">
-        <div className="max-w-[1240px] mx-auto px-5 sm:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          <ParallaxImage
-            src={IMAGES.story}
-            alt="Silver-plated Radha-Krishna pair from the Nivoram catalogue"
-            className="relative aspect-[4/5] bg-white border border-sand order-2 lg:order-1"
-            strength={50}
-          />
-          <div className="order-1 lg:order-2">
-            <SectionHeading
-              eyebrow="Brand Story"
-              title="Born From the Exchange."
-              intro="Nivoram began with a simple observation: the gifts people remember are rarely the expensive ones — they are the ones that stayed. We choose 999 silver-plated and gold & silver-coated pieces that carry that meaning into modern Indian homes."
-            />
-            <Reveal className="mt-6">
-              <p className="text-[15px] leading-relaxed text-ink/60 max-w-xl">
-                Silver carried the auspiciousness Indian traditions associate
-                with it, sat comfortably in contemporary homes, and
-                photographed the way gifts deserve to be remembered.
-              </p>
-            </Reveal>
-            <Reveal className="mt-9">
-              <Link
-                to="/our-story"
-                data-testid="home-discover-story"
-                className="btn-sweep btn-sweep-dark inline-flex items-center gap-3 border border-ink text-[11px] uppercase tracking-[0.2em] px-8 h-12 text-ink"
-              >
-                <span>Read Our Story</span>
-              </Link>
-            </Reveal>
-          </div>
-        </div>
-      </section>
-
       {/* ── CORPORATE ── */}
       <section className="bg-ink text-cream py-20 sm:py-28" data-testid="home-corporate">
         <div className="max-w-[1240px] mx-auto px-5 sm:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
@@ -394,16 +361,41 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── SOCIAL ── */}
-      <section className="py-20 sm:py-28" data-testid="home-social">
+      {/* ── CUSTOMER REVIEWS (sample reviews — replace with verified feedback) ── */}
+      <section className="py-20 sm:py-28" data-testid="home-reviews">
         <div className="max-w-[1240px] mx-auto px-5 sm:px-8">
           <SectionHeading
-            eyebrow="Social Inspiration"
-            title="Follow the Studio"
-            intro="Styling notes, festive edits and new pieces — straight from @nivoram.shop."
-            className="mb-10"
+            eyebrow="Customer Reviews"
+            title="Loved by Homes Like Yours"
+            intro="A few words from customers who made Nivoram part of their celebrations."
+            className="mb-12"
           />
-          <InstagramFeed />
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            {REVIEWS.map((r, i) => (
+              <motion.figure
+                key={r.name}
+                variants={fadeUp}
+                initial="hidden"
+                whileInView="show"
+                viewport={viewportOnce}
+                transition={{ duration: 0.6, delay: i * 0.08 }}
+                className="bg-white border border-sand p-8 flex flex-col gap-5 h-full"
+                data-testid={`review-card-${i}`}
+              >
+                <div className="flex gap-1 text-flamered" aria-label="Rated 5 out of 5">
+                  {[...Array(5)].map((_, s) => (
+                    <Star key={s} size={14} fill="currentColor" strokeWidth={0} />
+                  ))}
+                </div>
+                <blockquote className="text-[15px] leading-relaxed text-ink/80 flex-1">
+                  “{r.quote}”
+                </blockquote>
+                <figcaption className="text-[11px] uppercase tracking-[0.18em] text-ink/50">
+                  {r.name} · {r.city}
+                </figcaption>
+              </motion.figure>
+            ))}
+          </div>
         </div>
       </section>
 
