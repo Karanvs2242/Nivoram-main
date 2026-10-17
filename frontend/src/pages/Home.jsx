@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowRight, ArrowUpRight, Sparkles, Star } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Sparkles, Star, Gem, HandHeart, Flower2, Home as HomeIcon, Gift } from "lucide-react";
 import SectionHeading from "@/components/SectionHeading";
 import CollectionCard from "@/components/CollectionCard";
 import ProductCard from "@/components/ProductCard";
@@ -19,6 +19,16 @@ const REVIEWS = [
   { quote: "The idol finish is beautiful — our pooja corner finally feels complete.", name: "Meera S.", city: "Bengaluru" },
   { quote: "Ordered 25 return gifts for Diwali. Everyone asked where they were from.", name: "Rohit K.", city: "Delhi" },
   { quote: "Elegant, well-packed and right on time. A perfect housewarming gift.", name: "Ananya P.", city: "Mumbai" },
+];
+
+// "Why Choose Nivoram?" value points — copy supplied by the owner
+const WHY_POINTS = [
+  { icon: Gem, title: "Silver-Coated Elegance", desc: "Beautifully finished pieces with the brilliance of 999 pure silver coating." },
+  { icon: HandHeart, title: "Meaningful Gifting", desc: "Thoughtful gifts for celebrations and cherished moments." },
+  { icon: Flower2, title: "Timeless Designs", desc: "Traditional beauty with a contemporary touch." },
+  { icon: HomeIcon, title: "Beautiful Living", desc: "Décor that adds character and warmth to every space." },
+  { icon: Gift, title: "Every Occasion", desc: "Curated for weddings, festivals, housewarmings and more." },
+  { icon: Sparkles, title: "Thoughtfully Curated", desc: "Distinctive creations selected with care and attention to detail." },
 ];
 
 export default function Home() {
@@ -293,34 +303,33 @@ export default function Home() {
       <section className="bg-warmwhite border-y border-sand py-20 sm:py-28" data-testid="home-why-nivoram">
         <div className="max-w-[1240px] mx-auto px-5 sm:px-8">
           <SectionHeading
+            align="center"
             eyebrow="Why Nivoram"
-            title="Thoughtful Details. Meaningful Moments."
-            highlight="Thoughtful Details."
-            intro="Every piece is shortlisted with one question — would you keep this gift? Three things guide the answer."
+            title="Why Choose Nivoram?"
+            intro="A celebration of timeless elegance, meaningful traditions, and thoughtful gifting."
             className="mb-14"
           />
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-            {[
-              ["01", "Gifting-led", "Every piece is chosen to be kept, displayed and remembered — not merely sold."],
-              ["02", "Contemporary Indian design", "Familiar motifs in 999 silver-plated and gold & silver-coated finishes, made for how homes look today."],
-              ["03", "Affordable premium", "Considered craftsmanship and detailing, without the premium-brand markup."],
-            ].map(([n, t, d], i) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-12">
+            {WHY_POINTS.map(({ icon: Icon, title, desc }, i) => (
               <motion.div
-                key={n}
+                key={title}
                 variants={fadeUp}
                 initial="hidden"
                 whileInView="show"
                 viewport={viewportOnce}
-                transition={{ duration: 0.7, delay: i * 0.1 }}
-                className="border-t-2 border-terra/50 pt-6"
+                transition={{ duration: 0.7, delay: (i % 3) * 0.1 }}
+                className="flex flex-col items-center text-center"
+                data-testid={`why-point-${i}`}
               >
-                <p className="text-[11px] uppercase tracking-[0.24em] text-royal/80 mb-3">{n}</p>
-                <h3 className="font-display text-2xl text-ink">{t}</h3>
-                <p className="mt-2 text-[14px] leading-relaxed text-ink/55">{d}</p>
+                <span className="inline-flex h-12 w-12 items-center justify-center border border-sand bg-white text-royal mb-5">
+                  <Icon size={20} strokeWidth={1.6} />
+                </span>
+                <h3 className="font-display text-[22px] text-ink leading-tight">{title}</h3>
+                <p className="mt-2 text-[14px] leading-relaxed text-ink/55 max-w-xs">{desc}</p>
               </motion.div>
             ))}
           </div>
-          <Reveal className="mt-12">
+          <Reveal className="mt-14 flex justify-center">
             <Link
               to="/why-nivoram"
               data-testid="home-why-nivoram-link"
