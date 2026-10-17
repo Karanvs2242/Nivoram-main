@@ -53,7 +53,7 @@ export default function CollectionDetail() {
       <section className="relative">
         <div className="p-[2px] bg-flame" data-testid="collection-banner-frame">
           <div className="relative h-[38vh] min-h-[300px] overflow-hidden bg-white">
-            <FramedImage src={collection.image} alt={collection.alt} className="h-full w-full" eager />
+            <FramedImage src={collection.bannerImage || collection.image} alt={collection.alt} className="h-full w-full" eager />
           </div>
         </div>
       </section>

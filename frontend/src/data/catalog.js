@@ -52,6 +52,7 @@ export const COLLECTIONS = [
       "Our Sacred Elegance collection brings together meaningful pieces that embody devotion, strength, protection, abundance and inner peace. Designed to add serenity and spiritual warmth to your space, each creation is a beautiful reminder of faith, positivity and the values we hold close.",
     image: P("p06-x167.jpg"),
     alt: "Silver-plated Ganesha idol cradled in hands with flowers",
+    bannerImage: "/images/banners/sacred-elegance.jpg",
   },
   {
     slug: "statement-decor",
@@ -61,6 +62,7 @@ export const COLLECTIONS = [
       "Distinctive designs that transform spaces with presence. Each piece is chosen to elevate everyday interiors with character, sophistication, refined detailing and an effortless touch of luxury.",
     image: P("p12-x254.jpg"),
     alt: "Ornate silver-plated wall clock styled in a living room",
+    bannerImage: "/images/banners/statement-decor.jpg",
   },
   {
     slug: "auspicious-living",
@@ -70,6 +72,7 @@ export const COLLECTIONS = [
       "Thoughtfully curated with pieces inspired by tradition and auspicious symbolism — associated with inviting prosperity, positivity, harmony and abundance into the home. A blend of tradition, intention and timeless décor for homes that celebrate both beauty and auspicious living.",
     image: P("p18-x344.jpg"),
     alt: "Silver-plated elephant pair presented on a tray",
+    bannerImage: "/images/banners/auspicious-living.jpg",
   },
   {
     slug: "divine-grace",
@@ -79,6 +82,7 @@ export const COLLECTIONS = [
       "A celebration of devotion, serenity and timeless beauty. Each piece reflects the grace, symbolism and warmth associated with divine presence — blending meaningful artistry with refined craftsmanship for spaces that feel peaceful, uplifting and deeply connected to tradition.",
     image: P("p20-x365.jpg"),
     alt: "Set of four silver-plated seated deities with lanterns",
+    bannerImage: "/images/banners/divine-grace.jpg",
   },
   {
     slug: "thoughtful-gifting",
@@ -88,6 +92,7 @@ export const COLLECTIONS = [
       "Curated for life's most meaningful celebrations — from weddings and housewarmings to festivals and special occasions. Each piece is chosen to make gifting feel personal, elegant and memorable, made to be cherished long after the occasion has passed.",
     image: P("p27-x432.jpg"),
     alt: "Silver-plated floral tray styled with flowers and floating candles",
+    bannerImage: "/images/banners/thoughtful-gifting.jpg",
   },
 ];
 
