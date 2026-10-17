@@ -59,7 +59,7 @@ export default function Home() {
               transition={{ duration: 0.6, ease: EASE, delay: 0.15 }}
               className="text-[11px] uppercase tracking-[0.3em] text-royal mb-6"
             >
-              999 Silver-Plated &amp; Gold-Coated Décor
+              999 Silver Coated &amp; Gold Coated Decor
             </motion.p>
             <h1 className="font-display text-[17vw] sm:text-7xl lg:text-[104px] leading-[0.95] tracking-tight text-ink">
               {HERO_LINES.map((line, i) => (
