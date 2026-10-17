@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowRight, ArrowUpRight, Sparkles, Star, Gem, HandHeart, Flower2, Home as HomeIcon, Gift } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Sparkles, Star } from "lucide-react";
 import SectionHeading from "@/components/SectionHeading";
 import CollectionCard from "@/components/CollectionCard";
 import ProductCard from "@/components/ProductCard";
@@ -23,12 +23,12 @@ const REVIEWS = [
 
 // "Why Choose Nivoram?" value points — copy supplied by the owner
 const WHY_POINTS = [
-  { icon: Gem, title: "Silver-Coated Elegance", desc: "Beautifully finished pieces with the brilliance of 999 pure silver coating." },
-  { icon: HandHeart, title: "Meaningful Gifting", desc: "Thoughtful gifts for celebrations and cherished moments." },
-  { icon: Flower2, title: "Timeless Designs", desc: "Traditional beauty with a contemporary touch." },
-  { icon: HomeIcon, title: "Beautiful Living", desc: "Décor that adds character and warmth to every space." },
-  { icon: Gift, title: "Every Occasion", desc: "Curated for weddings, festivals, housewarmings and more." },
-  { icon: Sparkles, title: "Thoughtfully Curated", desc: "Distinctive creations selected with care and attention to detail." },
+  { title: "Silver-Coated Elegance", desc: "Beautifully finished pieces with the brilliance of 999 pure silver coating." },
+  { title: "Meaningful Gifting", desc: "Thoughtful gifts for celebrations and cherished moments." },
+  { title: "Timeless Designs", desc: "Traditional beauty with a contemporary touch." },
+  { title: "Beautiful Living", desc: "Décor that adds character and warmth to every space." },
+  { title: "Every Occasion", desc: "Curated for weddings, festivals, housewarmings and more." },
+  { title: "Thoughtfully Curated", desc: "Distinctive creations selected with care and attention to detail." },
 ];
 
 export default function Home() {
@@ -303,14 +303,14 @@ export default function Home() {
       <section className="bg-warmwhite border-y border-sand py-20 sm:py-28" data-testid="home-why-nivoram">
         <div className="max-w-[1240px] mx-auto px-5 sm:px-8">
           <SectionHeading
-            align="center"
             eyebrow="Why Nivoram"
             title="Why Choose Nivoram?"
+            highlight="Nivoram?"
             intro="A celebration of timeless elegance, meaningful traditions, and thoughtful gifting."
             className="mb-14"
           />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-12">
-            {WHY_POINTS.map(({ icon: Icon, title, desc }, i) => (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+            {WHY_POINTS.map(({ title, desc }, i) => (
               <motion.div
                 key={title}
                 variants={fadeUp}
@@ -318,18 +318,16 @@ export default function Home() {
                 whileInView="show"
                 viewport={viewportOnce}
                 transition={{ duration: 0.7, delay: (i % 3) * 0.1 }}
-                className="flex flex-col items-center text-center"
+                className="border-t-2 border-terra/50 pt-6"
                 data-testid={`why-point-${i}`}
               >
-                <span className="inline-flex h-12 w-12 items-center justify-center border border-sand bg-white text-royal mb-5">
-                  <Icon size={20} strokeWidth={1.6} />
-                </span>
-                <h3 className="font-display text-[22px] text-ink leading-tight">{title}</h3>
-                <p className="mt-2 text-[14px] leading-relaxed text-ink/55 max-w-xs">{desc}</p>
+                <p className="text-[11px] uppercase tracking-[0.24em] text-royal/80 mb-3">{String(i + 1).padStart(2, "0")}</p>
+                <h3 className="font-display text-2xl text-ink">{title}</h3>
+                <p className="mt-2 text-[14px] leading-relaxed text-ink/55">{desc}</p>
               </motion.div>
             ))}
           </div>
-          <Reveal className="mt-14 flex justify-center">
+          <Reveal className="mt-12">
             <Link
               to="/why-nivoram"
               data-testid="home-why-nivoram-link"
