@@ -35,7 +35,7 @@ export const IMAGES = {
   hampers: P("p27-x435.jpg"),
   socialGrid: [P("p06-x167.jpg"), P("p27-x432.jpg"), P("p26-x423.jpg"), P("p17-x323.jpg")],
   corporateBox: "https://images.unsplash.com/photo-1780744871777-fec13139d281?auto=format&fit=crop&w=1200&q=80",
-  weddings: P("p21-x373.jpg"),
+  weddings: P("p21-x375.jpg"),
   housewarming: P("p17-x323.jpg"),
   festive: P("p27-x435.jpg"),
   returnGifts: P("p25-x416.jpg"),
@@ -518,7 +518,7 @@ export const PRODUCTS = [
     id: "nvr-246", sku: "NVR-246", slug: "lakshmi-vishnu-seated-pair",
     name: "Lakshmi-Vishnu Seated Pair",
     description: "A silver-plated Lakshmi and Vishnu seated together — a blessed pairing for weddings, anniversaries and the family shrine.",
-    image: P("p21-x373.jpg"), images: [P("p21-x373.jpg")],
+    image: P("p21-x375.jpg"), images: [P("p21-x375.jpg")], // x373.jpg was never extracted (bad xref in source PDF) — using the pair photo from the same styled set; name/description needs owner verification
     collections: ["divine-grace"], occasions: ["weddings", "festive"],
     featured: false, bulkEligible: false, placeholder: false, isNew: false, isBestseller: false,
   },
