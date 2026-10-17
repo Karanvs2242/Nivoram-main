@@ -15,7 +15,7 @@ export default function Logo({ dark = false, compact = false }) {
         src={`${process.env.PUBLIC_URL}/logo.png`}
         alt="Nivoram — Inspired Decor | Thoughtful Gifting"
         className={`w-auto transition-opacity duration-300 group-hover:opacity-80 ${
-          compact ? "h-7 sm:h-8" : dark ? "h-11" : "h-8 sm:h-10"
+          compact ? "h-7 sm:h-8" : dark ? "h-11" : "h-10 sm:h-14"
         }`}
         fetchPriority="high"
       />
