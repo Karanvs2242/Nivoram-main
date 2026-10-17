@@ -53,6 +53,7 @@ export const COLLECTIONS = [
     image: P("p06-x167.jpg"),
     alt: "Silver-plated Ganesha idol cradled in hands with flowers",
     bannerImage: "/images/banners/sacred-elegance.jpg",
+    cardImage: "/images/cards/sacred-elegance.jpg",
   },
   {
     slug: "statement-decor",
@@ -63,6 +64,7 @@ export const COLLECTIONS = [
     image: P("p12-x254.jpg"),
     alt: "Ornate silver-plated wall clock styled in a living room",
     bannerImage: "/images/banners/statement-decor.jpg",
+    cardImage: "/images/cards/statement-decor.jpg",
   },
   {
     slug: "auspicious-living",
@@ -73,6 +75,7 @@ export const COLLECTIONS = [
     image: P("p18-x344.jpg"),
     alt: "Silver-plated elephant pair presented on a tray",
     bannerImage: "/images/banners/auspicious-living.jpg",
+    cardImage: "/images/cards/auspicious-living.jpg",
   },
   {
     slug: "divine-grace",
@@ -83,6 +86,7 @@ export const COLLECTIONS = [
     image: P("p20-x365.jpg"),
     alt: "Set of four silver-plated seated deities with lanterns",
     bannerImage: "/images/banners/divine-grace.jpg",
+    cardImage: "/images/cards/divine-grace.jpg",
   },
   {
     slug: "thoughtful-gifting",
