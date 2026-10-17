@@ -23,7 +23,7 @@ const P = (f) => `/products/${f}`;
 
 export const IMAGES = {
   hero: "/images/hero.jpg",
-  heroAlt: "Silver-plated Ganesha idol styled with marigold garlands, lotus flowers and glowing diyas on a carved console",
+  heroAlt: "Silver-plated Ganesha idol on a wooden shelf with a glowing brass diya in a warm, sunlit living room",
   philosophy: P("p11-x246.jpg"),
   story: P("p07-x173.jpg"),
   corporateGift: P("p25-x416.jpg"),
