@@ -1,24 +1,26 @@
 # Nivoram
 
 Nivoram is a premium Indian home décor and gifting brand specialising in
-silver-coated (silver-tone) home décor, decorative showpieces, spiritual
+999 silver coated and gold coated home décor, decorative showpieces, spiritual
 pieces and thoughtful gifting. The site is an enquiry-led brand showcase —
 pricing, availability and specifications are shared on enquiry rather than
 checked out online.
 
 ## Pages
 
-- / — brand home: hero, collections, featured pieces, occasions, corporate gifting
-- /shop — the complete active product catalogue, filterable by occasion
-- /shop/new-arrivals — pieces explicitly marked new by the studio (empty until configured)
-- /shop/bestsellers — pieces explicitly marked as bestsellers (empty until configured)
-- /collections — overview of the six curated collections
+- / — brand home: hero with tagline search, collections, bestsellers, occasions, why-nivoram, corporate gifting, customer reviews
+- /shop — the complete product catalogue (59 pieces), filterable by occasion: weddings, housewarming, festive, return gifts, corporate and decor
+- /shop/new-arrivals — pieces explicitly marked new by the studio (5 marked)
+- /shop/bestsellers — pieces explicitly marked as bestsellers (6 marked)
+- /collections — overview of the five curated collections
 - /collections/sacred-elegance — silver-tone idols and pooja accents
 - /collections/statement-decor — sculptural showpieces, vases and candelabra
-- /collections/timeless-accents — compotes, bowls and table accents
-- /collections/frames-keepsakes — ornate frames and keepsake boxes
+- /collections/timeless-accents — compotes, bowls and table accents (redirect)
+- /collections/frames-keepsakes — ornate frames and keepsake boxes (redirect)
 - /collections/auspicious-living — auspicious motifs for everyday spaces
+- /collections/divine-grace — devotional idols and sets
 - /collections/thoughtful-gifting — the gifting edit
+- /gift-finder — three-question gift recommendation quiz
 - /gifts/weddings — wedding and anniversary gifting
 - /gifts/housewarming — housewarming gifting
 - /gifts/festive — festive gifting
@@ -30,14 +32,17 @@ checked out online.
 - /contact — enquiries via form, email and WhatsApp
 - /contact/custom-orders — custom order and bespoke requirement enquiries
 - /faqs — frequently asked questions
-- /journal — editorial drafts (gifting guides and care notes)
+- /journal — editorial pieces (gifting guides and care notes)
+- /products/<slug> — individual product pages, all linked from the sitemap
+- A product search lives in the site header (name, SKU and collection matching)
 
 ## Content notes
 
-- Product listings marked "sample" are placeholders pending verified
-  photography and specifications; specifications not yet verified render
+- All pieces are price on enquiry; specifications not yet verified render
   as "on request".
-- Nivoram pieces are silver-coated (silver-tone), not solid silver; product
-  pages state material details only where verified.
-- Contact details (WhatsApp number, email, Instagram) are pending official
-  confirmation and are not listed here.
+- Nivoram pieces are 999 silver coated / gold coated (silver-tone), not
+  solid silver; product pages state material details only where verified.
+- Enquiries: WhatsApp +91 77605 11222 (wa.me/917760511222), email
+  info@nivoram.com, Instagram @nivoram.shop. Homepage customer reviews are
+  sample placeholders pending verified customer feedback.
+- Canonical URLs, og:url and the sitemap point at https://nivoram.com.

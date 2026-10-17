@@ -17,8 +17,8 @@
 export const SITE_CONFIG = {
   brand: "Nivoram",
   tagline: "Timeless Elegance for Every Space & Celebration.",
-  siteUrl: "https://nivoram.com", // PLACEHOLDER — final domain
-  domainConfirmed: false, // flip to true once the production domain is live
+  siteUrl: "https://nivoram.com", // final production domain (confirmed by owner)
+  domainConfirmed: true, // production domain live — canonical/og:url/JSON-LD url emitted
   supportMessage: "Thoughtfully Selected Décor & Meaningful Gifts | India & UAE Enquiries",
   whatsappNumber: "917760511222", // official WhatsApp business number (+91 77605 11222)
   instagramUrl: "https://www.instagram.com/nivoram.shop", // official — from the catalogue

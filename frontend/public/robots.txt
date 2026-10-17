@@ -1,6 +1,4 @@
-# robots.txt for Nivoram
-# NOTE: replace nivoram.com with the final production domain before launch
-# (also update frontend/src/config/site.js and public/sitemap.xml).
+# robots.txt for Nivoram — production domain: nivoram.com
 
 User-agent: *
 Allow: /
