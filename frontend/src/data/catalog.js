@@ -97,6 +97,7 @@ export const COLLECTIONS = [
     image: P("p27-x432.jpg"),
     alt: "Silver-plated floral tray styled with flowers and floating candles",
     bannerImage: "/images/banners/thoughtful-gifting.jpg",
+    cardImage: "/images/cards/thoughtful-gifting.jpg",
   },
 ];
 

@@ -145,6 +145,8 @@ export default function CorporateGifting() {
               key={slug}
               index={i}
               collection={{ ...getCollection(slug), count: productsInCollection(slug).length }}
+              image={getCollection(slug).cardImage}
+              cover={!!getCollection(slug).cardImage}
             />
           ))}
         </div>

@@ -172,7 +172,7 @@ export default function CollectionDetail() {
         <h2 className="font-display text-3xl text-ink mb-8">You may also like</h2>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
           {related.map((c, i) => (
-            <CollectionCard key={c.slug} collection={c} index={i} />
+            <CollectionCard key={c.slug} collection={c} index={i} image={c.cardImage} cover={!!c.cardImage} />
           ))}
         </div>
       </div>

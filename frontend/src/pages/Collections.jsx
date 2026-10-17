@@ -42,6 +42,8 @@ export default function Collections() {
                   collection={{ ...c, count: productsInCollection(c.slug).length }}
                   className={pattern.span}
                   aspect={pattern.aspect}
+                  image={c.cardImage}
+                  cover={!!c.cardImage}
                 />
               );
             })}

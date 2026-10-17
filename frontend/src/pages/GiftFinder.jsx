@@ -228,7 +228,7 @@ export default function GiftFinder() {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-14">
                 {result.collections.map((c, i) => (
-                  <CollectionCard key={c.slug} collection={{ ...c, count: undefined }} index={i} />
+                  <CollectionCard key={c.slug} collection={{ ...c, count: undefined }} index={i} image={c.cardImage} cover={!!c.cardImage} />
                 ))}
               </div>
 
