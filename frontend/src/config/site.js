@@ -23,5 +23,5 @@ export const SITE_CONFIG = {
   whatsappNumber: "917760511222", // official WhatsApp business number (+91 77605 11222)
   instagramUrl: "https://www.instagram.com/nivoram.shop", // official — from the catalogue
   instagramHandle: "@nivoram.shop", // official — from the catalogue
-  contactEmail: "hello@nivoram.com", // PLACEHOLDER — official business email
+  contactEmail: "info@nivoram.com", // official business email
 };

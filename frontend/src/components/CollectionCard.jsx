@@ -5,7 +5,6 @@ import { EASE, viewportOnce, fadeUp } from "@/lib/motion";
 import FramedImage from "@/components/FramedImage";
 
 export default function CollectionCard({ collection, className = "", aspect = "aspect-[4/3]", index = 0 }) {
-  const count = collection.count;
   return (
     <motion.div
       variants={fadeUp}
@@ -34,11 +33,6 @@ export default function CollectionCard({ collection, className = "", aspect = "a
             <p className="mt-1 text-[13px] text-ink/55 leading-relaxed max-w-md">
               {collection.short}
             </p>
-            {typeof count === "number" && (
-              <p className="mt-2 text-[10px] uppercase tracking-[0.22em] text-ink/40">
-                {count} {count === 1 ? "piece" : "pieces"}
-              </p>
-            )}
           </div>
           <span className="mt-1 shrink-0 inline-flex h-9 w-9 items-center justify-center border border-sand text-ink/60 group-hover:bg-ink group-hover:text-cream group-hover:border-ink transition-all duration-300">
             <ArrowUpRight size={15} strokeWidth={1.8} />
