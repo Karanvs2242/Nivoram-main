@@ -48,7 +48,7 @@ const STEPS = [
 
 const RECIPIENT_WEIGHTS = {
   couple: { "sacred-elegance": 2, "thoughtful-gifting": 2 },
-  elders: { "divine-grace": 3, "sacred-elegance": 1 },
+  elders: { "sacred-elegance": 3 },
   friend: { "thoughtful-gifting": 2, "statement-decor": 1, "auspicious-living": 1 },
   colleague: { "thoughtful-gifting": 1, "statement-decor": 1 },
   host: { "thoughtful-gifting": 2, "auspicious-living": 1 },

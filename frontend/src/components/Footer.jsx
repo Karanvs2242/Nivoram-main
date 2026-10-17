@@ -13,7 +13,6 @@ const COLLECTIONS = [
   ["Sacred Elegance", "sacred-elegance"],
   ["Statement Décor", "statement-decor"],
   ["Auspicious Living", "auspicious-living"],
-  ["Divine Grace", "divine-grace"],
   ["Thoughtful Gifting", "thoughtful-gifting"],
 ];
 

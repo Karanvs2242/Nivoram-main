@@ -157,9 +157,8 @@ export default function Home() {
               const pattern = [
                 { span: "lg:col-span-7", aspect: "aspect-[16/11]" },
                 { span: "lg:col-span-5", aspect: "aspect-[16/11]" },
-                { span: "lg:col-span-4", aspect: "aspect-[4/3]" },
-                { span: "lg:col-span-4", aspect: "aspect-[4/3]" },
-                { span: "lg:col-span-4", aspect: "aspect-[4/3]" },
+                { span: "lg:col-span-6", aspect: "aspect-[4/3]" },
+                { span: "lg:col-span-6", aspect: "aspect-[4/3]" },
               ][i] || { span: "lg:col-span-6", aspect: "aspect-[16/9]" };
               return (
                 <CollectionCard
