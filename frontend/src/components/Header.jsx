@@ -142,7 +142,7 @@ export default function Header() {
         </div>
 
         {/* Slim supporting message — edit in src/config/site.js */}
-        <div className="bg-ink text-cream/70" data-testid="support-strip">
+        <div className="bg-royal text-white" data-testid="support-strip">
           <p className="max-w-[1240px] mx-auto px-5 sm:px-8 py-[7px] text-center text-[9.5px] uppercase tracking-[0.22em]">
             {SITE_CONFIG.supportMessage}
           </p>
