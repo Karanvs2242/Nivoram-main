@@ -22,8 +22,8 @@
 const P = (f) => `/products/${f}`;
 
 export const IMAGES = {
-  hero: P("p06-x165.jpg"),
-  heroAlt: "Silver-plated sculpture of hands cradling a peacock feather",
+  hero: "/images/hero.jpg",
+  heroAlt: "Silver-plated Ganesha idol styled with marigold garlands, lotus flowers and glowing diyas on a carved console",
   philosophy: P("p11-x246.jpg"),
   story: P("p07-x173.jpg"),
   corporateGift: P("p25-x416.jpg"),
