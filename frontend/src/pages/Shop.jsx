@@ -124,9 +124,6 @@ export default function Shop({ mode = "all" }) {
             <EmptyEdit mode={mode} />
           ) : (
             <>
-              <p className="text-[11px] uppercase tracking-[0.2em] text-ink/40 mb-8" data-testid="shop-count">
-                {products.length} {products.length === 1 ? "piece" : "pieces"}
-              </p>
               {products.length === 0 ? (
                 <div className="border border-sand bg-white p-10 text-center" data-testid="shop-filter-empty">
                   <p className="text-[14px] text-ink/55">
