@@ -192,7 +192,7 @@ export const PRODUCTS = [
     name: "Feather-in-Hand Sculpture",
     description: "An artistic silver sculpture of hands cradling a peacock feather — an evocative, contemporary devotional piece for styled interiors.",
     image: P("p06-x165.jpg"), images: [P("p06-x165.jpg"), P("p06-x167.jpg")],
-    collections: ["sacred-elegance", "statement-decor"], occasions: ["housewarming", "weddings"],
+    collections: ["sacred-elegance", "statement-decor"], occasions: ["decor", "housewarming", "weddings"],
     featured: false, bulkEligible: false, placeholder: false, isNew: true, isBestseller: false,
   },
   {
@@ -216,7 +216,7 @@ export const PRODUCTS = [
     name: "Divine Musicians Set",
     description: "A set of silver-plated figurines on a wooden base — a sculptural group piece that brings warmth to consoles and living spaces.",
     image: P("p08-x187.jpg"), images: [P("p08-x187.jpg")],
-    collections: ["sacred-elegance", "statement-decor"], occasions: ["housewarming", "return"],
+    collections: ["sacred-elegance", "statement-decor"], occasions: ["decor", "housewarming", "return"],
     featured: false, bulkEligible: false, placeholder: false, isNew: false, isBestseller: false,
   },
 
@@ -226,7 +226,7 @@ export const PRODUCTS = [
     name: "Swan on Pedestal",
     description: "A silver-plated swan with an elegant posture, set on a wooden pedestal — quiet presence for consoles and corners.",
     image: P("p10-x220.jpg"), images: [P("p10-x220.jpg"), P("p11-x241.jpg")],
-    collections: ["statement-decor"], occasions: ["housewarming", "weddings"],
+    collections: ["statement-decor"], occasions: ["decor", "housewarming", "weddings"],
     featured: false, bulkEligible: false, placeholder: false, isNew: false, isBestseller: false,
   },
   {
@@ -234,7 +234,7 @@ export const PRODUCTS = [
     name: "Peacock-Rimmed Bowl",
     description: "A silver-plated bowl with peacock detailing along the rim — for dry fruits, flowers or simply as a sculptural centrepiece.",
     image: P("p10-x223.jpg"), images: [P("p10-x223.jpg")],
-    collections: ["statement-decor", "thoughtful-gifting"], occasions: ["weddings", "festive"],
+    collections: ["statement-decor", "thoughtful-gifting"], occasions: ["decor", "weddings", "festive"],
     featured: false, bulkEligible: false, placeholder: false, isNew: false, isBestseller: false,
   },
   {
@@ -242,7 +242,7 @@ export const PRODUCTS = [
     name: "Relief-Carved Vase Pair",
     description: "A pair of silver-plated vases with intricate relief carvings — styled beautifully with flowers, books or on their own.",
     image: P("p10-x229.jpg"), images: [P("p10-x229.jpg"), P("p11-x239.jpg"), P("p11-x246.jpg")],
-    collections: ["statement-decor"], occasions: ["weddings", "housewarming"],
+    collections: ["statement-decor"], occasions: ["decor", "weddings", "housewarming"],
     featured: true, bulkEligible: false, placeholder: false, isNew: false, isBestseller: true,
   },
   {
@@ -250,7 +250,7 @@ export const PRODUCTS = [
     name: "Tall Figural Vase",
     description: "A tall silver-plated vase with detailed figures and motifs — a statement piece for entryways and statement corners.",
     image: P("p11-x236.jpg"), images: [P("p11-x236.jpg")],
-    collections: ["statement-decor"], occasions: ["housewarming", "weddings"],
+    collections: ["statement-decor"], occasions: ["decor", "housewarming", "weddings"],
     featured: false, bulkEligible: false, placeholder: false, isNew: false, isBestseller: false,
   },
   {
@@ -258,7 +258,7 @@ export const PRODUCTS = [
     name: "Peacock Pair with Vases",
     description: "A pair of silver-plated peacocks standing beside carved vases — a coordinated statement for consoles and sideboards.",
     image: P("p10-x232.jpg"), images: [P("p10-x232.jpg")],
-    collections: ["statement-decor"], occasions: ["housewarming", "weddings"],
+    collections: ["statement-decor"], occasions: ["decor", "housewarming", "weddings"],
     featured: false, bulkEligible: false, placeholder: false, isNew: true, isBestseller: false,
   },
   {
@@ -266,7 +266,7 @@ export const PRODUCTS = [
     name: "Swan Figurine",
     description: "A single silver-plated swan with graceful lines on a dark wooden base — understated elegance for desks and shelves.",
     image: P("p11-x241.jpg"), images: [P("p11-x241.jpg")],
-    collections: ["statement-decor"], occasions: ["housewarming", "return"],
+    collections: ["statement-decor"], occasions: ["decor", "housewarming", "return"],
     featured: false, bulkEligible: false, placeholder: false, isNew: false, isBestseller: false,
   },
   {
@@ -274,7 +274,7 @@ export const PRODUCTS = [
     name: "Swan Pair",
     description: "A pair of silver-plated swans on individual bases — a traditional symbol of partnership, and a natural wedding gift.",
     image: P("p15-x303.jpg"), images: [P("p15-x303.jpg")],
-    collections: ["statement-decor", "thoughtful-gifting"], occasions: ["weddings", "return"],
+    collections: ["statement-decor", "thoughtful-gifting"], occasions: ["decor", "weddings", "return"],
     featured: false, bulkEligible: true, placeholder: false, isNew: false, isBestseller: false,
   },
   {
@@ -282,7 +282,7 @@ export const PRODUCTS = [
     name: "Ornate Wall Clock",
     description: "A round wall clock framed in intricate silverwork — a functional piece that holds a living room wall with presence.",
     image: P("p12-x257.jpg"), images: [P("p12-x257.jpg"), P("p12-x254.jpg")],
-    collections: ["statement-decor"], occasions: ["housewarming", "weddings"],
+    collections: ["statement-decor"], occasions: ["decor", "housewarming", "weddings"],
     featured: true, bulkEligible: false, placeholder: false, isNew: false, isBestseller: false,
   },
   {
@@ -290,7 +290,7 @@ export const PRODUCTS = [
     name: "Divine-Dial Clock",
     description: "A silver-plated wall clock with divine figures arranged around the dial — devotional detailing for everyday moments.",
     image: P("p12-x259.jpg"), images: [P("p12-x259.jpg")],
-    collections: ["statement-decor"], occasions: ["housewarming", "festive"],
+    collections: ["statement-decor"], occasions: ["decor", "housewarming", "festive"],
     featured: false, bulkEligible: false, placeholder: false, isNew: true, isBestseller: false,
   },
   {
@@ -298,7 +298,7 @@ export const PRODUCTS = [
     name: "Starburst Wall Clock",
     description: "A wall clock with a starburst silver frame — sculptural, light-catching and at home in modern interiors.",
     image: P("p12-x263.jpg"), images: [P("p12-x263.jpg")],
-    collections: ["statement-decor"], occasions: ["housewarming", "weddings"],
+    collections: ["statement-decor"], occasions: ["decor", "housewarming", "weddings"],
     featured: false, bulkEligible: false, placeholder: false, isNew: false, isBestseller: false,
   },
   {
@@ -306,7 +306,7 @@ export const PRODUCTS = [
     name: "Peacock Table Clock",
     description: "A table clock flanked by silver-plated peacock motifs — a desk or mantel piece that makes time-keeping feel occasion-worthy.",
     image: P("p12-x265.jpg"), images: [P("p12-x265.jpg")],
-    collections: ["statement-decor", "thoughtful-gifting"], occasions: ["weddings", "return", "corporate"],
+    collections: ["statement-decor", "thoughtful-gifting"], occasions: ["decor", "weddings", "return", "corporate"],
     featured: false, bulkEligible: false, placeholder: false, isNew: false, isBestseller: false,
   },
   {
@@ -314,7 +314,7 @@ export const PRODUCTS = [
     name: "Hanuman Frame",
     description: "An ornate silver-plated frame carrying an image of Lord Hanuman — devotional art presented the way it deserves.",
     image: P("p13-x275.jpg"), images: [P("p13-x275.jpg")],
-    collections: ["statement-decor", "thoughtful-gifting"], occasions: ["festive", "return"],
+    collections: ["statement-decor", "thoughtful-gifting"], occasions: ["decor", "festive", "return"],
     featured: false, bulkEligible: true, placeholder: false, isNew: false, isBestseller: false,
   },
   {
@@ -322,7 +322,7 @@ export const PRODUCTS = [
     name: "Radha-Krishna Frame",
     description: "A silver-plated frame with Radha-Krishna imagery and ornate silverwork — a blessing piece for home shrines and gifting.",
     image: P("p13-x277.jpg"), images: [P("p13-x277.jpg"), P("p13-x270.jpg")],
-    collections: ["statement-decor", "thoughtful-gifting"], occasions: ["weddings", "return", "festive"],
+    collections: ["statement-decor", "thoughtful-gifting"], occasions: ["decor", "weddings", "return", "festive"],
     featured: false, bulkEligible: true, placeholder: false, isNew: false, isBestseller: false,
   },
   {
@@ -330,7 +330,7 @@ export const PRODUCTS = [
     name: "Elephant & Lotus Frame",
     description: "An ornate silver-plated frame featuring two elephants and a lotus — auspicious imagery for photographs worth keeping.",
     image: P("p13-x272.jpg"), images: [P("p13-x272.jpg"), P("p13-x268.jpg")],
-    collections: ["statement-decor"], occasions: ["housewarming", "return", "weddings"],
+    collections: ["statement-decor"], occasions: ["decor", "housewarming", "return", "weddings"],
     featured: false, bulkEligible: true, placeholder: false, isNew: false, isBestseller: false,
   },
   {
@@ -338,7 +338,7 @@ export const PRODUCTS = [
     name: "Elephant-Supported Fruit Bowl",
     description: "A silver-plated bowl held aloft by elephant figures — a festive-table centrepiece for dry fruits and celebrations.",
     image: P("p14-x280.jpg"), images: [P("p14-x280.jpg")],
-    collections: ["statement-decor", "thoughtful-gifting"], occasions: ["weddings", "festive", "housewarming"],
+    collections: ["statement-decor", "thoughtful-gifting"], occasions: ["decor", "weddings", "festive", "housewarming"],
     featured: false, bulkEligible: false, placeholder: false, isNew: false, isBestseller: false,
   },
   {
@@ -346,7 +346,7 @@ export const PRODUCTS = [
     name: "Embossed Elephant Pair",
     description: "A pair of silver-plated elephants with detailed embossing — an auspicious classic for entryways and living spaces.",
     image: P("p14-x282.jpg"), images: [P("p14-x282.jpg")],
-    collections: ["statement-decor", "auspicious-living"], occasions: ["housewarming", "weddings"],
+    collections: ["statement-decor", "auspicious-living"], occasions: ["decor", "housewarming", "weddings"],
     featured: false, bulkEligible: false, placeholder: false, isNew: false, isBestseller: false,
   },
   {
@@ -354,7 +354,7 @@ export const PRODUCTS = [
     name: "Silver Sitar Replica",
     description: "An ornate silver-plated sitar replica on a clear stand — a musical, cultural accent for studies and styled shelves.",
     image: P("p14-x284.jpg"), images: [P("p14-x284.jpg")],
-    collections: ["statement-decor"], occasions: ["housewarming", "corporate"],
+    collections: ["statement-decor"], occasions: ["decor", "housewarming", "corporate"],
     featured: false, bulkEligible: false, placeholder: false, isNew: false, isBestseller: false,
   },
   {
@@ -412,7 +412,7 @@ export const PRODUCTS = [
     name: "Ornate Planter",
     description: "A silver-plated planter with carved detailing, styled here with greenery — for plants, flowers or as a standalone bowl.",
     image: P("p17-x323.jpg"), images: [P("p17-x323.jpg")],
-    collections: ["auspicious-living", "statement-decor"], occasions: ["housewarming", "corporate"],
+    collections: ["auspicious-living", "statement-decor"], occasions: ["decor", "housewarming", "corporate"],
     featured: false, bulkEligible: false, placeholder: false, isNew: false, isBestseller: false,
   },
   {
@@ -428,7 +428,7 @@ export const PRODUCTS = [
     name: "Fish Sculpture",
     description: "A silver-plated fish sculpture — a symbol of abundance and flow, styled beautifully on consoles and cabinets.",
     image: P("p18-x342.jpg"), images: [P("p18-x342.jpg")],
-    collections: ["auspicious-living"], occasions: ["housewarming"],
+    collections: ["auspicious-living"], occasions: ["decor", "housewarming"],
     featured: false, bulkEligible: false, placeholder: false, isNew: false, isBestseller: false,
   },
   {
@@ -436,7 +436,7 @@ export const PRODUCTS = [
     name: "Elephant Pair on Tray",
     description: "Ornate carved elephants presented together on a tray — an auspicious, gift-ready statement for entryways.",
     image: P("p18-x344.jpg"), images: [P("p18-x344.jpg")],
-    collections: ["auspicious-living", "thoughtful-gifting"], occasions: ["housewarming", "weddings"],
+    collections: ["auspicious-living", "thoughtful-gifting"], occasions: ["decor", "housewarming", "weddings"],
     featured: false, bulkEligible: false, placeholder: false, isNew: false, isBestseller: false,
   },
   {
@@ -444,7 +444,7 @@ export const PRODUCTS = [
     name: "Ornate Urli Tray",
     description: "A silver-plated tray with a central bowl depression — for flowers, floating blooms or festive styling.",
     image: P("p18-x340.jpg"), images: [P("p18-x340.jpg")],
-    collections: ["auspicious-living", "statement-decor"], occasions: ["festive", "housewarming"],
+    collections: ["auspicious-living", "statement-decor"], occasions: ["decor", "festive", "housewarming"],
     featured: false, bulkEligible: false, placeholder: false, isNew: false, isBestseller: false,
   },
   {
@@ -452,7 +452,7 @@ export const PRODUCTS = [
     name: "Tiered Conical Accent",
     description: "A tiered silver-plated piece with a conical top — a sculptural accent with a strong sense of craft.",
     image: P("p17-x318.jpg"), images: [P("p17-x318.jpg")],
-    collections: ["auspicious-living"], occasions: ["festive", "return"],
+    collections: ["auspicious-living"], occasions: ["decor", "festive", "return"],
     featured: false, bulkEligible: false, placeholder: false, isNew: false, isBestseller: false,
   },
 
@@ -545,7 +545,7 @@ export const PRODUCTS = [
     name: "Peacock Urli Bowl",
     description: "A silver-plated urli bowl with a peacock figurine and blue accents — for floating flowers and festive styling.",
     image: P("p24-x402.jpg"), images: [P("p24-x402.jpg")],
-    collections: ["thoughtful-gifting", "statement-decor"], occasions: ["weddings", "festive", "housewarming"],
+    collections: ["thoughtful-gifting", "statement-decor"], occasions: ["decor", "weddings", "festive", "housewarming"],
     featured: false, bulkEligible: false, placeholder: false, isNew: false, isBestseller: false,
   },
   {
@@ -561,7 +561,7 @@ export const PRODUCTS = [
     name: "Peacock Centrepiece Bowl",
     description: "A silver-plated bowl with a central peacock and vibrant feather detailing — the centrepiece that starts conversations.",
     image: P("p25-x412.jpg"), images: [P("p25-x412.jpg"), P("p26-x423.jpg")],
-    collections: ["thoughtful-gifting", "statement-decor"], occasions: ["weddings", "festive"],
+    collections: ["thoughtful-gifting", "statement-decor"], occasions: ["decor", "weddings", "festive"],
     featured: true, bulkEligible: false, placeholder: false, isNew: false, isBestseller: false,
   },
   {
@@ -569,7 +569,7 @@ export const PRODUCTS = [
     name: "Swan Serving Dish",
     description: "A twin-swan serving dish with soft blue enamelling — for sweets at celebrations and style at dinner tables.",
     image: P("p25-x414.jpg"), images: [P("p25-x414.jpg"), P("p26-x428.jpg")],
-    collections: ["thoughtful-gifting", "statement-decor"], occasions: ["weddings", "housewarming"],
+    collections: ["thoughtful-gifting", "statement-decor"], occasions: ["decor", "weddings", "housewarming"],
     featured: false, bulkEligible: false, placeholder: false, isNew: false, isBestseller: false,
   },
   {
@@ -585,7 +585,7 @@ export const PRODUCTS = [
     name: "Floral Elephant Pair",
     description: "A pair of stylized silver-plated elephants with floral patterns — auspicious gifting with a soft, modern finish.",
     image: P("p26-x419.jpg"), images: [P("p26-x419.jpg")],
-    collections: ["thoughtful-gifting", "auspicious-living"], occasions: ["weddings", "housewarming", "return"],
+    collections: ["thoughtful-gifting", "auspicious-living"], occasions: ["decor", "weddings", "housewarming", "return"],
     featured: false, bulkEligible: true, placeholder: false, isNew: false, isBestseller: false,
   },
   {

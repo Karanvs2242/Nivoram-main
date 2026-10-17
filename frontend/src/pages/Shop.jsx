@@ -100,7 +100,7 @@ export default function Shop({ mode = "all" }) {
               <span className="text-[10px] uppercase tracking-[0.22em] text-ink/40 mr-2">
                 Filter by occasion
               </span>
-              {[["all", "All"], ...OCCASIONS.map((o) => [o.key, OCCASION_LABELS[o.key] || o.label])].map(
+              {[["all", "All"], ...OCCASIONS.map((o) => [o.key, OCCASION_LABELS[o.key] || o.label]), ["decor", "Decor"]].map(
                 ([key, label]) => (
                   <button
                     key={key}
