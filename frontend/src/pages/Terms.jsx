@@ -1,12 +1,17 @@
 import { useSEO } from "@/lib/seo";
 
 const SECTIONS = [
-  ["About these terms", "These Terms & Conditions govern the use of the Nivoram website. This is a working draft and will be finalised with Nivoram before launch — [placeholder: registered entity name, address and jurisdiction to be supplied]."],
-  ["Nature of this website", "The website is a brand showcase and enquiry-led catalogue. Products displayed are subject to availability, and pricing is shared on enquiry. Nothing on this site constitutes an offer to sell; a purchase is concluded only upon confirmation by the Nivoram team."],
-  ["Product information", "Listings currently marked as sample entries are placeholders pending verified specifications and photography. Verified details — materials, finishes, dimensions and pricing — will be published once confirmed by the business."],
-  ["Enquiries & quotations", "Enquiry and bulk-quote submissions are invitations to discuss a requirement. Quotes are prepared per requirement and confirmed directly with the customer; timelines, customisation options and minimum quantities are confirmed during quoting."],
-  ["Intellectual property", "The Nivoram name, logo and site content belong to Nivoram. [Placeholder: trademark/registration status to be confirmed before launch.]"],
-  ["Governing law", "[Placeholder: governing law and dispute resolution to be finalised with Nivoram before launch.]"],
+  ["About these terms", "These Terms & Conditions apply to the use of the website nivoram.com, operated by Nivoram — a showcase of 999 silver coated and gold coated décor, idols and gifting pieces. By using the site or submitting an enquiry, you accept these terms. If you do not agree, please contact us directly instead of using the site."],
+  ["Nature of this website", "The website is an enquiry-led catalogue. Nothing on the site is an offer to sell; all pieces are price-on-enquiry and a purchase is concluded only when our team confirms your order directly with you. We serve enquiries from India and the UAE."],
+  ["Products, finishes & imagery", "Nivoram pieces carry 999 silver coated and gold coated (silver-tone) finishes — they are not articles of solid silver, and product pages state material details only where verified; specifications not yet confirmed are shown as “on request”. Product pages show each piece's actual catalogue photograph. Some surrounding artwork — the hero image, collection banners and collection cards — is digitally created illustrative imagery made for presentation and may not depict exact products, sizes or arrangements. Colour and finish may vary slightly with photography, screens and handmade variation."],
+  ["Pricing, availability & orders", "Prices are shared on enquiry and may change without notice. Placing an enquiry does not reserve a piece; availability is confirmed when we respond. An order exists only after we confirm it to you in writing (including over email or WhatsApp), along with the agreed price, delivery timeline and any applicable taxes."],
+  ["Enquiries & bulk quotations", "Enquiry and bulk/corporate quote submissions are invitations to discuss a requirement. Quotes are prepared per requirement — minimum quantities, customisation, timelines and taxes are confirmed during quoting. A quote is not an order until confirmed."],
+  ["Delivery & care", "Delivery arrangements, packaging and costs are confirmed with you when your order is confirmed. Silver-tone pieces are finished with care and last best with gentle handling — soft dry cleaning, avoiding abrasives and prolonged moisture. Care guidance is shared with orders and on our craftsmanship page."],
+  ["Returns & replacements", "Return, replacement or warranty terms, if any, are as agreed in writing in your order confirmation, and nothing here limits rights you may have under applicable law. If a piece reaches you damaged or incorrect, contact us immediately — we will make it right."],
+  ["Intellectual property", "The Nivoram name, logo, site design, text and imagery — including the illustrative artwork described above — belong to Nivoram and may not be reproduced or used commercially without our written permission. Product photography originates from Nivoram's catalogue."],
+  ["Limitation of liability", "The website is provided as a showcase “as is”. To the extent permitted by law, Nivoram is not liable for indirect or consequential losses arising from use of the site. Our obligations towards any purchase are those stated in your order confirmation."],
+  ["Governing law", "These terms are governed by the laws of India, and disputes arising from use of the website will be subject to the jurisdiction of Indian courts."],
+  ["Contact", "Questions about these terms: email info@nivoram.com or message us on WhatsApp at +91 77605 11222."],
 ];
 
 export default function Terms() {
@@ -21,7 +26,7 @@ export default function Terms() {
       <p className="text-[11px] uppercase tracking-[0.3em] text-terra mb-5">Legal</p>
       <h1 className="font-display text-5xl sm:text-6xl tracking-tight text-ink">Terms &amp; Conditions</h1>
       <p className="mt-4 text-[13px] text-ink/50 border-l-2 border-terra/50 pl-4">
-        Draft — finalised with Nivoram before launch. Placeholders are marked in [brackets].
+        Last updated: 17 October 2026
       </p>
       <div className="mt-12 space-y-10">
         {SECTIONS.map(([title, body]) => (
