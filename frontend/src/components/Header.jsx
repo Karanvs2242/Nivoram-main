@@ -5,6 +5,7 @@ import { Menu, X, ChevronDown } from "lucide-react";
 import Logo from "@/components/Logo";
 import NavDropdown from "@/components/NavDropdown";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import HeaderSearch from "@/components/HeaderSearch";
 import { COLLECTIONS, GIFT_OCCASIONS } from "@/data/catalog";
 import { SITE_CONFIG } from "@/config/site";
 import { EASE } from "@/lib/motion";
@@ -119,6 +120,7 @@ export default function Header() {
           </nav>
 
           <div className="flex items-center gap-3">
+            <HeaderSearch />
             <WhatsAppButton
               context="general"
               label="Enquire"
@@ -192,6 +194,7 @@ export default function Header() {
               </div>
 
               <nav className="flex-1 overflow-y-auto px-6 py-4 overscroll-contain" aria-label="Mobile">
+                <HeaderSearch variant="inline" />
                 <Link
                   to="/"
                   className="block py-3.5 font-display text-[26px] text-ink border-b border-sand"
