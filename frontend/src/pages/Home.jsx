@@ -199,8 +199,8 @@ export default function Home() {
         <div className="max-w-[1240px] mx-auto px-5 sm:px-8">
           <SectionHeading
             eyebrow="Shop by Occasion"
-            title="Make Every Celebration Extraordinary with Nivoram."
-            highlight="Extraordinary"
+            title="What Are You Shopping For?"
+            highlight="Shopping For?"
             intro="Two ways to explore Nivoram — by collection, or by the occasion you're shopping for."
             className="mb-12"
           />
