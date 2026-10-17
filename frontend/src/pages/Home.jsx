@@ -346,7 +346,7 @@ export default function Home() {
             <SectionHeading
               dark
               eyebrow="Corporate & Bulk Gifting"
-              title="Thoughtful Gifting, Made Personal."
+              title="Make Every Celebration Extraordinary with Nivoram."
               intro="For teams, clients, conferences and celebrations at scale — we help businesses give gifts that feel considered rather than corporate. Share your requirement and we'll curate options with a tailored quote."
             />
             <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={viewportOnce} className="mt-9 flex flex-wrap gap-4">
