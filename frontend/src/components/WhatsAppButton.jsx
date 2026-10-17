@@ -8,7 +8,7 @@ const VARIANTS = {
   outline:
     "bg-transparent text-ink border border-ink/30 hover:border-ink hover:bg-ink hover:text-cream",
   flame:
-    "bg-flameorange text-white hover:bg-flamered border border-transparent",
+    "btn-flame",
   float: "bg-wa text-white shadow-lg",
 };
 
