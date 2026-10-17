@@ -122,9 +122,9 @@ export default function Header() {
             <WhatsAppButton
               context="general"
               label="Enquire"
-              variant="outline"
+              variant="flame"
               compact
-              className="hidden md:inline-flex hover:!text-cream"
+              className="hidden md:inline-flex"
               testid="header-whatsapp-btn"
             />
             <button
